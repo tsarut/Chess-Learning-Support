@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/setThai.css">
+	<style type="text/css">
+body{
+	zoom:0.7;
+}
+
+	</style>
+	<script type="text/javascript">
+var Allow = document.createElement("img");
+Element.prototype.remove = function() {
+this.parentElement.removeChild(this);
+}
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+	for(var i = this.length - 1; i >= 0; i--) {
+		if(this[i] && this[i].parentElement) {
+			this[i].parentElement.removeChild(this[i]);
+		}
+	}
+}
+var test=0;
+function changeBoard () {
+	// body...
+	var images = document.getElementsByTagName('img');
+	for (var j = 1; j < images.length; j++) {
+	x,y=getXY(images[j]);
+ 	if (images[j].className.slice(-1)=="W") {
+		standby[x][y]=-1;
+
+	};
+	}
+}
+function start () {
+	// body...
+	sentClass("Horse",document.getElementsByClassName("HorseW")[0]);
+
+}
+function setMark () {
+	var MarkEV = document.getElementsByClassName("Mark");
+for (var i = 0; i < MarkEV.length; i++) {
+	MarkEV[i].onclick = function () {
+		if (test==0) {document.body.appendChild(Allow);
+			Allow = document.createElement("img");
+		Allow.id=listarr1[x]+listarr2[y];
+		//Allow.className="Mark";
+/*		var R=255*Math.random();
+		var G=255*Math.random();
+		var B=255*Math.random();
+		Allow.style.backgroundColor="rgb("+R+","+G+","+B+")";*/
+		Allow.id=this.id;
+		Allow.src="gui/Thai/Mark_Allow.png";
+	} 
+
+
+		
+		
+		document.getElementById(this.id).remove();
+		pickIt.id=this.id;
+		document.getElementsByClassName("Mark").remove();
+		changeBoard();
+	};
+}
+}
+function sentClass (name,xy) {
+	// body...
+	x,y=getXY(xy);
+	if (name=="Horse") {
+		pickIt=xy;
+		Horse(x,y);
+	}
+setMark();
+}
+var listarr1=["a","b","c","d","e","f","g","h"];
+var listarr2=["1","2","3","4","5","6","7","8"];
+var arr = 
+[["a1","a2","a3","a4","a5","a6","a7","a8"],
+["b1","b2","b3","b4","b5","b6","b7","b8"],
+["c1","c2","c3","c4","c5","c6","c7","c8"],
+["d1","d2","d3","d4","d5","d6","d7","d8"],
+["e1","e2","e3","e4","e5","e6","e7","e8"],
+["f1","f2","f3","f4","f5","f6","f7","f8"],
+["g1","g2","g3","g4","g5","g6","g7","g8"],
+["h1","h2","h3","h4","h5","h6","h7","h8"]
+];
+var x=0;
+var y =0;
+var pickIt;
+var standby=
+[[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]
+,[0,0,0,0,0,0,0,0]];
+
+function Horse (x,y) {
+	// body...
+	if (x<listarr1.length-1) {
+		if (x<listarr1.length-2) {
+		if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
+			makeMark(x+2,y+1);
+		} 
+		if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
+			makeMark(x+2,y-1);
+		} 
+	}
+	
+	if (x<listarr1.length-1) {
+		if ((standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1)&&y<listarr2.length-2) {
+			makeMark(x+1,y+2);
+		}	
+		if (standby[x+1][y-2]==0||standby[x+1][y-2]*standby[x][y]==-1) {
+			makeMark(x+1,y-2);
+		}
+	};
+
+	
+	};
+	if (x>0) {
+		if (standby[x-1][y+2]==0||standby[x-1][y-2]*standby[x][y]==-1&&y<listarr2.length-2) {
+			makeMark(x-1,y+2);
+		};
+
+		if (standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1) {
+			makeMark(x-1,y-2);
+		}
+		if (x>1) {
+		if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
+			makeMark(x-2,y+1);
+		} 
+		if (standby[x-2][y-1]==0||standby[x-2][y-1]*standby[x][y]==-1) {
+			makeMark(x-2,y-1);
+		} 
+	}
+	};
+	
+}
+function getXY (thisclass) {
+	for (var i = listarr1.length - 1; i >= 0; i--) {
+		if (listarr1[i]==thisclass.id[0]) {
+			x=i;
+		};
+	};
+	for (var j = listarr2.length - 1; j >= 0; j--) {
+		if (listarr2[j]==thisclass.id[1]) {
+			y=j;
+		};
+	};
+	return x,y;
+
+}
+function makeMark (x,y) {
+	// body...
+	var newimg = document.createElement("img");
+	newimg.id=listarr1[x]+listarr2[y];
+	newimg.className="Mark";
+	newimg.src=pickIt.src;
+	document.body.appendChild(newimg);
+
+}
+
+	</script>
+</head>
+<body>
+<img src="gui/Thai/ThaiBoard_Final.png">
+<img src="gui/Thai/HorseW.png" class="HorseW" id="e4" onclick="start()">
+</body>
+</html>

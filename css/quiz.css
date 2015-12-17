@@ -1,0 +1,70 @@
+@import url(../font/thsarabunnew.css);
+		@charset "utf-8";
+
+		body {
+			background-image:url(../gui/bg.png);
+			background-size:100%;
+			background-position:center;
+			background-attachment:fixed;
+		}
+
+		#title{
+			height: 100px;
+			margin-top: 10px;	
+			position: relative;
+		}
+
+		#title_img{float: right;}
+
+		#main{
+			font-family: 'THSarabunNew', sans-serif;
+			overflow-y: scroll;
+			margin-top: 100px;
+			margin-left: 10%;
+			height: 50%;
+			width: 60%;
+			position: absolute;
+		}
+
+		#result{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(255,225,200);
+			margin-top: 100px;
+			margin-left: 72.5%;
+			height: 50%;
+			width: 25%;
+			position: absolute;
+			border: 1px dashed;
+		}
+
+		.question{
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(255,225,200);
+		}
+
+		.answer{
+			font-size:20px;
+			color:black;
+			background-color: rgb(255,240,225);
+		}
+
+		#back{
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+		}
+
+		#submit{
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+		}
+		h3{
+			text-align: center;
+
+		}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		@import url(font/thsarabunnew.css);
+		@charset "utf-8";
+		h3{
+			padding-top: 100%;
+			text-align: center;
+		}
+		body {
+			background-image:url(gui/bg.png);
+			background-size:100%;
+			background-position:center;
+			background-attachment:fixed;
+		}
+
+		#title{
+			height: 100px;
+			margin-top: 10px;	
+			position: relative;
+		}
+
+		#head{
+			text-align: center;
+			position: relative;
+
+		}
+
+		#before{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(236,212,152);
+			float: left;
+			position: fixed;
+			margin-top: 1%;
+			margin-right: 95%;
+			height: 450px;
+			width: 100px;
+		}
+
+		#main{
+			float: left;
+			position: relative;
+			text-align: center;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
+
+		#after{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(236,212,152);
+			float: right;
+			position: fixed;
+			margin-top: 1%;
+			margin-left: 92%;
+			height: 450px;
+			width: 100px;
+		}
+
+		#back{
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+		}
+
+		#title_img{
+			float: right;
+		}
+
+		.piece{
+			float: left;
+			margin-left: 5%;
+			margin-top: 10px;
+		}
+
+		#piece_img{width: 200px; height: 100px; }
+		#rule{float: left; margin-left: 35%; margin-top: 1%;}
+
+	</style>
+</head>
+
+<body>
+<meta charset="UTF-8">
+
+<div id="title"><img id="title_img" src="gui/page_name/pname_learn_ch.png"></div>
+<div id="before"><h3>เรียนหมากรุกไทย</h3></div>
+<div id="after"><h3>เรียนหมากรุกสากล</h3></div>
+<div id="rule"><img src="gui/button/button_select_rule.png"></div>
+<div id="main">
+	<center>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/KingB.png">
+				<img src="gui/xiangqi/KingW.png">
+			</div>
+			<img src="gui/button/button_select_ch_king.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/GuardB.png">
+				<img src="gui/xiangqi/GuardW.png">
+			</div>
+			<img src="gui/button/button_select_ch_guard.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/ElephantB.png">
+				<img src="gui/xiangqi/ElephantW.png">
+			</div>
+			<img src="gui/button/button_select_ch_elephant.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/HorseB.png">
+				<img src="gui/xiangqi/HorseW.png">
+			</div>
+			<img src="gui/button/button_select_ch_horse.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/RookB.png">
+				<img src="gui/xiangqi/RookW.png">
+			</div>
+			<img src="gui/button/button_select_ch_rook.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/PawnB.png">
+				<img src="gui/xiangqi/PawnW.png">
+			</div>
+			<img src="gui/button/button_select_ch_pawn.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/xiangqi/CannonB.png">
+				<img src="gui/xiangqi/CannonW.png">
+			</div>
+			<img src="gui/button/button_select_ch_cannon.png">
+		</div>
+	</center>
+	<img id="back" src="gui/button/button_back.png">
+</div>
+
+</body>
+</html>
