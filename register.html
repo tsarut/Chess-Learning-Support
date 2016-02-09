@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	function submit () {
+		// body...
+		if (document.getElementById('RePass').value!=document.getElementById('Pass').value) {
+			alert("รหัสไม่ตรงกัน");
+		};
+	}
+
+</script>
+<body>
+<form method="get" action="submit_register.php">
+<p>User: </p>
+<input id="User">
+<p>E-Mail: </p>
+<input id="Email" onfocusout>
+<p>Pass: </p>
+<input id="Pass" type="password">
+<p>Re-pass: </p>
+<input id="RePass" type="password">
+<input type="submit" onclick="submit()">
+</form>
+</body>
+</html>
