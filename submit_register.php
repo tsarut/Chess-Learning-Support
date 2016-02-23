@@ -19,8 +19,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
 } 
-
-$sql = "INSERT INTO member (member_id,user,pass,email) VALUE (,,,)";
+if (trim($_POST['user'])=="") {
+	# code...
+	echo "USER is null";
+	exit();
+}
+if (condition) {
+	# code...
+}
+$sql = "INSERT INTO member (user,pass,email) VALUE ('".$_POST['user']."','".$_POST['pass']."','".$_POST['email']."')";
 
 if ($conn->query($sql)===TRUE) {
      echo "New register successfully";

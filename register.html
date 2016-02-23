@@ -13,16 +13,16 @@
 
 </script>
 <body>
-<form method="get" action="submit_register.php">
+<form method="post" action="submit_register.php">
 <p>User: </p>
-<input id="User">
+<input name="user" id="User">
 <p>E-Mail: </p>
-<input id="Email" onfocusout>
+<input name="email" id="Email" onfocusout>
 <p>Pass: </p>
-<input id="Pass" type="password">
+<input name="pass" id="Pass" type="password">
 <p>Re-pass: </p>
 <input id="RePass" type="password">
-<input type="submit" onclick="submit()">
+<input type="submit">
 </form>
 </body>
 </html>
