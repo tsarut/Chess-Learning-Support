@@ -17,7 +17,6 @@ function setMark () {
 	var MarkEV = document.getElementsByClassName("Mark");
 for (var i = 0; i < MarkEV.length; i++) {
 	MarkEV[i].onclick = function () {
-		choose(this);
 		document.getElementById(this.id).remove();
 		pickIt.id=this.id;
 		document.getElementsByClassName("Mark").remove();

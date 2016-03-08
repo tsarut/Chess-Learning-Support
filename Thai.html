@@ -61,13 +61,6 @@ function changeBoard () {
 	};};
 	}
 }
-function choose(ch) 
-{
-	x,y=getXY(ch);
-	thisclass=ch;
-console.log(ch.id+" "+ch.className);
-console.log(x+" "+y);
-}
 function sentClass (name,xy) {
 	// body...
 	x,y=getXY(xy);
@@ -89,7 +82,7 @@ function sentClass (name,xy) {
 	} else{if (name=="King") {
 		pickIt=xy;
 		King(x,y);
-	} else{choose(xy);};};};};};};
+	};};};};};};
 setMark();
 }
 function Pawn (x,y) {

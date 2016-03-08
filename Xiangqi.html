@@ -60,14 +60,6 @@ function changeBoard () {
 
 //var selectID;
 //var selectClass;
-function choose(ch) 
-{
-	x,y=getXY(ch);
-	thisclass=ch;
-console.log(ch.id+" "+ch.className);
-console.log(x+" "+y);
-	// body...
-}
 
 function sentClass (name,xy) {
 	// body...
@@ -93,7 +85,7 @@ function sentClass (name,xy) {
 	} else{if (name=="King") {
 		King(x,y);
 		pickIt=xy;
-	} else{choose(xy);};};};};};};};
+	};};};};};};};
 setMark();
 }
 
