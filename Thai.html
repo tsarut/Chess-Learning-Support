@@ -44,6 +44,7 @@ function changeBoard () {
 	x,y=getXY(images[j]);
 	if (images[j].className.slice(-1)=="B") {
 		standby[x][y]=1;
+		if (images[j].className) {}
 	} else{if (images[j].className.slice(-1)=="W") {
 		standby[x][y]=-1;
 	};};
@@ -82,7 +83,7 @@ setMark();
 }
 function Pawn (x,y) {
 	// body...
-	if (standby[x][y]*standby[x+standby[x][y]][y]!=1) {
+	if (standby[x][y]*standby[x+standby[x][y]][y]==0) {
 	makeMark(x+standby[x][y],y);	
 	};
 	if (standby[x+standby[x][y]][y+1]*standby[x][y]==-1) {
@@ -91,7 +92,6 @@ function Pawn (x,y) {
 	if (standby[x+standby[x][y]][y-1]*standby[x][y]==-1) {
 		makeMark(x+standby[x][y],y-1);
 	};
-	makeMark(x+standby[x][y],y);
 	console.log("pawn mark");
 }
 
