@@ -25,10 +25,31 @@ function changeBoard () {
 			if ('a'.indexOf(images[j].id.slice(0,1))!=-1) {
 				console.log("Up");
 				var newimg = document.createElement("img");
-				newimg.id="Pro";
+				newimg.id="Pro_main";
 				newimg.className="Pro";
 				newimg.src="gui/Internation/Promotion.png";
-				document.body.appendChild(newimg);
+				document.getElementById("Pro").appendChild(newimg);
+				newimg = document.createElement("img");
+				newimg.id="Pro_Qu";
+				newimg.className="Pro";
+				newimg.src="gui/Internation/PromotionQ.png";
+				newimg.addEventListener("mousemove",function(){ this.style.opacity=1; });
+				document.getElementById("Pro").appendChild(newimg);
+				newimg = document.createElement("img");
+				newimg.id="Pro_Bi";
+				newimg.className="Pro";
+				newimg.src="gui/Internation/PromotionB.png";
+				document.getElementById("Pro").appendChild(newimg);
+				newimg = document.createElement("img");
+				newimg.id="Pro_Ro";
+				newimg.className="Pro";
+				newimg.src="gui/Internation/PromotionR.png";
+				document.getElementById("Pro").appendChild(newimg);
+				var newimg = document.createElement("img");
+				newimg.id="Pro_Kn";
+				newimg.className="Pro";
+				newimg.src="gui/Internation/PromotionKN.png";
+				document.getElementById("Pro").appendChild(newimg);
 			}
 		}
 	};};
