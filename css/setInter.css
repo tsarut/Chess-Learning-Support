@@ -280,6 +280,7 @@ position: absolute;
 	background-color: rgb(255,0,0);
 }
 #Pro{
+	display: none;
 	position: absolute;
 	margin-top: 250px;
 	margin-left: 250px;
@@ -310,4 +311,9 @@ position: absolute;
 	margin-left: 240px;
 	opacity: 0;
 	margin-top: 270px;
+}
+#Block{
+	display: none;
+	height: 950px;
+	width: 950px;
 }

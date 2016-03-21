@@ -22,7 +22,7 @@ function sentClass (name,xy) {
 	} else{if (name=="Pawn") {
 		pickIt=xy;
 		Pawn(x,y);
-	} else{if (name=="Horse") {
+	} else{if (name=="Horse"||name=="Knight") {
 		pickIt=xy;
 		Horse(x,y);
 	} else{if (name=="Bishop") {
@@ -36,6 +36,29 @@ function sentClass (name,xy) {
 		King(x,y);
 	};};};};};};
 setMark();
+}
+function markLock(name,xy) {
+	// body...
+	x,y=getXY(xy);
+	if (name=="Rook") {
+		pickIt=xy;
+		RookLock(x,y);
+	} else{if (name=="Pawn") {
+		pickIt=xy;
+		PawnLock(x,y);
+	} else{if (name=="Horse"||name=="Knight") {
+		pickIt=xy;
+		HorseLock(x,y);
+	} else{if (name=="Bishop") {
+		pickIt=xy;
+		BishopLock(x,y);
+	} else{if (name=="Queen"||name=="ProPawn") {
+		pickIt=xy;
+		QueenLock(x,y);
+	} else{if (name=="King") {
+		pickIt=xy;
+		KingLock(x,y);
+	};};};};};};
 }
 function makeMark (x,y) {
 	// body...
