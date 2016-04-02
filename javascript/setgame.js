@@ -1,7 +1,7 @@
 var x=0;
-var y =0;
+var y=0;
+var turn = 0;
 var pickIt;
-
 Element.prototype.remove = function() {
 this.parentElement.removeChild(this);
 }
@@ -42,7 +42,10 @@ for (var j = 1; j < images.length; j++) {
 
 	images[j].onclick = function () {
 		document.getElementsByClassName("Mark").remove();
-		sentClass(this.className.slice(0,-1),this);
+		if ((turn==0&&this.className.slice(-1)=='W')||(turn==1&&this.className.slice(-1)=='B')) {
+		sentClass(this.className.slice(0,-1),this);	
+		}
+		
 		
 	};
 }
@@ -62,6 +65,44 @@ function getXY (thisclass) {
 	return x,y;
 
 }
+
+function RookLock (x,y) {
+	// body...
+	for (var i = x+1; i < listarr1.length; i++) {
+		if (standby[x][y]*standby[i][y]==0) {
+			lockmove[i][y]=1;
+		} else{
+			lockmove[i][y]=1;
+				break;
+			} 
+		
+	};
+	for (var i = x-1; i >= 0; i--) {
+		if (standby[x][y]*standby[i][y]==0) {
+			lockmove[i][y]=1;
+		} else{
+			lockmove[i][y]=1;
+			break;
+		};
+	};
+	for (var i = y+1; i < listarr1.length; i++) {
+		if (standby[x][y]*standby[x][i]==0) {
+			lockmove[x][i];
+		} else{
+				lockmove[x][i];
+				break;
+		};
+	};
+	for (var i = y-1; i >= 0; i--) {
+		if (standby[x][y]*standby[x][i]==0) {
+			lockmove[x][i];
+		} else{
+			lockmove[x][i];
+			break;
+		};
+	};
+}
+
 
 function Rook (x,y) {
 	// body...
