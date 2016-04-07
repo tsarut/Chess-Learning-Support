@@ -1,6 +1,7 @@
 var x=0;
 var y=0;
 var turn = 0;
+var turnName=['W',,'B'];
 var pickIt;
 Element.prototype.remove = function() {
 this.parentElement.removeChild(this);
@@ -62,6 +63,7 @@ function getXY (thisclass) {
 			y=j;
 		};
 	};
+	//console.log(x+" "+y);
 	return x,y;
 
 }
@@ -87,17 +89,17 @@ function RookLock (x,y) {
 	};
 	for (var i = y+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
-			lockmove[x][i];
+			lockmove[x][i]=1;
 		} else{
-				lockmove[x][i];
+				lockmove[x][i]=1;
 				break;
 		};
 	};
 	for (var i = y-1; i >= 0; i--) {
 		if (standby[x][y]*standby[x][i]==0) {
-			lockmove[x][i];
+			lockmove[x][i]=1;
 		} else{
-			lockmove[x][i];
+			lockmove[x][i]=1;
 			break;
 		};
 	};
