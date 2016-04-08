@@ -43,9 +43,9 @@ for (var j = 1; j < images.length; j++) {
 
 	images[j].onclick = function () {
 		document.getElementsByClassName("Mark").remove();
-		if ((turn==0&&this.className.slice(-1)=='W')||(turn==1&&this.className.slice(-1)=='B')) {
+
 		sentClass(this.className.slice(0,-1),this);	
-		}
+		
 		
 		
 	};
