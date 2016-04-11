@@ -3,6 +3,26 @@ var y=0;
 var turn = 0;
 var turnName=['W',,'B'];
 var pickIt;
+function markArr(arr) {
+	// body...
+	for (var i = listarr1.length - 1; i >= 0; i--) {
+		for (var j = 0; j < listarr2.length; j++) {
+			if (arr[i][j]==1) {
+				makeMark(i,j);
+			}
+		}
+	}
+}
+function joinArr(arr1,arr2) {
+	// body...
+	for (var i = arr1.length - 1; i >= 0; i--) {
+		for (var j = 0; j < arr1.length; j++) {
+			var arrJoin=[];
+		arrJoin[i][j]=arr1[i][j]*arr2[i][j];
+		}
+	}
+	return arrJoin;
+}
 Element.prototype.remove = function() {
 this.parentElement.removeChild(this);
 }
@@ -43,9 +63,9 @@ for (var j = 1; j < images.length; j++) {
 
 	images[j].onclick = function () {
 		document.getElementsByClassName("Mark").remove();
-
+		if ((turn==0&&this.className.slice(-1)=='W')||(turn==1&&this.className.slice(-1)=='B')) {
 		sentClass(this.className.slice(0,-1),this);	
-		
+		}
 		
 		
 	};
@@ -70,6 +90,7 @@ function getXY (thisclass) {
 
 function RookLock (x,y) {
 	// body...
+	
 	for (var i = x+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[i][y]==0) {
 			lockmove[i][y]=1;
@@ -108,45 +129,52 @@ function RookLock (x,y) {
 
 function Rook (x,y) {
 	// body...
+	var RookMove= [];
+	RookMove=table.copyWithin();
 	for (var i = x+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[i][y]==0) {
-			makeMark(i,y);
+			RookMove[i][y]=1;
 		} else{
 			if (standby[x][y]*standby[i][y]==-1) {
-				makeMark(i,y);
+
+				RookMove[i][y]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var i = x-1; i >= 0; i--) {
 		if (standby[x][y]*standby[i][y]==0) {
-			makeMark(i,y);
+			RookMove[i][y]=1;
 		} else{
 			if (standby[x][y]*standby[i][y]==-1) {
-				makeMark(i,y);
+
+				RookMove[i][y]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var i = y+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
-			makeMark(x,i);
+			RookMove[x][i]=1;
 		} else{
 			if (standby[x][y]*standby[x][i]==-1) {
-				makeMark(x,i);
+
+				RookMove[x][i]=1;
 				break;
 			} else{break;}; 
 		};
 	};
 	for (var i = y-1; i >= 0; i--) {
 		if (standby[x][y]*standby[x][i]==0) {
-			makeMark(x,i);
+			RookMove[x][i]=1;
 		} else{
 			if (standby[x][y]*standby[x][i]==-1) {
-				makeMark(x,i);
+
+				RookMove[x][i]=1;
 				break;
 			} else{break;};
 		};
 	};
+	markArr(RookMove);
 }
 
