@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+		@import url(font/thsarabunnew.css);
+		@charset "utf-8";
+
+		#content{
+			font-family: 'THSarabunNew', sans-serif;
+			font-size: 20px;
+			text-indent: 36px;
+			color:black;
+		}
+
+		#contentpic{
+			zoom: 0.5;
+		}
+
+		#test{
+			font-family: 'THSarabunNew', sans-serif;
+			font-size: 20px;
+			text-align: center;
+			color:black;
+		}
+
+		#description{
+			font-family: 'THSarabunNew', sans-serif;
+			font-style: italic;
+			font-size: 15px;
+			text-align: center;
+			color:black;
+		}
+
+		#pname{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size: 30px;
+			text-align: center;
+			color:black;
+		} 
+
+		#hcontent{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size: 25px;
+			text-align: center;
+			color:black;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div id="pname">หมากรุกไทย</div><br>
+	<div id="hcontent">ขุน</div><br>
+			<center><img src="gui/content/thp_king.png" id="contentpic"></center><br><br>
+	<div id="content">เป็นตัวหมากที่ขนาดใหญ่ที่สุดในหมากทรงผอบสูง(หรือทรงเจดีย์) มีความสำคัญที่สุดในกระดาน มีเพียงตัวเดียวตลอดทั้งเกม กติกาการเดินขุนมีดังนี้</div><br>
+		<li id="content">เดินได้ในทุกทิศทางรอบตัวทั้ง 8 ช่อง สามารถกินหมากในช่องที่เดินได้</li>
+			<center><img src="gui/content/thp_move.png" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
+		<li id="content">ไม่สามารถเดินไปยังตากินของฝ่ายตรงข้ามได้ ซึ่งหากไม่สามารถเดินหมากตัวอื่นได้ด้วยจะถือว่าหมากจน และเกมจะจบลงโดยถือว่าเสมอกัน</li>
+			<center><table><tr>
+				<td><img src="gui/content/thp_cantmove.png" id="contentpic"></td>
+				<td><img src="gui/content/thstalemate.png" id="contentpic"></td></tr>
+				<tr><td><div id="description">จุดที่ไม่สามารถเดินได้</div></td>
+				<td><div id="description">หมากจน</div></td></tr>
+			</table></center><br><br>
+		<li id="content">เมื่อขุนถูกเล็งกิน(รุก) จะต้องแก้ไขการรุกนั้นก่อนเสมอ โดยการเดินหนี, เดินหมากอื่นมาป้องกัน  หรือกินหมากที่รุกอยู่ หากไม่สามารถแก้ไขการรุกได้จะถือว่ารุกฆาตและเกมจะจบลงโดยฝ่ายที่ถูกรุกฆาตเป็นฝ่ายแพ้</li><br>
+			<center><table><tr>
+				<td><img src="gui/content/thp_esc.png" id="contentpic"></td>
+				<td><img src="gui/content/thcheckmate.png" id="contentpic"></td></tr>
+				<tr><td><div id="description">แก้ไขการถูกรุก</div></td>
+				<td><div id="description">รุกฆาต</div></td></tr>
+			</table></center><br><br>
+		<center><div id="test">แบบทดสอบ</div><br></center>
+	
+
+
+
+</body>
+</html>
