@@ -127,7 +127,7 @@ function RookLock (x,y) {
 }
 
 
-function Rook (x,y) {
+function Rook (x,y,arrMove) {
 	// body...
 	var RookMove= [];
 	RookMove=table.copyWithin();
