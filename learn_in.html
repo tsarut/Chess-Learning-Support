@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		@import url(font/thsarabunnew.css);
+		@charset "utf-8";
+		h3{
+			padding-top: 100%;
+			text-align: center;
+		}
+		body {
+			background-image:url(gui/bg.png);
+			background-size:100%;
+			background-position:center;
+			background-attachment:fixed;
+		}
+
+		#title{
+			height: 100px;
+			margin-top: 10px;	
+			position: relative;
+		}
+
+		#head{
+			text-align: center;
+			position: relative;
+
+		}
+
+		#before{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(236,212,152);
+			float: left;
+			position: fixed;
+			margin-top: 1%;
+			margin-right: 95%;
+			height: 450px;
+			width: 100px;
+		}
+
+		#main{
+			float: left;
+			position: relative;
+			text-align: center;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
+
+		#after{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(236,212,152);
+			float: right;
+			position: fixed;
+			margin-top: 1%;
+			margin-left: 92%;
+			height: 450px;
+			width: 100px;
+		}
+
+		#back{
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+		}
+
+		#title_img{
+			float: right;
+		}
+
+		.piece{
+			float: left;
+			margin-left: 7.5%;
+			margin-top: 10px;
+		}
+
+		#piece_img{width: 240px; height: 130px; }
+		#rule{float: left; margin-left: 35%; margin-top: 1%;}
+
+	</style>
+</head>
+
+<body>
+<meta charset="UTF-8">
+
+<div id="title"><img id="title_img" src="gui/page_name/pname_learn_in.png"></div>
+<div id="before"><h3>เรียนหมากรุกจีน</h3></div>
+<div id="after"><h3>เรียนหมากรุกไทย</h3></div>
+<div id="rule"><img src="gui/button/button_select_rule.png"></div>
+<div id="main">
+	<center>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/international/KingB.png">
+				<img src="gui/international/KingW.png">
+			</div>
+			<img src="gui/button/button_select_in_king.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/international/QueenB.png">
+				<img src="gui/international/QueenW.png">
+			</div>
+			<img src="gui/button/button_select_in_queen.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/international/BishopB.png">
+				<img src="gui/international/BishopW.png">
+			</div>
+			<img src="gui/button/button_select_in_bishop.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/international/KnightB.png">
+				<img src="gui/international/KnightW.png">
+			</div>
+			<img src="gui/button/button_select_in_horse.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/international/RookB.png">
+				<img src="gui/international/RookW.png">
+			</div>
+			<img src="gui/button/button_select_in_rook.png">
+		</div>
+		<div class="piece">
+			<div id="piece_img">
+				<img src="gui/international/PawnB.png">
+				<img src="gui/international/PawnW.png">
+			</div>
+			<img src="gui/button/button_select_in_pawn.png">
+		</div>
+	</center>
+	<img id="back" src="gui/button/button_back.png">
+</div>
+
+</body>
+</html>
