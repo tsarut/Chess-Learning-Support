@@ -1,0 +1,87 @@
+		@import url(../font/thsarabunnew.css);
+		@charset "utf-8";
+		h3{
+			padding-top: 100%;
+			text-align: center;
+		}
+		body {
+			background-image:url(../gui/bg.png);
+			background-size:100%;
+			background-position:center;
+			background-attachment:fixed;
+		}
+
+		#title{
+			height: 100px;
+			margin-top: 10px;	
+			position: relative;
+		}
+
+		#head{
+			text-align: center;
+			position: relative;
+
+		}
+
+		#before{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(236,212,152);
+			float: left;
+			position: fixed;
+			margin-top: 1%;
+			margin-right: 95%;
+			height: 450px;
+			width: 100px;
+		}
+
+		#main{
+			float: left;
+			position: relative;
+			text-align: center;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
+
+		#after{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(236,212,152);
+			float: right;
+			position: fixed;
+			margin-top: 1%;
+			margin-left: 92%;
+			height: 450px;
+			width: 100px;
+		}
+
+		#back{
+			position: fixed;
+			bottom: 0px;
+			left: 0px;
+		}
+
+		#title_img{
+			float: right;
+		}
+		#background{
+			background-color: rgba(0,0,0,0.5);
+			width: 100%;
+			position:fixed;
+			z-index: 1;
+			height: 1000000px;
+			top: 0px;
+			left: 0px;
+		}
+		#detail {
+		    width: 80%;
+		    Z-INDEX: 1;
+		    right: 10%;
+		    position: fixed;
+		    background-color: white;
+		    height: 80%;
+		}
