@@ -1,7 +1,7 @@
 
 
 function changeBoard () {
-	table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
+	
 	// body...
 	standby=
 [[0,0,0,0,0,0,0,0]
@@ -157,12 +157,12 @@ function MakePro(BW,ProID) {
 	var newimg = document.createElement("img");
 	newimg.id="Pro_main";
 	newimg.className="Pro";
-	newimg.src="gui/Internation/Promotion.png";
+	newimg.src="gui/international/Promotion.png";
 	document.getElementById("Pro").appendChild(newimg);
 	newimg = document.createElement("img");
 	newimg.id="Pro_Qu";
 	newimg.className="Pro";
-	newimg.src="gui/Internation/PromotionQ.png";
+	newimg.src="gui/international/PromotionQ.png";
 	newimg.addEventListener("mousemove",function(){ this.style.opacity=1; });
 	newimg.addEventListener("mouseout",function(){ this.style.opacity=0; });
 	newimg.addEventListener("click",function(){ Promote('Queen',BW,ProID) });
@@ -170,7 +170,7 @@ function MakePro(BW,ProID) {
 	newimg = document.createElement("img");
 	newimg.id="Pro_Bi";
 	newimg.className="Pro";
-	newimg.src="gui/Internation/PromotionB.png";
+	newimg.src="gui/international/PromotionB.png";
 	newimg.addEventListener("mousemove",function(){ this.style.opacity=1; });
 	newimg.addEventListener("mouseout",function(){ this.style.opacity=0; });
 	newimg.addEventListener("click",function(){ Promote('Bishop',BW,ProID) });
@@ -178,7 +178,7 @@ function MakePro(BW,ProID) {
 	newimg = document.createElement("img");
 	newimg.id="Pro_Ro";
 	newimg.className="Pro";
-	newimg.src="gui/Internation/PromotionR.png";
+	newimg.src="gui/international/PromotionR.png";
 	newimg.addEventListener("mousemove",function(){ this.style.opacity=1; });
 	newimg.addEventListener("mouseout",function(){ this.style.opacity=0; });
 	newimg.addEventListener("click",function(){ Promote('Rook',BW,ProID) });
@@ -186,7 +186,7 @@ function MakePro(BW,ProID) {
 	var newimg = document.createElement("img");
 	newimg.id="Pro_Kn";
 	newimg.className="Pro";
-	newimg.src="gui/Internation/PromotionKN.png";
+	newimg.src="gui/international/PromotionKN.png";
 	newimg.addEventListener("mousemove",function(){ this.style.opacity=1; });
 	newimg.addEventListener("mouseout",function(){ this.style.opacity=0; });
 	newimg.addEventListener("click",function(){ Promote('Knight',BW,ProID) });
@@ -195,7 +195,7 @@ function MakePro(BW,ProID) {
 
 function Promote(name,WB,mark){
 	document.getElementById(mark).className=name.concat(WB);
-	document.getElementById(mark).src="gui/Internation/"+name+WB+".png";
+	document.getElementById(mark).src="gui/international/"+name+WB+".png";
 	document.getElementsByClassName("Pro").remove();
 	document.getElementById('Pro').style.display='none';
 	document.getElementById('Block').style.display='none';
