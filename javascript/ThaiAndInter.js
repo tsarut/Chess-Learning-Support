@@ -13,7 +13,7 @@ var arr = [
 ];
 var table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 var standby=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
-var lockKingUp=
+var lockKing0=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -22,7 +22,7 @@ var lockKingUp=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingDown=
+var lockKing1=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -31,7 +31,7 @@ var lockKingDown=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingRight=
+var lockKing2=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -40,7 +40,7 @@ var lockKingRight=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingLeft=
+var lockKing3=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -49,7 +49,7 @@ var lockKingLeft=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingUR=
+var lockKing4=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -58,7 +58,7 @@ var lockKingUR=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingUL=
+var lockKing5=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -67,7 +67,7 @@ var lockKingUL=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingDR=
+var lockKing6=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -76,7 +76,7 @@ var lockKingDR=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-var lockKingDL=
+var lockKing7=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -96,7 +96,7 @@ var lineTo=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
 
-var list=[];
+var list;
 var typeList=[];
 var targetList=[];
 var lockOn=0;
@@ -147,7 +147,7 @@ function tableOfMark() {
 				if (images[i].className.slice(-1)=='B') {
 				markLock(images[i].className.slice(0,-1),images[i]);
 				if (lockmove[kingX][kingY]==1) {
-					list[more]=images[i];
+					list=images[i];
 					more++;
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
@@ -163,6 +163,7 @@ function tableOfMark() {
 					}
 					else{
 						lockOn=0;
+						console.log(list)
 					}
 				}
 				standby[kingX][kingY]=-1;
@@ -208,16 +209,23 @@ function tableOfMark() {
 		}
 		standby[kingX][kingY]=1;
 	}}
+	lockKing(kingX,kingY);
 }
 
-function lockKing(kingX,kingY,className) {
+function lockKing(kingX,kingY,className) { 	
 	// body...
+	typeList=[0,0,0,0,0,0,0,0,0];
+	console.log(kingX+' '+kingY);	
 	var count=0;
 	var markX;
 	var markY;
 	for (var i = kingX+1, j = kingY+1; i < listarr1.length&&j<listarr2.length; i++,j++) {
+		if (i<0||j<0||i>listarr1||j>listarr2) {
+			console.log("UR");
+			break;
+		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
-			lockKingUR[i][j]=1;
+			lockKing4[i][j]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -225,10 +233,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Bishop"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Bishop"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
 					targetList[4]=listarr1[i]+listarr2[j];
-					typeList[4]="upR";
-					lockKingUR[i][j]=1;
+					typeList[4]=1;
+					lockKing4[i][j]=1;
 					}
 					break;
 				}
@@ -241,8 +249,12 @@ function lockKing(kingX,kingY,className) {
 	};
 	count=0;
 	for (var i = kingX-1, j = kingY+1; i >= 0&&j<listarr2.length; j++,i--) {
+		if (i<0||j<0||i>listarr1||j>listarr2) {
+			console.log("DR");
+			break;
+		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
-			lockKingDR[i][j]=1;
+			lockKing5[i][j]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -250,10 +262,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Bishop"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Bishop"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
 					targetList[5]=listarr1[i]+listarr2[j];
-					typeList[5]="downR";
-					lockKingDR[i][j]=1;
+					typeList[5]=1;
+					lockKing5[i][j]=1;
 					}
 					break;
 				}
@@ -266,8 +278,12 @@ function lockKing(kingX,kingY,className) {
 	};
 	count=0;
 	for (var j = kingY-1, i = kingX+1; i < listarr1.length&&j>=0; j--,i++) {
+		if (i<0||j<0||i>listarr1||j>listarr2) {
+			console.log("UL");
+			break;
+		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
-			lockKingUL[i][j]=1;
+			lockKing6[i][j]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -275,10 +291,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Bishop"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Bishop"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
 					targetList[6]=listarr1[i]+listarr2[j];
-					typeList[6]="upL";
-					lockKingUL[i][j]=1;
+					typeList[6]=1;
+					lockKing6[i][j]=1;
 					}
 					break;
 				}
@@ -291,8 +307,12 @@ function lockKing(kingX,kingY,className) {
 	};
 	count=0;
 	for (var i = kingX-1, j = kingY-1; i >= 0&&j>=0; j--,i--) {
+		if (i<0||j<0||i>listarr1||j>listarr2) {
+			console.log("DL");
+			break;
+		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
-			lockKingDL[i][j]=1;
+			lockKing7[i][j]=1;
 		}  else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -300,10 +320,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Bishop"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
-					targetList[7]=listarr1[i]+listarr2[j];
-					typeList[7]="downL";
-					lockKingUL[i][j]=1;
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Bishop"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) 
+						{targetList[7]=listarr1[i]+listarr2[j];
+					typeList[7]=1;
+					lockKing7[i][j]=1;
 					}
 					break;
 				}
@@ -314,9 +334,10 @@ function lockKing(kingX,kingY,className) {
 					
 		};
 	};
+	count=0;
 		for (var i = kingX+1,j=kingY; i < listarr1.length; i++) {
 		if (standby[kingX][kingY]*standby[i][kingY]==0) {
-			lockKingUp[i][kingY]=1;
+			lockKing0[i][kingY]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -324,10 +345,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Rook"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
 					targetList[0]=listarr1[i]+listarr2[j];
-					typeList[0]="down";
-					lockKingUL[i][j]=1;
+					typeList[0]=1;
+					lockKing0[i][j]=1;
 					}
 					break;
 				}
@@ -341,7 +362,7 @@ function lockKing(kingX,kingY,className) {
 	count=0;
 	for (var i = kingX-1,j=kingY; i >= 0; i--) {
 		if (standby[kingX][kingY]*standby[i][kingY]==0) {
-			lockKingDown[i][kingY]=1;
+			lockKing1[i][kingY]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -349,10 +370,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Rook"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
 					targetList[1]=listarr1[i]+listarr2[j];
-					typeList[1]="down";
-					lockKingDown[i][j]=1;
+					typeList[1]=1;
+					lockKing1[i][j]=1;
 					}
 					break;
 				}
@@ -364,9 +385,9 @@ function lockKing(kingX,kingY,className) {
 		};
 	};
 	count=0;
-	for (var j = kingY+1,x=kingX; j < listarr1.length; j++) {
+	for (var j = kingY+1,i=kingX; j < listarr1.length; j++) {
 		if (standby[kingX][kingY]*standby[kingX][j]==0) {
-			lockKingRight[kingX][j]=1;
+			lockKing2[kingX][j]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -374,10 +395,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Rook"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
-					targetList[3]=listarr1[i]+listarr2[j];
-					typeList[3]="rigth";
-					lockKingRight[i][j]=1;
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
+					targetList[2]=listarr1[i]+listarr2[j];
+					typeList[2]=1;
+					lockKing2[i][j]=1;
 					}
 					break;
 				}
@@ -391,7 +412,7 @@ function lockKing(kingX,kingY,className) {
 	count=0;
 	for (var j = kingY-1,i=kingX; j >= 0; j--) {
 		if (standby[kingX][kingY]*standby[kingX][i]==0) {
-			lockKingLeft[kingX][i]=1;
+			lockKing3[kingX][i]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
 			break;	
@@ -399,10 +420,10 @@ function lockKing(kingX,kingY,className) {
 			else{
 				count++;
 				if (count==2) {
-					if (document.getElementsByID(listarr1[i]+listarr2[j])=="Rook"+turnName[standby[i][j]+1]||document.getElementsByID(listarr1[i]+listarr2[j])=="Queen"+turnName[standby[i][j]+1]) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
 					targetList[3]=listarr1[i]+listarr2[j];
-					typeList[3]="rigth";
-					lockKingRight[i][j]=1;
+					typeList[3]=1;
+					lockKing3[i][j]=1;
 					}
 					break;
 				}
@@ -417,7 +438,7 @@ function lockKing(kingX,kingY,className) {
 }
 function sentClass (name,xy) {
 	// body...
-
+	table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
 	if (name=="Rook"&&lockOn==0) {
 		console.log(x+" "+y);
