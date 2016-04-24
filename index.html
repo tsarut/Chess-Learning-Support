@@ -29,15 +29,36 @@ div{
 	margin-right:25%;
 }
 #logo{
+    position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+    z-index: -1;
 	zoom:1.5;
 
 }
+#showRank{
+	top: 0px;
+    margin-top: 30%;
+    background-color: rgba(100,50,30,0.5);
+    margin-right: 20px;
 
+}
+#Rank{
+	text-align: center;
+    width: 300px;
+    right: 10px;
+}
+#fRank{
+	width: 280px;
+}
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 </head>
 
 <body>
+	
+	<img src="gui/logo.png" id="logo">
+
 	<table id="main">
 		<tr>
 			<td>
@@ -66,8 +87,56 @@ div{
 	</table>
 
 
-	<div>
-<img src="gui/logo.png" id="logo">
+
+	<div id="showRank">
+		<table id="Rank">
+			<tr>
+				<th id="fRank">User</th>
+				<th>Rank</th>
+			</tr>
+			<tr>
+				<td>Ichi</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>ni</td>
+				<td>87</td>
+			</tr>
+			<tr>
+				<td>san</td>
+				<td>71</td>
+			</tr>
+			<tr>
+				<td>chi</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<td>go</td>
+				<td>66</td>
+			</tr>
+			<tr>
+				<td>roku</td>
+				<td>60</td>
+			</tr>
+			<tr>
+				<td>shichi</td>
+				<td>57</td>
+			</tr>
+			<tr>
+				<td>haku</td>
+				<td>57</td>
+			</tr>
+			<tr>
+				<td>ko</td>
+				<td>46</td>
+			</tr>
+			<tr>
+				<td>jun</td>
+				<td>40</td>
+			</tr>
+
+
+		</table>
 	</div>
 		
 
