@@ -2,6 +2,14 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+	body {
+	background-image:url(gui/bg.png);
+	background-size:100%;
+	background-position:center;
+	background-attachment:fixed;
+	}
+</style>
 </head>
 <script type="text/javascript">
 	function submit () {
@@ -13,16 +21,17 @@
 
 </script>
 <body>
-<form method="post" action="submit_register.php">
-<p>User: </p>
-<input name="user" id="User">
-<p>E-Mail: </p>
-<input name="email" id="Email" onfocusout>
-<p>Pass: </p>
-<input name="pass" id="Pass" type="password">
-<p>Re-pass: </p>
-<input id="RePass" type="password">
-<input type="submit">
-</form>
+<center><form method="post" action="submit_register.php">
+<img src="gui/input_username.png">
+<!--<input name="user" id="User">--><br>
+<img src="gui/input_email.png">
+<!--<input name="email" id="Email" onfocusout>--><br>
+<img src="gui/input_password.png">
+<!--<input name="pass" id="Pass" type="password">--><br>
+<img src="gui/input_password_re.png">
+<!--<input id="RePass" type="password">--><br>
+<img src="gui/input_confirm.png">
+<!--<input type="submit">-->
+</form></center>
 </body>
 </html>
