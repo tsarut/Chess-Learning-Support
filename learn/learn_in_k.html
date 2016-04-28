@@ -14,6 +14,17 @@
 				}
 			}
 		}
+		function getSubmit() {
+			// body...
+			var sum=[];
+			var arr=document.getElementsByClassName('mark');
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i].style.opacity==1) {
+					sum.push(i);
+				}
+			}
+			return sum;
+		}
 	</script>
 	<style type="text/css">
 	body{
@@ -52,7 +63,6 @@
 </head>
 <body>
 	<img src="..\gui\content\inboard_testarea.png">
-	<img id="mark" src="..\gui\international\KingW.png">
 	<img id="a1" class="mark" src="..\gui\international\Mark_Allow.png" onclick="save('a1')">
 	<img id="a2" class="mark" src="..\gui\international\Mark_Allow.png" onclick="save('a2')">
 	<img id="a3" class="mark" src="..\gui\international\Mark_Allow.png" onclick="save('a3')">
@@ -79,5 +89,6 @@
 	<img id="e3" class="mark" src="..\gui\international\Mark_Allow.png" onclick="save('e3')">
 	<img id="e4" class="mark" src="..\gui\international\Mark_Allow.png" onclick="save('e4')">
 	<img id="e5" class="mark" src="..\gui\international\Mark_Allow.png" onclick="save('e5')">
+	<img id="a4" src="..\gui\international\KingW.png">
 </body>
 </html>
