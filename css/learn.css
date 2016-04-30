@@ -79,7 +79,7 @@
 		}
 		#detail {
 		    width: 80%;
-		    Z-INDEX: 1;
+		    z-index: 1;
 		    right: 10%;
 		    position: fixed;
 		    background-color: white;
