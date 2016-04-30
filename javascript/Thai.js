@@ -48,61 +48,70 @@ function changeBoard () {
 }
 function Pawn (x,y) {
 	// body...
+	var PawnMove=[];
+	PawnMove=table;
 	if (standby[x][y]*standby[x+standby[x][y]][y]==0) {
-	makeMark(x+standby[x][y],y);	
+	PawnMove[x+standby[x][y]][y]=1;
 	};
 	if (standby[x+standby[x][y]][y+1]*standby[x][y]==-1) {
-		makeMark(x+standby[x][y],y+1);
+		PawnMove[x+standby[x][y]][y+1]=1;
 	};
 	if (standby[x+standby[x][y]][y-1]*standby[x][y]==-1) {
-		makeMark(x+standby[x][y],y-1);
+		PawnMove[x+standby[x][y]][y-1]=1;
 	};
+	markArr(PawnMove);
 }
 
 
 
 function Bishop (x,y) {
 	// body...
+	var BishopMove=[];
+	BishopMove=table;
 	if (x>0) {
 		if (standby[x][y]*standby[x-1][y-1]<1) {
-			makeMark(x-1,y-1);
+			BishopMove[x-1][y-1]=1;
 		};
 		if (standby[x][y]*standby[x-1][y+1]<1) {
-			makeMark(x-1,y+1);
+			BishopMove[x-1][y+1]=1;
 		};
 		if (standby[x][y]==-1&&standby[x-1][y]*standby[x][y]<1) {
-			makeMark(x-1,y);
+			BishopMove[x-1][y]=1;
 		};
 	} 
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y+1]*standby[x][y]<1) {
-			makeMark(x+1,y+1);
+			BishopMove[x+1][y+1]=1;
 		};
 		if (standby[x+1][y-1]*standby[x][y]<1) {
-			makeMark(x+1,y-1);
+			BishopMove[x+1][y-1]=1;
 		};
 		if (standby[x][y]==1&&standby[x+1][y]*standby[x][y]<1) {
-			makeMark(x+1,y);
+			BishopMove[x+1][y]=1;
 		};
 	};
+	markArr(BishopMove);
 }
 
 function Queen (x,y) {
 	// body...
+	var QueenMove=[];
+	QueenMove=table;
 	if (x>0) {
 		if (standby[x][y]*standby[x-1][y-1]<1) {
-			makeMark(x-1,y-1);
+			QueenMove[x-1][y-1]=1;
 		};
 		if (standby[x][y]*standby[x-1][y+1]<1) {
-			makeMark(x-1,y+1);
+			QueenMove[x-1][y+1]=1;
 		};
 	} 
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y+1]*standby[x][y]<1) {
-			makeMark(x+1,y+1);
+			QueenMove[x+1][y+1]=1;
 		};
 		if (standby[x+1][y-1]*standby[x][y]<1) {
-			makeMark(x+1,y-1);
+			QueenMove[x+1][y-1]=1;
 		};
 	};
+	markArr(QueenMove);
 }

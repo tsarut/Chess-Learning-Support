@@ -57,21 +57,24 @@ function PawnLock (x,y) {
 
 function Pawn (x,y) {
 	// body...
+	var PawnMove=[];
+	PawnMove=table;
 	if (standby[x][y]*standby[x+standby[x][y]][y]==0) {
-	makeMark(x+standby[x][y],y);
+	PawnMove[x+standby[x][y]][y]=1;
 	if ((x==1&&standby[x][y]==1)||(x==6&&standby[x][y]==-1)) {
 		if (standby[x][y]*standby[x+2*standby[x][y]][y]==0) {
-		makeMark(x+2*standby[x][y],y);	
+		PawnMove[x+2*standby[x][y]][y]=1;	
 	
 		};
 	}		
 	};
 	if (standby[x+standby[x][y]][y+1]*standby[x][y]==-1) {
-		makeMark(x+standby[x][y],y+1);
+		PawnMove[x+standby[x][y]][y+1]=1;
 	};
 	if (standby[x+standby[x][y]][y-1]*standby[x][y]==-1) {
-		makeMark(x+standby[x][y],y-1);
+		PawnMove[x+standby[x][y]][y-1]=1;
 	};
+	markArr(PawnMove);
 }
 function BishopLock (x,y) {
 	// body...
@@ -109,46 +112,49 @@ function BishopLock (x,y) {
 }}
 function Bishop (x,y) {
 	// body...
+	var BishopMove=[];
+	BishopMove=table;
 	for (var i = x+1, j = y+1; i < listarr1.length&&j<listarr2.length; i++,j++) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			BishopMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				BishopMove[i][j]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var i = x-1, j = y+1; i >= 0&&j<listarr2.length; j++,i--) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			BishopMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				BishopMove[i][j]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var j = y-1, i = x+1; i < listarr1.length&&j>=0; j--,i++) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			BishopMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				BishopMove[i][j]=1;
 				break;
 			} else{break;}; 
 		};
 	};
 	for (var i = x-1, j = y-1; i >= 0&&j>=0; j--,i--) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			BishopMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				BishopMove[i][j]=1;
 				break;
 			} else{break;};
 		};
 	};
+	markArr(BishopMove);
 }
 function MakePro(BW,ProID) {
 	// body...
@@ -203,86 +209,89 @@ function Promote(name,WB,mark){
 
 function Queen (x,y) {
 	// body...
+	var QueenMove=[];
+	QueenMove=table;
 	for (var i = x+1, j = y+1; i < listarr1.length&&j<listarr2.length; i++,j++) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			QueenMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				QueenMove[i][j]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var i = x-1, j = y+1; i >= 0&&j<listarr2.length; j++,i--) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			QueenMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				QueenMove[i][j]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var j = y-1, i = x+1; i < listarr1.length&&j>=0; j--,i++) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			QueenMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				QueenMove[i][j]=1;
 				break;
 			} else{break;}; 
 		};
 	};
 	for (var i = x-1, j = y-1; i >= 0&&j>=0; j--,i--) {
 		if (standby[x][y]*standby[i][j]==0) {
-			makeMark(i,j);
+			QueenMove[i][j]=1;
 		} else{
 			if (standby[x][y]*standby[i][j]==-1) {
-				makeMark(i,j);
+				QueenMove[i][j]=1;
 				break;
 			} else{break;};
 		};
 	};
 		for (var i = x+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[i][y]==0) {
-			makeMark(i,y);
+			QueenMove[i][y]=1;
 		} else{
 			if (standby[x][y]*standby[i][y]==-1) {
-				makeMark(i,y);
+				QueenMove[i][y]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var i = x-1; i >= 0; i--) {
 		if (standby[x][y]*standby[i][y]==0) {
-			makeMark(i,y);
+			QueenMove[i][y]=1;
 		} else{
 			if (standby[x][y]*standby[i][y]==-1) {
-				makeMark(i,y);
+				QueenMove[i][y]=1;
 				break;
 			} else{break;};
 		};
 	};
 	for (var i = y+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
-			makeMark(x,i);
+			QueenMove[x][i]=1;
 		} else{
 			if (standby[x][y]*standby[x][i]==-1) {
-				makeMark(x,i);
+				QueenMove[x][i]=1;
 				break;
 			} else{break;}; 
 		};
 	};
 	for (var i = y-1; i >= 0; i--) {
 		if (standby[x][y]*standby[x][i]==0) {
-			makeMark(x,i);
+			QueenMove[x][i]=1;
 		} else{
 			if (standby[x][y]*standby[x][i]==-1) {
-				makeMark(x,i);
+				QueenMove[x][i]=1;
 				break;
 			} else{break;};
 		};
 	};
+	markArr(QueenMove);
 }
 function QueenLock (x,y) {
 	// body...

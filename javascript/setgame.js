@@ -127,10 +127,10 @@ function RookLock (x,y) {
 }
 
 
-function Rook (x,y,arrMove) {
+function Rook (x,y) {
 	// body...
 	var RookMove= [];
-	RookMove=table.copyWithin();
+	RookMove=table;
 	for (var i = x+1; i < listarr1.length; i++) {
 		if (standby[x][y]*standby[i][y]==0) {
 			RookMove[i][y]=1;

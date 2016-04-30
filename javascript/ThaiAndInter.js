@@ -582,22 +582,24 @@ function HorseLock (x,y) {
 	};
 function Horse (x,y) {
 	// body...
+	var HorseMove=[];
+	HorseMove=table;
 	if (x<listarr1.length-1) {
 		if (x<listarr1.length-2) {
 		if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
-			makeMark(x+2,y+1);
+			HorseMove[x+2][y+1]=1;
 		} 
 		if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
-			makeMark(x+2,y-1);
+			HorseMove[x+2][y-1]=1;
 		} 
 	}
 	
 	if (x<listarr1.length-1) {
 		if ((standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1)&&y<listarr2.length-2) {
-			makeMark(x+1,y+2);
+			HorseMove[x+1][y+2]=1;
 		}	
 		if (standby[x+1][y-2]==0||standby[x+1][y-2]*standby[x][y]==-1) {
-			makeMark(x+1,y-2);
+			HorseMove[x+1][y-2]=1;
 		}
 	};
 
@@ -605,19 +607,20 @@ function Horse (x,y) {
 	};
 	if (x>0) {
 		if (standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1&&y<listarr2.length-2) {
-			makeMark(x-1,y+2);
+			HorseMove[x-1][y+2]=1;
 		};
 
 		if (standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1) {
-			makeMark(x-1,y-2);
+			HorseMove[x-1][y-2]=1;
 		}
 		if (x>1) {
 		if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
-			makeMark(x-2,y+1);
+			HorseMove[x-2][y+1]=1;
 		} 
 		if (standby[x-2][y-1]==0||standby[x-2][y-1]*standby[x][y]==-1) {
-			makeMark(x-2,y-1);
+			HorseMove[x-2][y-1]=1;
 		} 
 	}
 	};
+	markArr(HorseMove);
 }	
