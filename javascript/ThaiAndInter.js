@@ -96,6 +96,8 @@ var lineTo=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
 
+
+
 var list;
 var typeList=[];
 var targetList=[];
@@ -440,8 +442,12 @@ function sentClass (name,xy) {
 	// body...
 	table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
+	for (var i = 0; i < targetList.length; i++) {
+		if (targetList[i]==xy.id) {
+			console.log(xy.id);
+		}
+	}
 	if (name=="Rook"&&lockOn==0) {
-		console.log(x+" "+y);
 		pickIt=xy;
 		Rook(x,y);
 	} else{if (name=="Pawn"&&lockOn==0) {
@@ -598,7 +604,7 @@ function Horse (x,y) {
 	
 	};
 	if (x>0) {
-		if (standby[x-1][y+2]==0||standby[x-1][y-2]*standby[x][y]==-1&&y<listarr2.length-2) {
+		if (standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1&&y<listarr2.length-2) {
 			makeMark(x-1,y+2);
 		};
 
