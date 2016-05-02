@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/quiz.css">
+	<style type="text/css">
+		h4{
+			text-align: center;
+			background-color: rgba(0,0,100,0.2);
+			width: 100px;
+			margin-left: 35%;
+			position: absolute;
+		}
+	</style>
+<body>
+<meta charset="UTF-8">
+<div id="title"><img id="title_img" src="gui/page_name/pname_quiz1.png"></div>
+<div>
+<div id="main">
+<div id="q1" class="question">1. การกินผ่าน (En Passant) จะใช้ได้กับ Pawn ฝ่ายตรงข้ามที่เพิ่งกระทำการใดมา</div>
+<div id="a11" class="answer" onmouseover="" onmouseout="" >1.1) เดินปกติมาอยู่ข้างๆ Pawn ฝ่ายเรา</div>
+<div id="a12" class="answer">1.2) เดินครั้งแรก 2 ก้าวแล้วมาอยู่ข้างๆ Pawn ฝ่ายเรา</div>
+<div id="a13" class="answer">1.3) กินหมากตัวอื่นที่อยู่ข้างๆ Pawn ฝ่ายเรา</div>
+<div id="a14" class="answer">1.4) เดินมาเลื่อนขั้นด้านหลัง Pawn ฝ่ายเรา</div>
+
+<div id="q2" class="question">2. การกระทำใดที่หากไม่ทำในทันที จะเสียสิทธิในการทำในตาต่อไป</div>
+<div id="a21" class="answer">2.1) Castling</div>
+<div id="a22" class="answer">2.2) En Passant</div>
+<div id="a23" class="answer">2.3) Check</div>
+<div id="a24" class="answer">2.4) Promotion</div>
+
+<div id="q3" class="question">3. กฎการเดินครบห้าสิบครั้งจะเริ่มนับได้จากเมื่อไร</div>
+<div id="a31" class="answer">3.1) จากการกินหมาก และการรุกครั้งสุดท้าย</div>
+<div id="a32" class="answer">3.2) จากการเลื่อนขั้น และการกินหมากครั้งสุดท้าย</div>
+<div id="a33" class="answer">3.3) จากการเดิน Pawn และการรุกครั้งสุดท้าย</div>
+<div id="a34" class="answer">3.4) จากการกินหมาก และการเดิน Pawn ครั้งสุดท้าย</div>
+
+<div id="q4" class="question">4. หากบนสนามเหลือเพียง King 2 ตัว กับ Bishop สีดำตัวเดียว เกมจะจบทันทีเพราะเหตุใด</div>
+<div id="a41" class="answer">4.1) รุกไม่จนเพราะมีหมากไม่เพียงพอ</div>
+<div id="a42" class="answer">4.2) เข้ากฎการเดินครบ 50 ครั้ง</div>
+<div id="a43" class="answer">4.3) เข้ากฎการเดินซ้ำไปมา 3 ครั้ง</div>
+<div id="a44" class="answer">4.4) สีขาวหมากจน</div>
+
+<div id="q5" class="question">5. King ทำได้เพียงเดินหนีเท่านั้นหากถูก Check ด้วยหมากชนิดใด</div>
+<div id="a51" class="answer">5.1) Pawn</div>
+<div id="a52" class="answer">5.2) Rook</div>
+<div id="a53" class="answer">5.3) Knight</div>
+<div id="a54" class="answer">5.4) Bishop</div>
+
+<div id="q6" class="question">6. หมากที่เหลืออยู่บนกระดานชุดใดต่อไปนี้ไม่สามารถรุกจนได้อีกแล้ว</div>
+<div id="a61" class="answer">6.1) King กับ King และ Pawn</div>
+<div id="a62" class="answer">6.2) King กับ King และ Rook</div>
+<div id="a63" class="answer">6.3) King กับ King และ Knight</div>
+<div id="a64" class="answer">6.4) King กับ King และ Queen</div>
+
+<div id="q7" class="question">7. ข้อใดต่อไปนี้เป็นสาเหตุให้ไม่สามารถทำการเข้าป้อมได้</div>
+<div id="a71" class="answer">7.1) มีหมากอื่นมาขวางระหว่าง King กับ Rook</div>
+<div id="a72" class="answer">7.2) จัตุรัสที่ King จะเดินผ่านมีหมากฝ่ายตรงข้ามเล็งกินอยู่</div>
+<div id="a73" class="answer">7.3) King โดน Check อยู่</div>
+<div id="a74" class="answer">7.4) ทุกข้อเป็นสาเหตุ</div>
+
+<div id="q8" class="question">8. Pawn สีขาวจะเลื่อนขั้นได้เมื่อใด</div>
+<div id="a81" class="answer">8.1) เดินไปถึงแรงค์ 8</div>
+<div id="a82" class="answer">8.2) เดินไปถึงแรงค์ 1</div>
+<div id="a83" class="answer">8.3) เดินไปถึงไฟล์ 8</div>
+<div id="a84" class="answer">8.4) เดินไปถึงไฟล์ 1</div>
+
+<div id="q9" class="question">9. หากฝ่ายเรามี Bishop 1 ตัว / Knight 2 ตัว / Rook 1 ตัว / Queen 1 ตัว เราจะไม่สามารถเลื่อนขั้น Pawn เป็นหมากชนิดใดได้</div>
+<div id="a91" class="answer">9.1) Knight</div>
+<div id="a92" class="answer">9.2) Queen</div>
+<div id="a93" class="answer">9.3) Rook</div>
+<div id="a94" class="answer">9.4) ยังคงเลื่อนขั้นเป็นหมากใดก็ได้ เนื่องจากไม่จำกัดจำนวนหมากสูงสุด</div>
+
+<div id="q10" class="question">10. เมื่อทั้งสองฝ่ายเดินหมากซ้ำที่ไปมาโดยไม่ได้เกิดความได้เปรียบ หรือเสียเปรียบใดๆ ครบ 3 ครั้ง จะเกิดอะไรขึ้น</div>
+<div id="a101" class="answer">10.1) ไม่เกิดอะไรขึ้น เล่นต่อได้ตามปกติ</div>
+<div id="a102" class="answer">10.2) จะถือว่าเกมเสมอทันที</div>
+<div id="a103" class="answer">10.3) ฝ่ายที่เริ่มเดินซ้ำก่อนเป็นฝ่ายแพ้</div>
+<div id="a104" class="answer">10.4) ฝ่ายที่เริ่มเดินซ้ำตามเป็นฝ่ายแพ้</div>
+</div>
+
+<div id="result">
+<h3>ผลลัพธ์</h3>
+<h3>10/10</h3>
+<a href="http://www.facebook.com/sharer.php?u=" target="_blank">
+        <h4>Share!!</h4>
+    </a>
+</div>
+
+<img id="back" src="gui/button/button_back.png">
+<img id="submit" src="gui/button/button_submit.png">
+
+</body>
+</html>
