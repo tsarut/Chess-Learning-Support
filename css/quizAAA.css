@@ -51,6 +51,7 @@
 			font-size:20px;
 			color:black;
 			background-color: rgb(255,240,225);
+			cursor: pointer;
 		}
 
 		#back{
