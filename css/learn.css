@@ -24,17 +24,13 @@
 		}
 
 		#before{
-			font-family: 'THSarabunNew', sans-serif;
-			font-weight:bold;
-			font-size:22px;
-			color:black;
-			background-color: rgb(236,212,152);
 			float: left;
 			position: fixed;
 			margin-top: 1%;
 			margin-right: 95%;
 			height: 450px;
 			width: 100px;
+			cursor: pointer;
 		}
 
 		#main{
@@ -46,17 +42,13 @@
 		}
 
 		#after{
-			font-family: 'THSarabunNew', sans-serif;
-			font-weight:bold;
-			font-size:22px;
-			color:black;
-			background-color: rgb(236,212,152);
 			float: right;
 			position: fixed;
 			margin-top: 1%;
-			margin-left: 92%;
+			margin-left: 91%;
 			height: 450px;
 			width: 100px;
+			cursor: pointer;
 		}
 
 		#back{

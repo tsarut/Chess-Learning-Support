@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Learn about Chinese chess!</title>
 	<link rel="stylesheet" type="text/css" href="css/learn.css">
 	<script type="text/javascript" src="javascript/learn.js"></script>
 	<style type="text/css">
-
 		.piece{
 			float: left;
 			margin-left: 5%;
 			margin-top: 10px;
+			cursor: pointer;
 		}
-
-		#piece_img{width: 200px; height: 100px; }
-		#rule{float: left; margin-left: 35%; margin-top: 1%;}
+		#piece_img{width: 200px; height: 100px; cursor: pointer;}
+		#rule{float: left; margin-left: 35%; margin-top: 1%; cursor: pointer;}
 
 	</style>
 </head>
@@ -22,8 +21,8 @@
 <meta charset="UTF-8">
 
 <div id="title"><img id="title_img" src="gui/page_name/pname_learn_ch.png"></div>
-<div id="before"><img src="gui/button/button_select_th_learn.png"></div>
-<div id="after"><img src="gui/button/button_select_in_learn.png"></div>
+<div id="before"><a href="learn_th.html"><img src="gui/button/button_select_th_learn.png"></a></div>
+<div id="after"><a href="learn_in.html"><img src="gui/button/button_select_in_learn.png"></a></div>
 <div id="rule" onclick="detail('chrules')"><img src="gui/button/button_select_rule.png"></div>
 <div id="main">
 	<center>
@@ -77,7 +76,7 @@
 			<img src="gui/button/button_select_ch_cannon.png">
 		</div>
 	</center>
-	<img id="back" src="gui/button/button_back.png">
+	<a href="type_select.html"><img id="back" src="gui/button/button_back.png"></a>
 </div>
 
 </body>
