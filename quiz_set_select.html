@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Choose quiz set!</title>
 	<style type="text/css">
 	@import url(font/thsarabunnew.css);
 	@charset "utf-8";
@@ -23,6 +23,7 @@ body {
 	background-size:100%;
 	background-position:center;
 	background-attachment:fixed;
+	font-family: 'THSarabunNew', sans-serif;
 }
 
 
@@ -66,24 +67,22 @@ body {
 	float: right;
 	right: 0px;
 }
-h2{
-	font-family: 'THSarabunNew', sans-serif;
-	float: left;
-	text-align: center;
-}
-.logo_th{
-	zoom:0.8;
-	float: left;
-}
-.sub{
-	height: 100px;
-}
+
+a{color: black;}
+a:hover{color: rgb(178,133,86);}
+h2{float: left; text-align: center;}
+.iconlogo{zoom:0.25; float: left;}
+.icon{zoom:0.75; float: left;}
+.icon2{zoom:0.8; float: left;}
+.sub{height: 100px; cursor: pointer;}
+.sub2{height: 100px; margin-left: 250px; cursor: pointer;}
+
 	</style>
+
 	<script type="text/javascript" src="buttonScripter.js"></script>
-	<script type="text/javascript">
-	
-			
+	<script type="text/javascript">			
 	</script>
+
 </head>
 
 <body>
@@ -100,19 +99,19 @@ h2{
 		</tr>
 		<tr>
 			<td>
-				<a href="choose.html" target="_blank">
+				<a href="type_select.html">
 				<img id="btp1" src="gui/button/button_learn1.png" onmouseover="swapImage(1)" onmouseout="swapImgRestore(1)"></a>	
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="choose.html" target="_blank">
+				<a href="type_select.html">
 				<img id="btp2" src="gui/button/button_play1.png" onmouseover="swapImage(2)" onmouseout="swapImgRestore(2)"></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a href="choose.html" target="_blank">
+				<a href="quiz_select.html">
 				<img id="btp3" src="gui/button/button_quiz1.png" onmouseover="swapImage(3)" onmouseout="swapImgRestore(3)"></a>
 			</td>
 		</tr>
@@ -120,22 +119,23 @@ h2{
 	<div id="center">
 		<div id="in">
 			<img src="gui\button\button_select_in.png">
-			<div class="sub"><img src="gui\international\PawnB.png" class="logo_th"><h2>– ง่าย -</h2> </div>
-			<div class="sub"><img src="gui\international\RookB.png" class="logo_th"><h2>– ปานกลาง -</h2> </div>
-			<div class="sub"><img src="gui\international\KingB.png" class="logo_th"><h2>– ยาก -</h2> </div>
+			<a href="quiz_in_es.html"><div class="sub"><img src="gui\international\PawnB.png" class="icon"><h2>– ง่าย</h2> </div></a>
+			<a href="quiz_in_nm.html"><div class="sub"><img src="gui\international\RookB.png" class="icon"><h2>– ปานกลาง</h2> </div></a>
+			<a href="quiz_in_hd.html"><div class="sub"><img src="gui\international\KingB.png" class="icon"><h2>– ยาก</h2> </div></a>
 		</div>
 		<div id="th">
 			<img src="gui\button\button_select_th.png">
-			<div class="sub"><img src="gui\Thai\PawnB.png" class="logo_th"><h2>– ง่าย -</h2> </div>
-			<div class="sub"><img src="gui\Thai\RookB.png" class="logo_th"><h2>– ปานกลาง -</h2> </div>
-			<div class="sub"><img src="gui\Thai\KingB.png" class="logo_th"><h2>– ยาก -</h2> </div>
+			<a href="quiz_th_es.html"><div class="sub"><img src="gui\Thai\PawnB.png" class="icon"><h2>– ง่าย</h2> </div></a>
+			<a href="quiz_th_nm.html"><div class="sub"><img src="gui\Thai\RookB.png" class="icon"><h2>– ปานกลาง</h2> </div></a>
+			<a href="quiz_th_hd.html"><div class="sub"><img src="gui\Thai\KingB.png" class="icon"><h2>– ยาก</h2> </div></a>
 		</div>
 		<div id="ch">
 			<img src="gui\button\button_select_ch.png">
-			<div class="sub"><img src="gui\Xiangqi\PawnB.png" class="logo_th"><h2>– ง่าย -</h2> </div>
-			<div class="sub"><img src="gui\Xiangqi\RookB.png" class="logo_th"><h2>– ปานกลาง -</h2> </div>
-			<div class="sub"><img src="gui\Xiangqi\KingB.png" class="logo_th"><h2>– ยาก -</h2> </div>
-		</div>
+			<a href="quiz_ch_es.html"><div class="sub"><img src="gui\Xiangqi\PawnB.png" class="icon2"><h2>&nbsp;– ง่าย</h2> </div></a>
+			<a href="quiz_ch_nm.html"><div class="sub"><img src="gui\Xiangqi\RookB.png" class="icon2"><h2>&nbsp;– ปานกลาง</h2> </div></a>
+			<a href="quiz_ch_hd.html"><div class="sub"><img src="gui\Xiangqi\KingB.png" class="icon2"><h2>&nbsp;– ยาก</h2> </div></a>
+		</div>	
+		<a href="quiz_itc.html"><div class="sub2"><img src="gui/logo.png" class="iconlogo"><h2>หมากรุกสากล ไทย และจีน</h2><img src="gui/logo.png" class="iconlogo"></div></a>
 	</div>
 		
 
