@@ -27,7 +27,7 @@
 			float: left;
 			position: fixed;
 			margin-top: 1%;
-			margin-right: 95%;
+			left: 5px;
 			height: 450px;
 			width: 100px;
 			cursor: pointer;
@@ -37,15 +37,15 @@
 			float: left;
 			position: relative;
 			text-align: center;
-			margin-left: 10%;
-			margin-right: 10%;
+			margin-left: 120px;
+			margin-right: 120px;
 		}
 
 		#after{
 			float: right;
 			position: fixed;
 			margin-top: 1%;
-			margin-left: 91%;
+			right: 5px;
 			height: 450px;
 			width: 100px;
 			cursor: pointer;
