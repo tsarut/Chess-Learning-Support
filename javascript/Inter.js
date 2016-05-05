@@ -74,7 +74,7 @@ function Pawn (x,y) {
 	if (standby[x+standby[x][y]][y-1]*standby[x][y]==-1) {
 		PawnMove[x+standby[x][y]][y-1]=1;
 	};
-	markArr(PawnMove);
+	return PawnMove;
 }
 function BishopLock (x,y) {
 	// body...
@@ -154,7 +154,7 @@ function Bishop (x,y) {
 			} else{break;};
 		};
 	};
-	markArr(BishopMove);
+	return BishopMove;
 }
 function MakePro(BW,ProID) {
 	// body...
@@ -291,7 +291,7 @@ function Queen (x,y) {
 			} else{break;};
 		};
 	};
-	markArr(QueenMove);
+	return QueenMove;
 }
 function QueenLock (x,y) {
 	// body...

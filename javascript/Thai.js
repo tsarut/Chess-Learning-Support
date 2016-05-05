@@ -45,6 +45,7 @@ function changeBoard () {
 		}
 	};};
 	}
+	
 }
 function Pawn (x,y) {
 	// body...
@@ -59,7 +60,7 @@ function Pawn (x,y) {
 	if (standby[x+standby[x][y]][y-1]*standby[x][y]==-1) {
 		PawnMove[x+standby[x][y]][y-1]=1;
 	};
-	markArr(PawnMove);
+	return PawnMove;
 }
 
 
@@ -90,7 +91,7 @@ function Bishop (x,y) {
 			BishopMove[x+1][y]=1;
 		};
 	};
-	markArr(BishopMove);
+	return BishopMove;
 }
 
 function Queen (x,y) {
@@ -113,5 +114,5 @@ function Queen (x,y) {
 			QueenMove[x+1][y-1]=1;
 		};
 	};
-	markArr(QueenMove);
+	return QueenMove;
 }

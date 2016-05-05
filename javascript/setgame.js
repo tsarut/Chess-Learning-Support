@@ -5,7 +5,7 @@ var turnName=['W',,'B'];
 var pickIt;
 function markArr(arr) {
 	// body...
-	for (var i = listarr1.length - 1; i >= 0; i--) {
+	for (var i = 0; i < listarr1.length; i++) {
 		for (var j = 0; j < listarr2.length; j++) {
 			if (arr[i][j]==1) {
 				makeMark(i,j);
@@ -15,10 +15,14 @@ function markArr(arr) {
 }
 function joinArr(arr1,arr2) {
 	// body...
-	for (var i = arr1.length - 1; i >= 0; i--) {
-		for (var j = 0; j < arr1.length; j++) {
-			var arrJoin=[];
+			console.log(arr1);
+		console.log(arr2);
+	var arrJoin=[[],[],[],[],[],[],[],[]];
+	for (var i = 0; i < arr1.length; i++){
+		for (var j = 0; j < arr1[i].length; j++) {
 		arrJoin[i][j]=arr1[i][j]*arr2[i][j];
+
+		console.log(arrJoin[i][j]+' '+i+' ' +j+' '+arr1[arr1[i].length-1-i][j]+' '+arr2[i][j]);
 		}
 	}
 	return arrJoin;
@@ -175,6 +179,6 @@ function Rook (x,y) {
 			} else{break;};
 		};
 	};
-	markArr(RookMove);
+	return RookMove;
 }
 
