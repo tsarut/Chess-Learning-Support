@@ -1,10 +1,110 @@
-function changeBoard () {
-		if (turn==1) {
-		turn--;
-	}else
-	if (turn==0) {
-		turn++;
+function lockKing(kingX,kingY,className) { 	
+	// body...
+	typeList=[0,0,0,0,0,0,0,0,0];
+	console.log(kingX+' '+kingY);	
+	var count=0;
+	var markX;
+	var markY;
+	for (var i = kingX+1,j=kingY; i < listarr1.length; i++) {
+		if (standby[kingX][kingY]*standby[i][kingY]==0) {
+			lockKing0[i][kingY]=1;
+		} else{
+			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
+			break;	
+			}
+			else{
+				count++;
+				if (count==2) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1])) {
+					targetList[0]=listarr1[markX]+listarr2[markY];
+					typeList[0]=1;
+					lockKing0[i][j]=1;
+					}
+					break;
+				}
+				markX=i;
+				markY=j;
+			}
+			
+					
+		};
+	};
+	count=0;
+	for (var i = kingX-1,j=kingY; i >= 0; i--) {
+		if (standby[kingX][kingY]*standby[i][kingY]==0) {
+			lockKing1[i][kingY]=1;
+		} else{
+			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
+			break;	
+			}
+			else{
+				count++;
+				if (count==2) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1])) {
+					targetList[1]=listarr1[markX]+listarr2[markY];
+					typeList[1]=1;
+					lockKing1[i][j]=1;
+					}
+					break;
+				}
+				markX=i;
+				markY=j;
+			}
+			
+					
+		};
+	};
+	count=0;
+	for (var j = kingY+1,i=kingX; j < listarr1.length; j++) {
+		if (standby[kingX][kingY]*standby[kingX][j]==0) {
+			lockKing2[kingX][j]=1;
+		} else{
+			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
+			break;	
+			}
+			else{
+				count++;
+				if (count==2) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1])) {
+					targetList[2]=listarr1[markX]+listarr2[markY];
+					typeList[2]=1;
+					lockKing2[i][j]=1;
+					}
+					break;
+				}
+				markX=i;
+				markY=j;
+			}
+			
+					
+		};
+	};
+	count=0;
+	for (var j = kingY-1,i=kingX; j >= 0; j--) {
+		if (standby[kingX][kingY]*standby[kingX][i]==0) {
+			lockKing3[kingX][i]=1;
+		} else{
+			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
+			break;	
+			}
+			else{
+				count++;
+				if (count==2) {
+					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1])) {
+					targetList[3]=listarr1[markX]+listarr2[markY];
+					typeList[3]=1;
+					lockKing3[i][j]=1;
+					}
+					break;
+				}
+				markX=i;
+				markY=j;
+			}				
+		};
 	}
+}
+
+function changeBoard () {
 	
 	standby=
 [[0,0,0,0,0,0,0,0]
@@ -45,7 +145,7 @@ function changeBoard () {
 		}
 	};};
 	}
-	
+	tableOfMark();
 }
 function Pawn (x,y) {
 	// body...
@@ -93,6 +193,31 @@ function Bishop (x,y) {
 	};
 	return BishopMove;
 }
+function BishopLock (x,y) {
+	// body...
+	if (x>0) {
+		if (standby[x][y]*standby[x-1][y-1]<1) {
+			lockmove[x-1][y-1]=1;
+		};
+		if (standby[x][y]*standby[x-1][y+1]<1) {
+			lockmove[x-1][y+1]=1;
+		};
+		if (standby[x][y]==-1&&standby[x-1][y]*standby[x][y]<1) {
+			lockmove[x-1][y]=1;
+		};
+	} 
+	if (x<listarr1.length-1) {
+		if (standby[x+1][y+1]*standby[x][y]<1) {
+			lockmove[x+1][y+1]=1;
+		};
+		if (standby[x+1][y-1]*standby[x][y]<1) {
+			lockmove[x+1][y-1]=1;
+		};
+		if (standby[x][y]==1&&standby[x+1][y]*standby[x][y]<1) {
+			lockmove[x+1][y]=1;
+		};
+	};
+}
 
 function Queen (x,y) {
 	// body...
@@ -115,4 +240,23 @@ function Queen (x,y) {
 		};
 	};
 	return QueenMove;
+}
+function QueenLock (x,y) {
+	// body...
+	if (x>0) {
+		if (standby[x][y]*standby[x-1][y-1]<1) {
+			lockmove[x-1][y-1]=1;
+		};
+		if (standby[x][y]*standby[x-1][y+1]<1) {
+			lockmove[x-1][y+1]=1;
+		};
+	} 
+	if (x<listarr1.length-1) {
+		if (standby[x+1][y+1]*standby[x][y]<1) {
+			lockmove[x+1][y+1]=1;
+		};
+		if (standby[x+1][y-1]*standby[x][y]<1) {
+			lockmove[x+1][y-1]=1;
+		};
+	};
 }
