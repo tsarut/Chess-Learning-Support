@@ -5,7 +5,21 @@ function detail(name) {
 	newdev.className="Pop";
 	document.body.appendChild(newdev);
 	var newiframe = document.createElement("iframe");
-	newiframe.src=(name+".html");
+	newiframe.src=('learn/detail/'+name+".html");
+	newiframe.id="detail";
+	newiframe.className="Pop";
+	document.body.appendChild(newiframe);
+	document.getElementById('background').addEventListener("click",function(){ document.getElementsByClassName("Pop").remove(); });
+
+	}
+function quiz(name){
+	document.getElementsByClassName("Pop").remove();
+	var newdev = document.createElement("div");
+	newdev.id="background";
+	newdev.className="Pop";
+	document.body.appendChild(newdev);
+	var newiframe = document.createElement("iframe");
+	newiframe.src=('learn/quiz/'+name+".html");
 	newiframe.id="detail";
 	newiframe.className="Pop";
 	document.body.appendChild(newiframe);
