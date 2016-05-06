@@ -1,51 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
+	<title>Play International Chess!</title>
+	<link rel="stylesheet" type="text/css" href="css/setup.css">
+	<script type="text/javascript">
+		function resize(){
+			document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/1000;
+			var x = document.getElementById("iframe");
+			var y = x.contentDocument;
+			y.body.style.zoom=0.825*screen.availHeight/1000;
+		}
+	</script>
+	<style type="text/css">
+	#main{
+		position: absolute;
+		margin-top: 50px;
+		margin-left: 375px;
+	}
 
-</script>
-<style type="text/css">
-body {
-	background-image:url(gui/bg.png);
-	background-size:100%;
-	background-position:center;
-	background-attachment:fixed;
-}
-	#title{
-	height: 100px;
-	margin-top: 10px;	
-	position: relative;
-}
-#main{
-	text-align: center;
-	margin-top: 25px;
-	margin-bottom: 25px;
-}
-
-#title_img{
-	float: right;
-	right: 0px;
-}
-#back{
-
-	bottom: 0px;
-	left: 0px;
-}
 	iframe{
-		zoom:0.7;
+		zoom:0.825;
 		text-align: center;
 		border: none;
 	}
 
-</style>
-	<title></title>
+	</style>
 </head>
-<body>
-<div id="title">
-	<img id="title_img" src="gui/page_name/pname_play_in.png">
-</div>
+<body onload="resize()">
+	<img src="gui/page_name/pname_play_in.png" id="title">
 <div id="main">
-<iframe src="processing_board/play_chess.html" scrolling="no" height="949" width="949"></iframe>
+<iframe id="iframe" src="processing_board/play_chess.html" scrolling="no" height="949" width="949"></iframe>
 </div>
 <img id="back" src="gui/button/button_back.png">
 </body>

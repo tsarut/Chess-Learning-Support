@@ -2,80 +2,54 @@
 <html>
 <head>
 	<title>Choose quiz set!</title>
+	<link rel="stylesheet" type="text/css" href="css/setup.css">
 	<style type="text/css">
-	@import url(font/thsarabunnew.css);
-	@charset "utf-8";
 
-#head{
-	float: right;
-	right: 0px;
-	position: absolute;
-}
+	#main{
+		float: left;
+		margin-left: -10px;
+		margin-top: 100px;
+	}
 
-#main{
-	float: left;
-	margin-left: -10px;
-	margin-top: 5%;
-}
+	#center{
+		float: right;
+		margin-top: 150px;
+		margin-right: 10px;
+	}
+	#in,#th,#ch{
+		float: left;
+		margin-right: 10px;
+	}
 
-body {
-	background-image:url(gui/bg.png);
-	background-size:100%;
-	background-position:center;
-	background-attachment:fixed;
-	font-family: 'THSarabunNew', sans-serif;
-}
+	#register{
+		top: 0px;
+		bottom: 0px;
+		margin: auto 0;
+		width: 80%;
+	    z-index: 1;
+	    right: 10%;
+	    position: fixed;
+	    background-color: white;
+	    height: 80%;
+	}
+	#onRe{
+		opacity: 0;
+		position: relative;
+	    right: 145px;
+	    height: 30px;
+	    width: 100px;
+	    bottom: 30px;
+	    opacity: 0;
+	}
 
-
-#center{
-	float: right;
-	margin-top: 6%;
-	margin-right: 4%;
-}
-#in,#th,#ch{
-	float: left;
-	margin-right: 10px;
-}
-
-#register{
-	top: 0px;
-	bottom: 0px;
-	margin: auto 0;
-	width: 80%;
-    z-index: 1;
-    right: 10%;
-    position: fixed;
-    background-color: white;
-    height: 80%;
-}
-#onRe{
-	opacity: 0;
-	position: relative;
-    right: 145px;
-    height: 30px;
-    width: 100px;
-    bottom: 30px;
-    opacity: 0;
-}
-#title{
-	height: 100px;
-	margin-top: 10px;	
-	position: relative;
-	margin-right: 0px;
-}
-#title_img{
-	float: right;
-	right: 0px;
-}
-
-a{color: black;}
-a:hover{color: rgb(178,133,86);}
-h2{float: left; text-align: center;}
-.iconlogo{zoom:0.25; float: left;}
-.icon{zoom:0.75; float: left;}
-.icon2{zoom:0.8; float: left;}
-.sub{height: 100px; cursor: pointer;}
-.sub2{height: 100px; margin-left: 250px; cursor: pointer;}
+	a{color: black;}
+	a:hover{color: rgb(178,133,86);}
+	h2{float: left; text-align: center;}
+	.iconlogo{zoom:0.25; float: left;}
+	.icon{zoom:0.75; float: left;}
+	.icon2{zoom:0.8; float: left;}
+	.sub{height: 100px; cursor: pointer;}
+	.sub2{height: 100px; margin-left: 250px; cursor: pointer;}
 
 	</style>
 
@@ -87,14 +61,11 @@ h2{float: left; text-align: center;}
 
 <body>
 
-<div id="title">
-	<img id="title_img" src="gui/page_name/pname_quiz1.png">
-</div>
+<img src="gui/page_name/pname_quiz1.png" id="title">
 	<table id="main">
 		<tr>
 			<td>
-				<img src="gui/login.png">
-				<img id="onRe" onclick="register()">
+				<img src="gui/online.png">
 			</td>
 		</tr>
 		<tr>

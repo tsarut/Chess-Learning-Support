@@ -1,0 +1,30 @@
+@import url(../font/thsarabunnew.css);
+@charset "utf-8";
+
+body {
+	background-image:url(../gui/bg.png);
+	background-size:100%;
+	background-position:center;
+	background-attachment:fixed;
+	margin: 5px 5px 5px 5px;
+	font-family: 'THSarabunNew', sans-serif;
+}
+
+#title{
+	float: right;
+	height: 100px;
+	position: absolute;
+	right: 0px;
+}
+
+#back{
+	position: fixed;
+	bottom: 5px;
+	left: 0px;
+}
+
+#submit{
+	position: fixed;
+	bottom: 5px;
+	right: 0px;
+}

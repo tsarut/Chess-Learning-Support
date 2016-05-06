@@ -1,52 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript">
-//document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/1100;
-//var x = document.getElementById("iframe");
-//var y = x.contentDocument;
-//y.body.style.zoom=0.7*screen.availHeight/1100;
-</script>
-<style type="text/css">
-body {
-	background-image:url(gui/bg.png);
-	background-size:100%;
-	background-position:center;
-	background-attachment:fixed;
-}
-	#title{
-	height: 100px;
-	margin-top: 10px;	
-	position: relative;
-}
-#main{
-	text-align: center;
-	margin-top: 25px;
-	margin-bottom: 25px;
-}
+	<title>Play Chinese Chess!</title>
+	<link rel="stylesheet" type="text/css" href="css/setup.css">
+	<script type="text/javascript">
+		function resize(){
+			document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/1000;
+			var x = document.getElementById("iframe");
+			var y = x.contentDocument;
+			y.body.style.zoom=0.725*screen.availHeight/1000;
+		}
+	</script>
+	<style type="text/css">
+	#main{
+		position: absolute;
+		margin-top: 50px;
+		margin-left: 425px;
+	}
 
-#title_img{
-	float: right;
-	right: 0px;
-}
-#back{
-
-	bottom: 0px;
-	left: 0px;
-}
 	iframe{
-		zoom:0.7;
+		zoom:0.725;
 		text-align: center;
 		border: none;
 	}
 
-</style>
-	<title></title>
+	</style>
 </head>
-<body>
-<div id="title">
-	<img id="title_img" src="gui/page_name/pname_play_ch.png">
-</div>
+<body onload="resize()">
+	<img src="gui/page_name/pname_play_ch.png" id="title">
 <div id="main">
 <iframe id="iframe" src="processing_board/play_xiangqi.html" scrolling="no" height="1076" width="1001"></iframe>
 </div>
