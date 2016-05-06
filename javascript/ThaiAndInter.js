@@ -215,10 +215,10 @@ function tableOfMark() {
 	}}
 	lockKing(kingX,kingY);
 }
-var groupArr;var move=[];var arrOn;
+
 function sentClass (name,xy) {
 	// body...
-	
+	var groupArr;var move=[];var arrOn;
 	table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
 	arrOn=10;
