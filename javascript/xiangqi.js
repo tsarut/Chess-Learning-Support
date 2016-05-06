@@ -378,9 +378,10 @@ function HorseLock (x,y) {
 		if (!isNaN(lockmove[x+1][y+2])) {
 			lockmove[x+1][y+2]=1;
 		} 
+		if (x>0) {
 		if (!isNaN(lockmove[x-1][y+2])) {
 			lockmove[x-1][y+2]=1;
-		} 
+		} }
 	};
 	};
 	if (x>0) {
