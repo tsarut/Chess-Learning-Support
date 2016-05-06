@@ -3,6 +3,9 @@
 <head>
 	<title>Choose quiz set!</title>
 	<link rel="stylesheet" type="text/css" href="css/setup.css">
+	<script type="text/javascript">
+		function resize(){document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/790;}
+	</script>
 	<style type="text/css">
 
 	#main{
@@ -14,7 +17,7 @@
 	#center{
 		float: right;
 		margin-top: 150px;
-		margin-right: 10px;
+		margin-right: 50px;
 	}
 	#in,#th,#ch{
 		float: left;
@@ -59,7 +62,7 @@
 
 </head>
 
-<body>
+<body onload="resize()">
 
 <img src="gui/page_name/pname_quiz1.png" id="title">
 	<table id="main">

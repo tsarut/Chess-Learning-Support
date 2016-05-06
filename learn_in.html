@@ -3,21 +3,24 @@
 <head>
 	<title>Learn about International chess!</title>
 	<link rel="stylesheet" type="text/css" href="css/learn.css">
+	<script type="text/javascript">
+		function resize(){document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/950;}
+	</script>
 	<script type="text/javascript" src="javascript/learn.js"></script>
 	<style type="text/css">
 		.piece{
 			float: left;
-			margin-left: 7.5%;
+			margin-left: 160px;
 			margin-top: 10px;
 			cursor: pointer;
 		}
 		#piece_img{width: 240px; height: 130px; cursor: pointer;}
-		#rule{float: left; margin-left: 35%; margin-top: 1%; cursor: pointer;}
+		#rule{float: left; margin-left: 600px; margin-top: 1%; cursor: pointer;}
 
 	</style>
 </head>
 
-<body>
+<body onload="resize()">
 <meta charset="UTF-8">
 
 <div id="title"><img id="title_img" src="gui/page_name/pname_learn_in.png"></div>

@@ -6,6 +6,7 @@ var ans=['','','','','','','','','',''];
 		}
 		var test;
 		function setClick() {
+			document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/950;
 			// body...
 			document.getElementById("result").style.visibility = "hidden";
 			var ans = document.getElementsByClassName('answer');
