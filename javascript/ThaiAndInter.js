@@ -284,22 +284,16 @@ function markLock(name,xy) {
 	x,y=getXY(xy);
 
 	if (name=="Rook") {
-		pickIt=xy;
 		RookLock(x,y);
 	} else{if (name=="Pawn") {
-		pickIt=xy;
 		PawnLock(x,y);
 	} else{if (name=="Horse"||name=="Knight") {
-		pickIt=xy;
 		HorseLock(x,y);
 	} else{if (name=="Bishop") {
-		pickIt=xy;
 		BishopLock(x,y);
 	} else{if (name=="Queen"||name=="ProPawn") {
-		pickIt=xy;
 		QueenLock(x,y);
 	} else{if (name=="King") {
-		pickIt=xy;
 		KingLock(x,y);
 	};};};};};};
 }
