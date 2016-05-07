@@ -21,11 +21,22 @@ var lockKing2=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,
 var lockKing3=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 function lockKing(kingX,kingY,className) { 	
 	// body...
-	console.log(kingX+' '+kingY);	
-	var count=0;
+	console.log(kingX+' '+kingY+' '+standby[kingX][kingY]);
+
 	var markX;
 	var markY;
-	
+		for (var i = kingX+standby[kingX][kingY],j=kingY; i < listarr1.length&& i>=0; i=i+standby[kingX][kingY]) {
+		if (standby[kingX][kingY]*standby[i][kingY]==0) {
+			
+		} else
+		{
+			if (document.getElementById(listarr1[i]+listarr2[j]).className=="King"+turnName[standby[i][j]+1]){
+				console.log(document.getElementById(listarr1[kingX]+listarr2[kingY]).className+' win');
+			}else{
+				break;	
+			}
+		};
+	};
 }
 function changeBoard () {
 	// body...
@@ -133,7 +144,7 @@ function tableOfMark() {
 
 		standby[kingX][kingY]=1;
 	}}
-	//lockKing(kingX,kingY);
+	lockKing(kingX,kingY);
 }
 
 
