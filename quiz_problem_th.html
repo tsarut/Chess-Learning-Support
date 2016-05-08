@@ -3,29 +3,36 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/quiz.css">
+	<link rel="stylesheet" type="text/css" href="css/setup.css">
+	<script type="text/javascript">
+		function resize(){
+			document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/1000;
+			var x = document.getElementById("iframe");
+			var y = x.contentDocument;
+			y.body.style.zoom=0.825*screen.availHeight/1000;
+		}
+	</script>
 	<style type="text/css">
-iframe{
-	height: 950px;
-	width: 950px;
-	zoom:0.7;
-	position: absolute;
-}
-.main{
-	text-align: center;
-	margin-top: 25px;
-	margin-bottom: 25px;
-	margin-right: 10%;
-	margin-left: 23%;
-	position: absolute;
-}
-#result{
-	position: absolute;
-}
-p{
-	padding-left: 10px;
-	padding-right: 5px;
-	text-align: center;
-}
+	iframe{
+		zoom:0.825;
+		text-align: center;
+		border: none;
+		position: absolute;
+	}
+
+	#main{
+		position: absolute;
+		top: 10px;
+		margin-left: 375px;
+	}
+
+	#result{position: absolute;}
+
+	p{
+		padding-left: 10px;
+		padding-right: 5px;
+		text-align: center;
+	}
 
 
 	</style>
@@ -33,8 +40,8 @@ p{
 <body>
 <div id="title"><img id="title_img" src="gui/page_name/pname_quiz2.png"></div>
 <div>
-<div class="main">
-	<iframe src="processing_board/quiz_hores_th.html"></iframe>
+<div id="main">
+	<iframe src="processing_board/quiz_hores_th.html" scrolling="no" height="949" width="949"></iframe>
 
 
 </div>
