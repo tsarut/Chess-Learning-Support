@@ -116,8 +116,10 @@ function tableOfMark() {
 				if (images[i].className.slice(-1)=='B') {
 				markLock(images[i].className.slice(0,-1),images[i]);
 				if (lockmove[kingX][kingY]==1) {
-					list=images[i];
+					list[more]=images[i];
 					more++;
+					images[i].style.backgroundColor='red';
+					document.getElementsByClassName("KingW")[0].style.backgroundColor='red';
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 				}
@@ -160,6 +162,8 @@ function tableOfMark() {
 				if (lockmove[kingX][kingY]==1) {
 					list[more]=images[i];
 					more++;
+					images[i].style.backgroundColor='red';
+					document.getElementsByClassName("KingB")[0].style.backgroundColor='red';
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 				}

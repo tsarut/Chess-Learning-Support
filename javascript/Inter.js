@@ -299,6 +299,11 @@ function changeBoard () {
 		}
 	};};
 	}
+	document.getElementsByClassName("KingW")[0].style.backgroundColor='';
+	document.getElementsByClassName("KingB")[0].style.backgroundColor='';
+	for (var i = 0; i < list.length; i++) {
+		list[i].style.backgroundColor='';
+	}
 	tableOfMark();
 }
 
