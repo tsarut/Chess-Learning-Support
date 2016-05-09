@@ -52,15 +52,7 @@ var lockKing3=
 ,[0,0,0,0,0,0,0,0]];
 
 
-var lineTo=
-[[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]
-,[0,0,0,0,0,0,0,0]];
+var lineTo=[];
 
 
 
@@ -77,10 +69,7 @@ var lockmove=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
-function Check(name) {
-	// body...
-	
-}
+
 
 var more=0;
 function tableOfMark() {
@@ -101,23 +90,23 @@ function tableOfMark() {
 
 	if (turn==1) {
 		//kingX,kingY=getXY((document.getElementsByClassName("KingW")[0]));
-			for (var i = listarr1.length - 1; i >= 0; i--) {
-		if (listarr1[i]==document.getElementsByClassName("KingW")[0].id[0]) {
-			kingX=i;
+		for (var i = listarr1.length - 1; i >= 0; i--) {
+			if (listarr1[i]==document.getElementsByClassName("KingW")[0].id[0]) {
+				kingX=i;
+			};
 		};
-	};
-	for (var j = listarr2.length - 1; j >= 0; j--) {
-		if (listarr2[j]==document.getElementsByClassName("KingW")[0].id[1]) {
-			kingY=j;
+		for (var j = listarr2.length - 1; j >= 0; j--) {
+			if (listarr2[j]==document.getElementsByClassName("KingW")[0].id[1]) {
+				kingY=j;
+			};
 		};
-	};
-	standby[kingX][kingY]=0;
+		standby[kingX][kingY]=0;
 		console.log("Getking"+kingX+" "+kingY);
-			turn--;
-			
-			var images= document.getElementsByTagName('img');
-			for (var i = 1; i < images.length; i++) {
-				if (images[i].className.slice(-1)=='B') {
+		turn--;
+		
+		var images= document.getElementsByTagName('img');
+		for (var i = 1; i < images.length; i++) {
+			if (images[i].className.slice(-1)=='B') {
 				markLock(images[i].className.slice(0,-1),images[i]);
 				if (lockmove[kingX][kingY]==1) {
 					list[more]=images[i];
@@ -127,65 +116,66 @@ function tableOfMark() {
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 				}
-				}
-				
 			}
-			if (more>0) {
-					console.log("more+");
-					if (more>1) {
-						lockOn=1;
-						console.log("W lock");
-					}
-					else{
-						lockOn=0;
-						console.log(list)
-					}
-				}
-				standby[kingX][kingY]=-1;
-		}else{
-	if (turn==0) {
-		turn++;
-		//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
-					for (var i = listarr1.length - 1; i >= 0; i--) {
-		if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
-			kingX=i;
-		};
-	};
-	for (var j = listarr2.length - 1; j >= 0; j--) {
-		if (listarr2[j]==document.getElementsByClassName("KingB")[0].id[1]) {
-			kingY=j;
-		};
-	};
-	standby[kingX][kingY]=0;
-		console.log("Getking"+kingX+" "+kingY);
-		//var more=0;
-		var images= document.getElementsByTagName('img');
-		for (var i = 1; i < images.length; i++) {
-			if (images[i].className.slice(-1)=='W') {
-			markLock(images[i].className.slice(0,-1),images[i]);
-				if (lockmove[kingX][kingY]==1) {
-					list[more]=images[i];
-					more++;
-					images[i].style.backgroundColor='rgba(255,0,0,0.5)';
-					document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
-					lockmove[kingX][kingY]=more+1;
-					console.log("more");
-				}
-			}
-			
 		}
 		if (more>0) {
-			console.log("more+รุก")
+			console.log("more+");
 			if (more>1) {
 				lockOn=1;
-				console.log("B lock");
+				console.log("W lock");
 			}
 			else{
 				lockOn=0;
+				Check(list[0],kingX,kingY);
+				console.log(list);
 			}
 		}
-		standby[kingX][kingY]=1;
-	}}
+		standby[kingX][kingY]=-1;
+	}else{
+		if (turn==0) {
+			turn++;
+			//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
+			for (var i = listarr1.length - 1; i >= 0; i--) {
+				if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
+					kingX=i;
+				};
+			};
+			for (var j = listarr2.length - 1; j >= 0; j--) {
+				if (listarr2[j]==document.getElementsByClassName("KingB")[0].id[1]) {
+					kingY=j;
+				};
+			};
+			standby[kingX][kingY]=0;
+			console.log("Getking"+kingX+" "+kingY);
+			//var more=0;
+			var images= document.getElementsByTagName('img');
+			for (var i = 1; i < images.length; i++) {
+				if (images[i].className.slice(-1)=='W') {
+				markLock(images[i].className.slice(0,-1),images[i]);
+					if (lockmove[kingX][kingY]==1) {
+						list[more]=images[i];
+						more++;
+						images[i].style.backgroundColor='rgba(255,0,0,0.5)';
+						document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
+						lockmove[kingX][kingY]=more+1;
+						console.log("more");
+					}
+				}
+			}
+			if (more>0) {
+				console.log("more+รุก")
+				if (more>1) {
+					lockOn=1;
+					console.log("B lock");
+				}
+				else{
+					Check(list[0],kingX,kingY);
+					lockOn=0;
+				}
+			}
+			standby[kingX][kingY]=1;
+		}
+	}
 	lockKing(kingX,kingY);
 }
 
