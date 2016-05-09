@@ -77,6 +77,10 @@ var lockmove=
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]];
+function Check(name) {
+	// body...
+	
+}
 
 var more=0;
 function tableOfMark() {
@@ -118,8 +122,8 @@ function tableOfMark() {
 				if (lockmove[kingX][kingY]==1) {
 					list[more]=images[i];
 					more++;
-					images[i].style.backgroundColor='red';
-					document.getElementsByClassName("KingW")[0].style.backgroundColor='red';
+					images[i].style.backgroundColor='rgba(255,0,0,0.5)';
+					document.getElementsByClassName("KingW")[0].style.backgroundColor='rgba(255,0,0,0.5)';
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 				}
@@ -162,8 +166,8 @@ function tableOfMark() {
 				if (lockmove[kingX][kingY]==1) {
 					list[more]=images[i];
 					more++;
-					images[i].style.backgroundColor='red';
-					document.getElementsByClassName("KingB")[0].style.backgroundColor='red';
+					images[i].style.backgroundColor='rgba(255,0,0,0.5)';
+					document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 				}
