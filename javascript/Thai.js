@@ -1,3 +1,24 @@
+function Check(name,kingX,kingY) {
+	// body...
+	console.log('Check')
+	lineTo=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
+	x,y=getXY(list[0]);
+	if (name.className.slice(0,-1)=='Rook') {
+		if (kingX-x==0||kingY-y==0) {
+			for (var i = 0; Math.abs(i) <= Math.abs(kingX-x); i=i+(kingX-x)/Math.abs(kingX-x)) {
+				for (var j = 0; Math.abs(j) <= Math.abs(kingY-y); j=j+(kingY-y)/Math.abs(kingY-y)) {
+					lineTo[i+x][j+y]=1;
+				}
+			}
+			
+		} else {
+			for (var i = 0 ,j=0; Math.abs(i) <= Math.abs(kingX-x)&&Math.abs(j) <= Math.abs(kingY-y); i=i+(kingX-x)/Math.abs(kingX-x), j=j+(kingY-y)/Math.abs(kingY-y)) {
+					lineTo[i+x][j+y]=1;
+			}
+		}
+	} else {lineTo[x][y]=1}
+	lineTo[kingX][kingY]=0;
+}
 function lockKing(kingX,kingY,className) { 	
 	// body...
 	typeList=[0,0,0,0,0,0,0,0,0];
