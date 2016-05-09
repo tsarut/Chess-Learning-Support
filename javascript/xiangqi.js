@@ -1,7 +1,7 @@
 var thisclass ="";
 var listarr1=["a","b","c","d","e","f","g","h","i","j"];
 var listarr2=["1","2","3","4","5","6","7","8","9"];
-
+var stoplock=[];
 var arr = [["a1","a2","a3","a4","a5","a6","a7","a8","a9"],
 ["b1","b2","b3","b4","b5","b6","b7","b8","b9"],
 ["c1","c2","c3","c4","c5","c6","c7","c8","c9"],
@@ -38,9 +38,74 @@ function lockKing(kingX,kingY,className) {
 		};
 	};
 }
+function reback() {
+	// body...
+	var kingX=0;
+	var kingY=0;
+	stoplock=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+	if (turn==1) {
+		console.log('Wreback');
+		//kingX,kingY=getXY((document.getElementsByClassName("KingW")[0]));
+		for (var i = listarr1.length - 1; i >= 0; i--) {
+			if (listarr1[i]==document.getElementsByClassName("KingW")[0].id[0]) {
+				kingX=i;
+			};
+		};
+		for (var j = listarr2.length - 1; j >= 0; j--) {
+			if (listarr2[j]==document.getElementsByClassName("KingW")[0].id[1]) {
+				kingY=j;
+			};
+		};
+		standby[kingX][kingY]=0;
+		var images= document.getElementsByTagName('img');
+		for (var i = 1; i < images.length; i++) {
+			if (images[i].className.slice(-1)=='B') {
+				reMove(images[i].className.slice(0,-1),images[i]);
+				if (stoplock[kingX][kingY]==1) {
+					console.log('reback');
+					pickIt.id=recall;
+					return true;
+				}
+			}	
+		}
+		standby[kingX][kingY]=-1;
+	}
+	else{
+		if (turn==0) {
+			console.log('Breback');
+			//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
+			for (var i = listarr1.length - 1; i >= 0; i--) {
+				if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
+					kingX=i;
+				};
+			};
+			for (var j = listarr2.length - 1; j >= 0; j--) {
+				if (listarr2[j]==document.getElementsByClassName("KingB")[0].id[1]) {
+					kingY=j;
+				};
+			};
+			standby[kingX][kingY]=0;
+			var images= document.getElementsByTagName('img');
+			for (var i = 1; i < images.length; i++) {
+				if (images[i].className.slice(-1)=='W') {
+				reMove(images[i].className.slice(0,-1),images[i]);
+					if (stoplock[kingX][kingY]==1) {
+						console.log('reback2');
+						pickIt.id=recall
+						return true;
+					}
+				}
+				
+			}
+	
+			standby[kingX][kingY]=1;
+		}
+	}
+	return false;
+}
+
 function changeBoard () {
 	// body...
-	console.log(standby);
 	standby=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	arrMove=
 	[[1,1,1,1,1,1,1,1,1],
@@ -53,9 +118,6 @@ function changeBoard () {
 	[1,1,1,1,1,1,1,1,1],
 	[1,1,1,1,1,1,1,1,1],
 	[1,1,1,1,1,1,1,1,1]];
-	if (pickIt.className.slice(0,-1)==Pawn) {
-
-	};
 	var images = document.getElementsByTagName('img');
 	for (var j = 1; j < images.length; j++) {
 	x,y=getXY(images[j]);
@@ -71,6 +133,9 @@ function changeBoard () {
 		list[i].style.backgroundColor='';
 	}
 	tableOfMark();
+	if (reback()) {
+		changeBoard ();
+	}
 }
 var list=[];
 var typeList=[];
@@ -86,23 +151,22 @@ function tableOfMark() {
 
 	if (turn==1) {
 		//kingX,kingY=getXY((document.getElementsByClassName("KingW")[0]));
-			for (var i = listarr1.length - 1; i >= 0; i--) {
-		if (listarr1[i]==document.getElementsByClassName("KingW")[0].id[0]) {
-			kingX=i;
+		for (var i = listarr1.length - 1; i >= 0; i--) {
+			if (listarr1[i]==document.getElementsByClassName("KingW")[0].id[0]) {
+				kingX=i;
+			};
 		};
-	};
-	for (var j = listarr2.length - 1; j >= 0; j--) {
-		if (listarr2[j]==document.getElementsByClassName("KingW")[0].id[1]) {
-			kingY=j;
+		for (var j = listarr2.length - 1; j >= 0; j--) {
+			if (listarr2[j]==document.getElementsByClassName("KingW")[0].id[1]) {
+				kingY=j;
+			};
 		};
-	};
-	standby[kingX][kingY]=0;
+		standby[kingX][kingY]=0;
 		console.log("Getking"+kingX+" "+kingY);
-			turn--;
-			
-			var images= document.getElementsByTagName('img');
-			for (var i = 1; i < images.length; i++) {
-				if (images[i].className.slice(-1)=='B') {
+		turn--;
+		var images= document.getElementsByTagName('img');
+		for (var i = 1; i < images.length; i++) {
+			if (images[i].className.slice(-1)=='B') {
 				markLock(images[i].className.slice(0,-1),images[i]);
 				if (lockmove[kingX][kingY]==1) {
 					list[more]=images[i];
@@ -113,46 +177,47 @@ function tableOfMark() {
 					console.log("more");
 					console.log(list);
 				}
+			}	
+		}
+		standby[kingX][kingY]=-1;
+	}
+	else{
+		if (turn==0) {
+			turn++;
+			//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
+			for (var i = listarr1.length - 1; i >= 0; i--) {
+				if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
+					kingX=i;
+				};
+			};
+			for (var j = listarr2.length - 1; j >= 0; j--) {
+				if (listarr2[j]==document.getElementsByClassName("KingB")[0].id[1]) {
+					kingY=j;
+				};
+			};
+			standby[kingX][kingY]=0;
+			console.log("Getking"+kingX+" "+kingY);
+			//var more=0;
+			var images= document.getElementsByTagName('img');
+			for (var i = 1; i < images.length; i++) {
+				if (images[i].className.slice(-1)=='W') {
+				markLock(images[i].className.slice(0,-1),images[i]);
+					if (lockmove[kingX][kingY]==1) {
+						list[more]=images[i];
+						more++;
+						images[i].style.backgroundColor='rgba(255,0,0,0.5)';
+						document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
+						lockmove[kingX][kingY]=more+1;
+						console.log("more");
+						console.log(list);
+					}
 				}
 				
 			}
-				standby[kingX][kingY]=-1;
-		}else{
-	if (turn==0) {
-		turn++;
-		//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
-					for (var i = listarr1.length - 1; i >= 0; i--) {
-		if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
-			kingX=i;
-		};
-	};
-	for (var j = listarr2.length - 1; j >= 0; j--) {
-		if (listarr2[j]==document.getElementsByClassName("KingB")[0].id[1]) {
-			kingY=j;
-		};
-	};
-	standby[kingX][kingY]=0;
-		console.log("Getking"+kingX+" "+kingY);
-		//var more=0;
-		var images= document.getElementsByTagName('img');
-		for (var i = 1; i < images.length; i++) {
-			if (images[i].className.slice(-1)=='W') {
-			markLock(images[i].className.slice(0,-1),images[i]);
-				if (lockmove[kingX][kingY]==1) {
-					list[more]=images[i];
-					more++;
-					images[i].style.backgroundColor='rgba(255,0,0,0.5)';
-					document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
-					lockmove[kingX][kingY]=more+1;
-					console.log("more");
-					console.log(list);
-				}
-			}
-			
+	
+			standby[kingX][kingY]=1;
 		}
-
-		standby[kingX][kingY]=1;
-	}}
+	}
 	lockKing(kingX,kingY);
 }
 
@@ -168,7 +233,7 @@ function sentClass (name,xy) {
 	if (name=="Rook") {
 		move=Rook(x,y);
 		pickIt=xy;
-				if (arrOn!=10) {
+		if (arrOn!=10) {
 			markArr(joinArr(groupArr[arrOn],move))
 		} else {
 			markArr(move);
@@ -196,10 +261,7 @@ setMark();
 }
 function markLock(name,xy) {
 	// body...
-	//console.log(xy);
-
 	x,y=getXY(xy);
-
 	if (name=="Rook") {
 		RookLock(x,y);
 	} else{if (name=="Pawn") {
@@ -210,6 +272,20 @@ function markLock(name,xy) {
 		CannonLock(x,y);
 	} ;};};};
 }
+function reMove(name,xy) {
+	// body...
+	x,y=getXY(xy);
+	if (name=="Rook") {
+		RookStop(x,y);
+	} else{if (name=="Pawn") {
+		PawnStop(x,y);
+	} else{if (name=="Horse") {
+		HorseStop(x,y);
+	} else{if (name=="Cannon") {
+		CannonStop(x,y);
+	} ;};};};
+}
+
 
 function Pawn (x,y) {
 	// body...
@@ -238,6 +314,19 @@ function PawnLock (x,y) {
 		} 
 	};
 }
+function PawnStop (x,y) {
+	// body...
+	stoplock[x+standby[x][y]][y]=1;
+	if (x*standby[x][y]>4) {
+		stoplock[x][y+1]=1;
+		stoplock[x][y-1]=1;
+	} else{
+		if (standby[x][y]==-1&&x<=4) {
+		stoplock[x][y+1]=1;
+		stoplock[x][y-1]=1;
+		} 
+	};
+}
 function Horse (x,y) {
 	// body...
 	if (x<listarr1.length-1) {
@@ -253,20 +342,20 @@ function Horse (x,y) {
 		if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
 			makeMark(x+1,y+2);
 		} 
-		if (standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1) {
+		if (x>0&&(standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1)) {
 			makeMark(x-1,y+2);
 		} 
 	};
 	};
 	if (x>0) {
 		if (standby[x-1][y]==0&&x>1) {
-		if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
-			makeMark(x-2,y+1);
-		} 
-		if (standby[x-2][y-1]==0||standby[x-2][y-1]*standby[x][y]==-1) {
-			makeMark(x-2,y-1);
-		} 
-	}
+			if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
+				makeMark(x-2,y+1);
+			} 
+			if (standby[x-2][y-1]==0||standby[x-2][y-1]*standby[x][y]==-1) {
+				makeMark(x-2,y-1);
+			} 
+		}
 	};
 	if (standby[x][y-1]==0) {
 		if (x>1&&(standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1)) {
@@ -274,33 +363,31 @@ function Horse (x,y) {
 		} if (x<listarr1.length-1) {
 			if (standby[x+1][y-2]==0||standby[x+1][y-2]*standby[x][y]==-1) {
 			makeMark(x+1,y-2);
-		}
+			}
 		};
-		 
-		
 	}; 
-	
 }
 function HorseLock (x,y) {
 	// body...
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y]==0&&x<8) {
-		if (!isNaN(lockmove[x+2][y+1])) {
-			lockmove[x+2][y+1]=1;
-		} 
-		if (!isNaN(lockmove[x+2][y-1])) {
-			lockmove[x+2][y-1]=1;
-		} 
-	}
-	if (standby[x][y+1]==0) {
-		if (!isNaN(lockmove[x+1][y+2])) {
-			lockmove[x+1][y+2]=1;
-		} 
-		if (x>0) {
-		if (!isNaN(lockmove[x-1][y+2])) {
-			lockmove[x-1][y+2]=1;
-		} }
-	};
+			if (!isNaN(lockmove[x+2][y+1])) {
+				lockmove[x+2][y+1]=1;
+			} 
+			if (!isNaN(lockmove[x+2][y-1])) {
+				lockmove[x+2][y-1]=1;
+			} 
+		}
+		if (standby[x][y+1]==0) {
+			if (!isNaN(lockmove[x+1][y+2])) {
+				lockmove[x+1][y+2]=1;
+			} 
+			if (x>0) {
+				if (!isNaN(lockmove[x-1][y+2])) {
+					lockmove[x-1][y+2]=1;
+				} 
+			}
+		};
 	};
 	if (x>0) {
 		if (standby[x-1][y]==0&&x>1) {
@@ -318,6 +405,51 @@ function HorseLock (x,y) {
 		} if (x<listarr1.length-1) {
 			if (!isNaN(lockmove[x+1][y-2])) {
 			lockmove[x+1][y-2]=1;
+		}
+		};
+		 
+		
+	};
+	
+}
+function HorseStop (x,y) {
+	// body...
+	if (x<listarr1.length-1) {
+		if (standby[x+1][y]==0&&x<8) {
+			if (!isNaN(stoplock[x+2][y+1])) {
+				stoplock[x+2][y+1]=1;
+			} 
+			if (!isNaN(stoplock[x+2][y-1])) {
+				stoplock[x+2][y-1]=1;
+			} 
+		}
+		if (standby[x][y+1]==0) {
+			if (!isNaN(stoplock[x+1][y+2])) {
+				stoplock[x+1][y+2]=1;
+			} 
+			if (x>0) {
+				if (!isNaN(stoplock[x-1][y+2])) {
+					stoplock[x-1][y+2]=1;
+				} 
+			}
+		};
+	};
+	if (x>0) {
+		if (standby[x-1][y]==0&&x>1) {
+		if (!isNaN(stoplock[x-2][y+1])) {
+			stoplock[x-2][y+1]=1;
+		} 
+		if (!isNaN(stoplock[x-2][y-1])) {
+			stoplock[x-2][y-1]=1;
+		} 
+	}
+	};
+		if (standby[x][y-1]==0&&x>1) {
+		if (!isNaN(stoplock[x-1][y-2])) {
+			stoplock[x-1][y-2]=1;
+		} if (x<listarr1.length-1) {
+			if (!isNaN(stoplock[x+1][y-2])) {
+			stoplock[x+1][y-2]=1;
 		}
 		};
 		 
@@ -477,7 +609,6 @@ function Cannon (x,y) {
 
 }
 function CannonLock (x,y) {
-
 	for (var i = x+1; i < 10; i++) {
 		if (standby[x][y]*standby[i][y]==0) {
 		} else{
@@ -522,7 +653,52 @@ function CannonLock (x,y) {
 			} break;
 		};
 	};
-
+}
+function CannonStop (x,y) {
+	for (var i = x+1; i < 10; i++) {
+		if (standby[x][y]*standby[i][y]==0) {
+		} else{
+			for (var j = i+1; j < 10; j++) {
+				stoplock[j][y]=1;
+				if (standby[x][y]*standby[j][y]!=0) {
+					break;
+				}
+			} break;
+		};
+	};
+	for (var i = x-1; i >= 0; i--) {
+		if (standby[x][y]*standby[i][y]==0) {
+		} else{
+			for (var j = i-1; j >= 0; j--) {
+				stoplock[j][y]=1;
+				if (standby[x][y]*standby[j][y]!=0) {
+					break;
+				}
+			} break;
+		};
+	};
+	for (var i = y+1; i < 9; i++) {
+		if (standby[x][y]*standby[x][i]==0) {
+		} else{
+			for (var j = i+1; j < 9; j++) {
+				stoplock[x][j]=1;
+				if (standby[x][y]*standby[x][j]!=0) {	
+					break;
+				}
+			} break;
+		};
+	};
+	for (var i = y-1; i >= 0; i--) {
+		if (standby[x][y]*standby[x][i]==0) {
+		} else{
+			for (var j = i-1; j >= 0; j--) {
+				stoplock[x][j]=1;
+				if (standby[x][y]*standby[x][j]!=0) {	
+					break;
+				}
+			} break;
+		};
+	};
 }
 
 function King (x,y) {
@@ -553,4 +729,41 @@ function makeMark (x,y) {
 	newimg.src="../gui/xiangqi/Mark_Allow.png";
 	document.body.appendChild(newimg);
 
+}
+function RookStop (x,y) {
+	// body...
+	
+	for (var i = x+1; i < listarr1.length; i++) {
+		if (standby[x][y]*standby[i][y]==0) {
+			stoplock[i][y]=1;
+		} else{
+			stoplock[i][y]=1;
+				break;
+			} 
+		
+	};
+	for (var i = x-1; i >= 0; i--) {
+		if (standby[x][y]*standby[i][y]==0) {
+			stoplock[i][y]=1;
+		} else{
+			stoplock[i][y]=1;
+			break;
+		};
+	};
+	for (var i = y+1; i < listarr2.length; i++) {
+		if (standby[x][y]*standby[x][i]==0) {
+			stoplock[x][i]=1;
+		} else{
+				stoplock[x][i]=1;
+				break;
+		};
+	};
+	for (var i = y-1; i >= 0; i--) {
+		if (standby[x][y]*standby[x][i]==0) {
+			stoplock[x][i]=1;
+		} else{
+			stoplock[x][i]=1;
+			break;
+		};
+	};
 }

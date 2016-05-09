@@ -15,14 +15,10 @@ function markArr(arr) {
 }
 function joinArr(arr1,arr2) {
 	// body...
-			console.log(arr1);
-		console.log(arr2);
 	var arrJoin=[[],[],[],[],[],[],[],[]];
 	for (var i = 0; i < arr1.length; i++){
 		for (var j = 0; j < arr1[i].length; j++) {
 		arrJoin[i][j]=arr1[i][j]*arr2[i][j];
-
-		console.log(arrJoin[i][j]+' '+i+' ' +j+' '+arr1[arr1[i].length-1-i][j]+' '+arr2[i][j]);
 		}
 	}
 	return arrJoin;
@@ -40,40 +36,39 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 
 function setMark () {
 	var MarkEV = document.getElementsByClassName("Mark");
-for (var i = 0; i < MarkEV.length; i++) {
-	MarkEV[i].onclick = function () {
-		document.getElementById(this.id).remove();
-		pickIt.id=this.id;
-		document.getElementsByClassName("Mark").remove();
-		changeBoard();
-	};
+	for (var i = 0; i < MarkEV.length; i++) {
+		MarkEV[i].onclick = function () {
+			document.getElementById(this.id).remove();
+			pickIt.id=this.id;
+			document.getElementsByClassName("Mark").remove();
+			changeBoard();
+		};
+	}
 }
-}
-
+var recall;
 function setclick () {
-setMark();
-
-var images = document.getElementsByTagName('img');
-images[0].onclick=function(){
-	document.getElementsByClassName("Mark").remove();
-}
-for (var j = 1; j < images.length; j++) {
-	x,y=getXY(images[j]);
-	if (images[j].className.slice(-1)=="B") {
-		standby[x][y]=1;
-	} else{if (images[j].className.slice(-1)=="W") {
-		standby[x][y]=-1;
-	};};
-
-	images[j].onclick = function () {
+	setMark();
+	var images = document.getElementsByTagName('img');
+	images[0].onclick=function(){
 		document.getElementsByClassName("Mark").remove();
-		if ((turn==0&&this.className.slice(-1)=='W')||(turn==1&&this.className.slice(-1)=='B')) {
-		sentClass(this.className.slice(0,-1),this);	
-		}
-		
-		
-	};
-}
+	}
+	for (var j = 1; j < images.length; j++) {
+		x,y=getXY(images[j]);
+		if (images[j].className.slice(-1)=="B") {
+			standby[x][y]=1;
+		} else{
+			if (images[j].className.slice(-1)=="W") {
+			standby[x][y]=-1;
+			};
+		};
+		images[j].onclick = function () {
+			document.getElementsByClassName("Mark").remove();
+			if ((turn==0&&this.className.slice(-1)=='W')||(turn==1&&this.className.slice(-1)=='B')) {
+			sentClass(this.className.slice(0,-1),this);	
+			recall=this.id;
+			}
+		};
+	}
 }
 
 function getXY (thisclass) {
@@ -87,9 +82,7 @@ function getXY (thisclass) {
 			y=j;
 		};
 	};
-	//console.log(x+" "+y);
 	return x,y;
-
 }
 
 function RookLock (x,y) {
@@ -102,7 +95,6 @@ function RookLock (x,y) {
 			lockmove[i][y]=1;
 				break;
 			} 
-		
 	};
 	for (var i = x-1; i >= 0; i--) {
 		if (standby[x][y]*standby[i][y]==0) {
@@ -140,7 +132,6 @@ function Rook (x,y) {
 			RookMove[i][y]=1;
 		} else{
 			if (standby[x][y]*standby[i][y]==-1) {
-
 				RookMove[i][y]=1;
 				break;
 			} else{break;};
@@ -151,7 +142,6 @@ function Rook (x,y) {
 			RookMove[i][y]=1;
 		} else{
 			if (standby[x][y]*standby[i][y]==-1) {
-
 				RookMove[i][y]=1;
 				break;
 			} else{break;};
