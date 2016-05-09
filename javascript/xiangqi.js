@@ -253,7 +253,7 @@ function Horse (x,y) {
 		if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
 			makeMark(x+1,y+2);
 		} 
-		if (standby[x-1][y+2]==0||standby[x-1][y-2]*standby[x][y]==-1) {
+		if (standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1) {
 			makeMark(x-1,y+2);
 		} 
 	};
@@ -278,7 +278,7 @@ function Horse (x,y) {
 		};
 		 
 		
-	};
+	}; 
 	
 }
 function HorseLock (x,y) {
@@ -355,33 +355,33 @@ function Elephant (x,y) {
 	} else{
 		if (standby[x][y]==1) {
 			if (x>1) {
-		if (standby[x-1][y-1]==0) {
-			if (standby[x-2][y-2]<1) {
-				makeMark(x-2,y-2);
-			};
-		}
-		if (standby[x-1][y+1]==0) {
-			if (standby[x-2][y+2]<1) {
-				makeMark(x-2,y+2);
-			};
-		}		
+				if (standby[x-1][y-1]==0) {
+					if (standby[x-2][y-2]<1) {
+						makeMark(x-2,y-2);
+					};
+				}
+				if (standby[x-1][y+1]==0) {
+					if (standby[x-2][y+2]<1) {
+						makeMark(x-2,y+2);
+					};
+				}		
 			} 
 			if (x<3) {
-						if (standby[x+1][y+1]==0) {
-			if (standby[x+2][y+2]>-1) {
-				makeMark(x+2,y+2);
-			};
-		} 
+				if (standby[x+1][y+1]==0) {
+					if (standby[x+2][y+2]<1) {
+						makeMark(x+2,y+2);
+				};
+			} 
 		
 		
-		if (standby[x+1][y-1]==0) {
-			if (standby[x+2][y-2]>-1) {
-				makeMark(x+2,y-2);
-			};
-		}
+				if (standby[x+1][y-1]==0) {
+					if (standby[x+2][y-2]<1) {
+						makeMark(x+2,y-2);
+					};
+				}
 			};
 
-	}
+		}
 	};
 }
 function Guard (x,y) {
