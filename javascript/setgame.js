@@ -182,3 +182,17 @@ function Rook (x,y) {
 	return RookMove;
 }
 
+function testArr(test) {
+	// body...
+	console.log('   ' + listarr2.join('  '));
+	for (var i = 0; i < test.length; i++) {
+		so=listarr1[i]+'';
+		for (var j = 0; j < test[0].length; j++) {
+			if (test[i][j]>-1) {
+				so=so+' ';
+			}
+			so=so+' '+test[i][j];
+		}
+		console.log(so);
+	}
+}
