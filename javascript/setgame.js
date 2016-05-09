@@ -112,7 +112,7 @@ function RookLock (x,y) {
 			break;
 		};
 	};
-	for (var i = y+1; i < listarr1.length; i++) {
+	for (var i = y+1; i < listarr2.length; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
 			lockmove[x][i]=1;
 		} else{
@@ -157,7 +157,7 @@ function Rook (x,y) {
 			} else{break;};
 		};
 	};
-	for (var i = y+1; i < listarr1.length; i++) {
+	for (var i = y+1; i < listarr2.length; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
 			RookMove[x][i]=1;
 		} else{

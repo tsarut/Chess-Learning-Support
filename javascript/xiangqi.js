@@ -500,10 +500,10 @@ function CannonLock (x,y) {
 			} break;
 		};
 	};
-	for (var i = y+1; i < 10; i++) {
+	for (var i = y+1; i < 9; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
 		} else{
-			for (var j = i+1; j < 10; j++) {
+			for (var j = i+1; j < 9; j++) {
 				lockmove[x][j]=1;
 				if (standby[x][y]*standby[x][j]!=0) {	
 					break;
