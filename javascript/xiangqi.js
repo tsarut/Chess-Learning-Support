@@ -268,8 +268,8 @@ function Horse (x,y) {
 		} 
 	}
 	};
-		if (standby[x][y-1]==0&&x>1) {
-		if (standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1) {
+	if (standby[x][y-1]==0) {
+		if (x>1&&(standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1)) {
 			makeMark(x-1,y-2);
 		} if (x<listarr1.length-1) {
 			if (standby[x+1][y-2]==0||standby[x+1][y-2]*standby[x][y]==-1) {
