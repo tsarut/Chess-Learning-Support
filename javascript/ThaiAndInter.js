@@ -450,10 +450,15 @@ function ableMove() {
 		}		
 		
 	}
-	if (count==0&&turn==0) {
-			console.log('End B win');
+	if (more==0&&count==0) {
+		console.log('draw');
+	} else {
+		if (count==0&&turn==0) {
+				console.log('End B win');
+			}
+			else{if (count==0&&turn==1) {console.log('End W win');} else {return true;}
 		}
-		else{if (count==0&&turn==1) {console.log('End W win');} else {return true;}}
+	}
 	
 }
 function sentClass (name,xy) {
