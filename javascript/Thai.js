@@ -25,6 +25,7 @@ function makeMark (x,y) {
 	newimg.className="Mark";
 	if (document.getElementById(listarr1[x]+listarr2[y])) {
 		newimg.src=document.getElementById(listarr1[x]+listarr2[y]).src;
+		newimg.style.backgroundImage="url('../gui/Thai/Mark_Allow.png')";
 	}else{newimg.src="../gui/Thai/Mark_Allow.png";}
 	document.body.appendChild(newimg);
 
@@ -163,7 +164,7 @@ function changeBoard () {
 		if (images[j].className=="PawnB") {
 			if (['f','g','h'].indexOf(images[j].id.slice(0,1))!=-1) {
 				images[j].className="ProPawnB";
-				images[j].src="gui/Thai/ProPawnB.png";
+				images[j].src="../gui/Thai/ProPawnB.png";
 			}
 		}
 	} else{if (images[j].className.slice(-1)=="W") {
@@ -171,7 +172,7 @@ function changeBoard () {
 		if (images[j].className=="PawnW") {
 			if (['a','b','c'].indexOf(images[j].id.slice(0,1))!=-1) {
 				images[j].className="ProPawnW";
-				images[j].src="gui/Thai/ProPawnW.png";
+				images[j].src="../gui/Thai/ProPawnW.png";
 			}
 		}
 	};};
