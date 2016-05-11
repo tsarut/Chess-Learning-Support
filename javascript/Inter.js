@@ -62,6 +62,7 @@ function makeMark (x,y) {
 	newimg.className="Mark";
 	if (document.getElementById(listarr1[x]+listarr2[y])) {
 		newimg.src=document.getElementById(listarr1[x]+listarr2[y]).src;
+		newimg.style.backgroundImage="url('../gui/international/Mark_Allow.png')";
 	}else{newimg.src="../gui/international/Mark_Allow.png";}
 	document.body.appendChild(newimg);
 
