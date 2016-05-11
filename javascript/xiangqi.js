@@ -136,9 +136,21 @@ function changeBoard () {
 		list[i].style.backgroundColor='';
 	}
 	tableOfMark();
+	if (turn==1) {turn--;} else {turn++;}
 	if (reback()) {
 		changeBoard ();
+		if (rec.className!='Mark') {
+			document.body.appendChild(rec);
+			document.getElementsByClassName("KingW")[0].style.backgroundColor='';
+			document.getElementsByClassName("KingB")[0].style.backgroundColor='';
+			for (var i = 0; i < list.length; i++) {
+				list[i].style.backgroundColor='';
+			}			
+			changeBoard ()
+			if (turn==1) {turn--;} else {turn++;}
+		}
 	}
+	
 }
 var list=[];
 var typeList=[];
@@ -166,7 +178,7 @@ function tableOfMark() {
 		};
 		standby[kingX][kingY]=0;
 		console.log("Getking"+kingX+" "+kingY);
-		turn--;
+		
 		var images= document.getElementsByTagName('img');
 		for (var i = 1; i < images.length; i++) {
 			if (images[i].className.slice(-1)=='B') {
@@ -186,7 +198,6 @@ function tableOfMark() {
 	}
 	else{
 		if (turn==0) {
-			turn++;
 			//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
 			for (var i = listarr1.length - 1; i >= 0; i--) {
 				if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
