@@ -40,6 +40,7 @@ function lockKing(kingX,kingY,className) {
 }
 function ableMove() {
 	// body...
+
 }
 function reback() {
 	// body...
@@ -718,19 +719,19 @@ function CannonStop (x,y) {
 function King (x,y) {
 	// body...
 	if (x*standby[x][y]>0||x*standby[x][y]<-7) {
-		if (standby[x-1][y]*standby[x][y]<1) {
+		if (standby[x-1][y]*standby[x][y]<1&&lockmove[x-1][y]==0) {
 			makeMark(x-1,y);
 		};
 	}
 	if (x*standby[x][y]<2&&x*standby[x][y]>-9) {
-		if (standby[x+1][y]*standby[x][y]<1) {
+		if (standby[x+1][y]*standby[x][y]<1&&lockmove[x+1][y]==0) {
 			makeMark(x+1,y);
 		};
 	};
-	if (y>3&&standby[x][y-1]*standby[x][y]<1) {
+	if (y>3&&standby[x][y-1]*standby[x][y]<1&&lockmove[x][y-1]==0) {
 		makeMark(x,y-1);
 	};
-	if (y<5&&standby[x][y+1]*standby[x][y]<1) {
+	if (y<5&&standby[x][y+1]*standby[x][y]<1&&lockmove[x][y+1]==0) {
 		makeMark(x,y+1);
 	};
 }
