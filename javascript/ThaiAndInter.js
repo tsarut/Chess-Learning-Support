@@ -178,7 +178,284 @@ function tableOfMark() {
 	}
 	lockKing(kingX,kingY);
 }
-
+var ch;var groupMove=[];
+function ableMove() {
+	// body...
+	groupMove=[];
+	count=0
+ 	ch = document.getElementsByTagName('img');
+	for (j = 0; j < ch.length; j++) {
+		table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
+		if ((turn==0&&ch[j].className.slice(-1)=='W')) {
+			name=ch[j].className.slice(0,-1);
+			var groupArr;var move=[];var arrOn;
+			x,y=getXY(ch[j]);
+			arrOn=10;
+			for (var i = 0; i < targetList.length; i++) {
+				if (targetList[i]==ch[j].id) {
+					arrOn=i;
+					groupArr=[lockKing0,lockKing1,lockKing2,lockKing3,lockKing4,lockKing5,lockKing6,lockKing7];
+				}
+			}
+			if (name=="Rook"&&lockOn==0) {
+				move=Rook(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				}
+			} else{if (name=="Pawn"&&lockOn==0) {
+				move=Pawn(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				}
+			} else{if ((name=="Horse"||name=="Knight")&&lockOn==0) {
+				move=Horse(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+				}
+			} else{if (name=="Bishop"&&lockOn==0) {
+				move=Bishop(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+				}
+			} else{if ((name=="Queen"||name=="ProPawn")&&lockOn==0) {
+				move=Queen(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+				}
+			} else{if (name=="King") {
+				if (x>0) {
+				if (standby[x][y]*standby[x-1][y-1]<1&&lockmove[x-1][y-1]!=1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x-1][y+1]!=1&&standby[x][y]*standby[x-1][y+1]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x-1][y]!=1&&standby[x-1][y]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+			} 
+			if (x<listarr1.length-1) {
+				if (lockmove[x+1][y+1]!=1&&standby[x+1][y+1]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x+1][y-1]!=1&&standby[x+1][y-1]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x+1][y]!=1&&standby[x+1][y]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+			};
+			if (lockmove[x][y-1]!=1&&standby[x][y]*standby[x][y-1]<1) {
+				groupMove[count]=ch[j];
+				count++;
+			};
+			if (lockmove[x][y+1]!=1&&standby[x][y]*standby[x][y+1]<1) {
+				groupMove[count]=ch[j];
+				count++;
+			};
+			};};};};};};
+			
+		}
+		if ((turn==1&&ch[j].className.slice(-1)=='B')) {
+			name=ch[j].className.slice(0,-1);
+			var groupArr;var move=[];var arrOn;
+			x,y=getXY(ch[j]);
+			arrOn=10;
+			for (var i = 0; i < targetList.length; i++) {
+				if (targetList[i]==ch[j].id) {
+					arrOn=i;
+					groupArr=[lockKing0,lockKing1,lockKing2,lockKing3,lockKing4,lockKing5,lockKing6,lockKing7];
+				}
+			}
+			if (name=="Rook"&&lockOn==0) {
+				move=Rook(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				}
+			} else{if (name=="Pawn"&&lockOn==0) {
+				move=Pawn(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				}
+			} else{if ((name=="Horse"||name=="Knight")&&lockOn==0) {
+				move=Horse(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+				}
+			} else{if (name=="Bishop"&&lockOn==0) {
+				move=Bishop(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+				}
+			} else{if ((name=="Queen"||name=="ProPawn")&&lockOn==0) {
+				move=Queen(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (arrOn!=10) {
+					if (canMove(joinArr(groupArr[arrOn],move))) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else {
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+				}
+			} else{if (name=="King") {
+				if (x>0) {
+				if (standby[x][y]*standby[x-1][y-1]<1&&lockmove[x-1][y-1]!=1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x-1][y+1]!=1&&standby[x][y]*standby[x-1][y+1]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x-1][y]!=1&&standby[x-1][y]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+			} 
+			if (x<listarr1.length-1) {
+				if (lockmove[x+1][y+1]!=1&&standby[x+1][y+1]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x+1][y-1]!=1&&standby[x+1][y-1]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+				if (lockmove[x+1][y]!=1&&standby[x+1][y]*standby[x][y]<1) {
+					groupMove[count]=ch[j];
+					count++;
+				};
+			};
+			if (lockmove[x][y-1]!=1&&standby[x][y]*standby[x][y-1]<1) {
+				groupMove[count]=ch[j];
+				count++;
+			};
+			if (lockmove[x][y+1]!=1&&standby[x][y]*standby[x][y+1]<1) {
+				groupMove[count]=ch[j];
+				count++;
+			};
+			};};};};};};
+			
+		}		
+		
+	}
+	if (count==0&&turn==0) {
+			console.log('End B win');
+		}
+		else{if (count==0&&turn==1) {console.log('End W win');} else {return true;}}
+	
+}
 function sentClass (name,xy) {
 	// body...
 	var groupArr;var move=[];var arrOn;
@@ -195,6 +472,9 @@ function sentClass (name,xy) {
 	if (name=="Rook"&&lockOn==0) {
 		pickIt=xy;
 		move=Rook(x,y);
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
 		if (arrOn!=10) {
 			markArr(joinArr(groupArr[arrOn],move))
 		} else {
@@ -203,6 +483,9 @@ function sentClass (name,xy) {
 	} else{if (name=="Pawn"&&lockOn==0) {
 		pickIt=xy;
 		move=Pawn(x,y);
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
 		if (arrOn!=10) {
 			markArr(joinArr(groupArr[arrOn],move))
 		} else {
@@ -211,6 +494,9 @@ function sentClass (name,xy) {
 	} else{if ((name=="Horse"||name=="Knight")&&lockOn==0) {
 		pickIt=xy;
 		move=Horse(x,y);
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
 		if (arrOn!=10) {
 			markArr(joinArr(groupArr[arrOn],move))
 		} else {
@@ -219,6 +505,9 @@ function sentClass (name,xy) {
 	} else{if (name=="Bishop"&&lockOn==0) {
 		pickIt=xy;
 		move=Bishop(x,y);
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
 		if (arrOn!=10) {
 			markArr(joinArr(groupArr[arrOn],move))
 		} else {
@@ -227,6 +516,9 @@ function sentClass (name,xy) {
 	} else{if ((name=="Queen"||name=="ProPawn")&&lockOn==0) {
 		pickIt=xy;
 		move=Queen(x,y);
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
 		if (arrOn!=10) {
 			markArr(joinArr(groupArr[arrOn],move))
 		} else {
@@ -260,15 +552,7 @@ function markLock(name,xy) {
 		KingLock(x,y);
 	};};};};};};
 }
-function makeMark (x,y) {
-	// body...
-	var newimg = document.createElement("img");
-	newimg.id=listarr1[x]+listarr2[y];
-	newimg.className="Mark";
-	newimg.src=pickIt.src;
-	document.body.appendChild(newimg);
 
-}
 function KingLock (x,y) {
 	// body...
 		if (x>0) {
@@ -327,10 +611,10 @@ function King (x,y) {
 }
 function HorseLock (x,y) {
 	// body...
-	if (x<listarr1.length-1&&!isNaN(lockmove[x+2][y+1])) {
+	if (x<listarr1.length-2&&!isNaN(lockmove[x+2][y+1])) {
 		lockmove[x+2][y+1]=1;
 	}
-	if (x<listarr1.length-1&&!isNaN(lockmove[x+2][y-1])) {
+	if (x<listarr1.length-2&&!isNaN(lockmove[x+2][y-1])) {
 		lockmove[x+2][y-1]=1;
 	}
 	if (x<listarr1.length-1&&!isNaN(lockmove[x+1][y+2])) {

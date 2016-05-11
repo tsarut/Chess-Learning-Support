@@ -10,14 +10,24 @@ function Check(name,kingX,kingY) {
 					lineTo[i+x][j+y]=1;
 				}
 			}
-			
 		} else {
 			for (var i = 0 ,j=0; Math.abs(i) <= Math.abs(kingX-x)&&Math.abs(j) <= Math.abs(kingY-y); i=i+(kingX-x)/Math.abs(kingX-x), j=j+(kingY-y)/Math.abs(kingY-y)) {
 					lineTo[i+x][j+y]=1;
-			}
+	 		}
 		}
 	} else {lineTo[x][y]=1}
 	lineTo[kingX][kingY]=0;
+}
+function makeMark (x,y) {
+	// body...
+	var newimg = document.createElement("img");
+	newimg.id=listarr1[x]+listarr2[y];
+	newimg.className="Mark";
+	if (document.getElementById(listarr1[x]+listarr2[y])) {
+		newimg.src=document.getElementById(listarr1[x]+listarr2[y]).src;
+	}else{newimg.src="../gui/Thai/Mark_Allow.png";}
+	document.body.appendChild(newimg);
+
 }
 function lockKing(kingX,kingY,className) { 	
 	// body...
@@ -102,7 +112,7 @@ function lockKing(kingX,kingY,className) {
 	};
 	count=0;
 	for (var j = kingY-1,i=kingX; j >= 0; j--) {
-		if (standby[kingX][kingY]*standby[kingX][i]==0) {
+		if (standby[kingX][kingY]*standby[kingX][j]==0) {
 			lockKing3[kingX][i]=1;
 		} else{
 			if (standby[kingX][kingY]!=standby[i][j]&&count==0) {
@@ -172,6 +182,7 @@ function changeBoard () {
 		list[i].style.backgroundColor='';
 	}
 	tableOfMark();
+	ableMove();
 }
 function Pawn (x,y) {
 	// body...

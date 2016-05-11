@@ -38,6 +38,9 @@ function lockKing(kingX,kingY,className) {
 		};
 	};
 }
+function ableMove() {
+	// body...
+}
 function reback() {
 	// body...
 	var kingX=0;

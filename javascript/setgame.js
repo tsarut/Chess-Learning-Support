@@ -3,6 +3,18 @@ var y=0;
 var turn = 0;
 var turnName=['W',,'B'];
 var pickIt;
+
+function canMove(moveAble) {
+	// body...
+	for (var i = 0; i < moveAble.length; i++) {
+		for (var j = 0; j < moveAble[i].length; j++) {
+			if (Boolean(moveAble[i][j])) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
 function markArr(arr) {
 	// body...
 	for (var i = 0; i < listarr1.length; i++) {
@@ -45,6 +57,7 @@ function setMark () {
 		};
 	}
 }
+
 var recall;
 function setclick () {
 	setMark();
@@ -69,6 +82,7 @@ function setclick () {
 			}
 		};
 	}
+	ableMove();
 }
 
 function getXY (thisclass) {

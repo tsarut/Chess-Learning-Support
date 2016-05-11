@@ -55,6 +55,17 @@ function Check(name,kingX,kingY) {
 	} else {lineTo[x][y]=1}
 	lineTo[kingX][kingY]=0;
 }
+function makeMark (x,y) {
+	// body...
+	var newimg = document.createElement("img");
+	newimg.id=listarr1[x]+listarr2[y];
+	newimg.className="Mark";
+	if (document.getElementById(listarr1[x]+listarr2[y])) {
+		newimg.src=document.getElementById(listarr1[x]+listarr2[y]).src;
+	}else{newimg.src="../gui/international/Mark_Allow.png";}
+	document.body.appendChild(newimg);
+
+}
 function lockKing(kingX,kingY,className) { 	
 	// body...
 	typeList=[0,0,0,0,0,0,0,0,0];
@@ -325,7 +336,11 @@ function changeBoard () {
 	for (var i = 0; i < list.length; i++) {
 		list[i].style.backgroundColor='';
 	}
+	for (var i = 0; i < groupMove.length; i++) {
+		groupMove[i].style.backgroundColor='';
+	}
 	tableOfMark();
+	ableMove();
 }
 
 
