@@ -19,6 +19,31 @@ var lockKing0=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,
 var lockKing1=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 var lockKing2=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 var lockKing3=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+function Check(name,kingX,kingY) {
+	// body...
+	console.log('Check')
+	lineTo=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+	x,y=getXY(list[0]);
+	if (name.className.slice(0,-1)=='Rook') {
+		for (var i = 0; Math.abs(i) <= Math.abs(kingX-x); i=i+(kingX-x)/Math.abs(kingX-x)) {
+			for (var j = 0; Math.abs(j) <= Math.abs(kingY-y); j=j+(kingY-y)/Math.abs(kingY-y)) {
+				lineTo[i+x][j+y]=1;
+			}
+		}
+	} else {if (name.className.slice(0,-1)=='Horse') {
+		if (Math.abs(kingX-x)==2) {
+			lineTo[x+(kingX-x)/2][y]=1;
+		} else {lineTo[x][y+(kingY-y)/2]=1}
+		lineTo[x][y]=1;
+	} else {if (name.className.slice(0,-1)=='Cannon') {
+		for (var i = 0; Math.abs(i) <= Math.abs(kingX-x); i=i+(kingX-x)/Math.abs(kingX-x)) {
+			for (var j = 0; Math.abs(j) <= Math.abs(kingY-y); j=j+(kingY-y)/Math.abs(kingY-y)) {
+				if (standby[i+x][j+y]==0) {lineTo[i+x][j+y]=1;}
+			}
+		}
+	} else {lineTo[x][y]=1}}}
+	lineTo[kingX][kingY]=0;
+}
 function lockKing(kingX,kingY,className) { 	
 	// body...
 	console.log(kingX+' '+kingY+' '+standby[kingX][kingY]);
@@ -156,6 +181,7 @@ function changeBoard () {
 var list=[];
 var typeList=[];
 var targetList=[];
+var more=0;
 var lockmove=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 function tableOfMark() {
 	// body...
@@ -192,6 +218,7 @@ function tableOfMark() {
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 					console.log(list);
+					Check(list[0],kingX,kingY);
 				}
 			}	
 		}
@@ -225,6 +252,7 @@ function tableOfMark() {
 						lockmove[kingX][kingY]=more+1;
 						console.log("more");
 						console.log(list);
+						Check(list[0],kingX,kingY);
 					}
 				}
 				
@@ -239,35 +267,52 @@ function tableOfMark() {
 
 //var selectID;
 //var selectClass;
+var arrJoin=[[],[],[],[],[],[],[],[],[],[]];
 
 function sentClass (name,xy) {
 	// body...
+	arrJoin=[[],[],[],[],[],[],[],[],[],[]];
 	var groupArr;var move=[];var arrOn=10;
 		table=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
 	if (name=="Rook") {
 		move=Rook(x,y);
 		pickIt=xy;
-		if (arrOn!=10) {
-			markArr(joinArr(groupArr[arrOn],move))
-		} else {
-			markArr(move);
+		if (more>0) {
+			move=joinArr(move,lineTo);
 		}
+		markArr(move);
 	} else{if (name=="Pawn") {
-		Pawn(x,y)
+		move=Pawn(x,y);
 		pickIt=xy;
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
+		markArr(move);
 	} else{if (name=="Horse") {
-		Horse(x,y);
+		move=Horse(x,y);
 		pickIt=xy;
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
+		markArr(move);
 	} else{if (name=="Elephant") {
-		Elephant(x,y);
+		move=Elephant(x,y);
 		pickIt=xy;
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
+		markArr(move);
 	} else{if (name=="Guard") {
 		Guard(x,y);
 		pickIt=xy;
 	} else{if (name=="Cannon") {
-		Cannon(x,y);
+		move=Cannon(x,y);
 		pickIt=xy;
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
+		markArr(move);
 	} else{if (name=="King") {
 		King(x,y);
 		pickIt=xy;
@@ -304,17 +349,19 @@ function reMove(name,xy) {
 
 function Pawn (x,y) {
 	// body...
-	makeMark(x+standby[x][y],y);
+	var pawnMove=[];
+	pawnMove=table;
+	if (standby[x][y]*standby[x+standby[x][y]][y]<1) {pawnMove[x+standby[x][y]][y]=1;}
 	if (x*standby[x][y]>4) {
-		makeMark(x,y+1);
-		makeMark(x,y-1);		
+		if (standby[x][y]*standby[x][y+1]<1) {pawnMove[x][y+1]=1;}
+		if (standby[x][y]*standby[x][y-1]<1) {pawnMove[x][y-1]=1;}
 	} else{
 		if (standby[x][y]==-1&&x<=4) {
-		makeMark(x,y+1);
-		makeMark(x,y-1);
+			if (standby[x][y]*standby[x][y+1]<1) {pawnMove[x][y+1]=1;}		
+			if (standby[x][y]*standby[x][y-1]<1) {pawnMove[x][y-1]=1;}
 		} 
 	};
-
+	return pawnMove;
 }
 function PawnLock (x,y) {
 	// body...
@@ -344,43 +391,46 @@ function PawnStop (x,y) {
 }
 function Horse (x,y) {
 	// body...
+	var horseMove=[];
+	horseMove=table;
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y]==0&&x<8) {
 		if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
-			makeMark(x+2,y+1);
+			horseMove[x+2][y+1]=1;
 		} 
 		if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
-			makeMark(x+2,y-1);
+			horseMove[x+2][y-1]=1;
 		} 
 	}
 	if (standby[x][y+1]==0) {
 		if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
-			makeMark(x+1,y+2);
+			horseMove[x+1][y+2]=1;
 		} 
 		if (x>0&&(standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1)) {
-			makeMark(x-1,y+2);
+			horseMove[x-1][y+2]=1;
 		} 
 	};
 	};
 	if (x>0) {
 		if (standby[x-1][y]==0&&x>1) {
 			if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
-				makeMark(x-2,y+1);
+				horseMove[x-2][y+1]=1;
 			} 
 			if (standby[x-2][y-1]==0||standby[x-2][y-1]*standby[x][y]==-1) {
-				makeMark(x-2,y-1);
+				horseMove[x-2][y-1]=1;
 			} 
 		}
 	};
 	if (standby[x][y-1]==0) {
-		if (x>1&&(standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1)) {
-			makeMark(x-1,y-2);
+		if (x>0&&(standby[x-1][y-2]==0||standby[x-1][y-2]*standby[x][y]==-1)) {
+			horseMove[x-1][y-2]=1;
 		} if (x<listarr1.length-1) {
 			if (standby[x+1][y-2]==0||standby[x+1][y-2]*standby[x][y]==-1) {
-			makeMark(x+1,y-2);
+			horseMove[x+1][y-2]=1;
 			}
 		};
 	}; 
+	return horseMove;
 }
 function HorseLock (x,y) {
 	// body...
@@ -414,7 +464,7 @@ function HorseLock (x,y) {
 		} 
 	}
 	};
-		if (standby[x][y-1]==0&&x>1) {
+		if (standby[x][y-1]==0&&x>0) {
 		if (!isNaN(lockmove[x-1][y-2])) {
 			lockmove[x-1][y-2]=1;
 		} if (x<listarr1.length-1) {
@@ -459,7 +509,7 @@ function HorseStop (x,y) {
 		} 
 	}
 	};
-		if (standby[x][y-1]==0&&x>1) {
+		if (standby[x][y-1]==0&&x>0) {
 		if (!isNaN(stoplock[x-1][y-2])) {
 			stoplock[x-1][y-2]=1;
 		} if (x<listarr1.length-1) {
@@ -474,28 +524,30 @@ function HorseStop (x,y) {
 }
 function Elephant (x,y) {
 	// body...
+	var elephantMove=[];
+	elephantMove=table;
 	if (standby[x][y]==-1) {
 		if (x>6) {
 			if (standby[x-1][y-1]==0) {
 			if (standby[x-2][y-2]>-1) {
-				makeMark(x-2,y-2);
+				elephantMove[x-2][y-2]=1;
 			};
 		}
 		if (standby[x-1][y+1]==0) {
 			if (standby[x-2][y+2]>-1) {
-				makeMark(x-2,y+2);
+				elephantMove[x-2][y+2]=1;
 			};
 		}
 		};
 		if (x<8) {if (standby[x+1][y+1]==0) {
 			if (standby[x+2][y+2]>-1) {
-				makeMark(x+2,y+2);
+				elephantMove[x+2][y+2]=1;
 			};
 		} 
 		
 		if (standby[x+1][y-1]==0) {
 			if (standby[x+2][y-2]>-1) {
-				makeMark(x+2,y-2);
+				elephantMove[x+2][y-2]=1;
 			};
 		}};
 		
@@ -504,32 +556,33 @@ function Elephant (x,y) {
 			if (x>1) {
 				if (standby[x-1][y-1]==0) {
 					if (standby[x-2][y-2]<1) {
-						makeMark(x-2,y-2);
+						elephantMove[x-2][y-2]=1;
 					};
 				}
 				if (standby[x-1][y+1]==0) {
 					if (standby[x-2][y+2]<1) {
-						makeMark(x-2,y+2);
+						elephantMove[x-2][y+2]=1;
 					};
 				}		
 			} 
 			if (x<3) {
 				if (standby[x+1][y+1]==0) {
 					if (standby[x+2][y+2]<1) {
-						makeMark(x+2,y+2);
+						elephantMove[x+2][y+2]=1;
 				};
 			} 
 		
 		
 				if (standby[x+1][y-1]==0) {
 					if (standby[x+2][y-2]<1) {
-						makeMark(x+2,y-2);
+						elephantMove[x+2][y-2]=1;
 					};
 				}
 			};
 
 		}
 	};
+	return elephantMove;
 }
 function Guard (x,y) {
 	// body...
@@ -572,14 +625,15 @@ function Guard (x,y) {
 	
 }
 function Cannon (x,y) {
-
+	var cannonMove=[];
+	cannonMove=table;
 	for (var i = x+1; i < 10; i++) {
 		if (standby[x][y]*standby[i][y]==0) {
-			makeMark(i,y);
+			cannonMove[i][y]=1;
 		} else{
 			for (var j = i+1; j < 10; j++) {
 				if (standby[x][y]*standby[j][y]==-1) {	
-					makeMark(j,y);
+					cannonMove[j][y]=1;
 					break;
 				}
 			} break;
@@ -587,11 +641,11 @@ function Cannon (x,y) {
 	};
 	for (var i = x-1; i >= 0; i--) {
 		if (standby[x][y]*standby[i][y]==0) {
-			makeMark(i,y);
+			cannonMove[i][y]=1;
 		} else{
 			for (var j = i-1; j >= 0; j--) {
 				if (standby[x][y]*standby[j][y]==-1) {	
-					makeMark(j,y);
+					cannonMove[j][y]=1;
 					break;
 				}
 			} break;
@@ -599,11 +653,11 @@ function Cannon (x,y) {
 	};
 	for (var i = y+1; i < 10; i++) {
 		if (standby[x][y]*standby[x][i]==0) {
-			makeMark(x,i);
+			cannonMove[x][i]=1;
 		} else{
 			for (var j = i+1; j < 10; j++) {
 				if (standby[x][y]*standby[x][j]==-1) {	
-					makeMark(x,j);
+					cannonMove[x][j]=1;
 					break;
 				}
 			} break;
@@ -611,17 +665,17 @@ function Cannon (x,y) {
 	};
 	for (var i = y-1; i >= 0; i--) {
 		if (standby[x][y]*standby[x][i]==0) {
-			makeMark(x,i);
+			cannonMove[x][i]=1;
 		} else{
 			for (var j = i-1; j >= 0; j--) {
 				if (standby[x][y]*standby[x][j]==-1) {	
-					makeMark(x,j);
+					cannonMove[x][j]=1;
 					break;
 				}
 			} break;
 		};
 	};
-
+	return cannonMove;
 }
 function CannonLock (x,y) {
 	for (var i = x+1; i < 10; i++) {

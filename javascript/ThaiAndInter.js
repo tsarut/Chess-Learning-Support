@@ -178,6 +178,7 @@ function tableOfMark() {
 	}
 	lockKing(kingX,kingY);
 }
+var arrJoin=[[],[],[],[],[],[],[],[]];
 var ch;var groupMove=[];
 function ableMove() {
 	// body...
@@ -192,6 +193,7 @@ function ableMove() {
 			x,y=getXY(ch[j]);
 			arrOn=10;
 			for (var i = 0; i < targetList.length; i++) {
+				 arrJoin=[[],[],[],[],[],[],[],[]];
 				if (targetList[i]==ch[j].id) {
 					arrOn=i;
 					groupArr=[lockKing0,lockKing1,lockKing2,lockKing3,lockKing4,lockKing5,lockKing6,lockKing7];
@@ -318,6 +320,7 @@ function ableMove() {
 			
 		}
 		if ((turn==1&&ch[j].className.slice(-1)=='B')) {
+			 arrJoin=[[],[],[],[],[],[],[],[]];
 			name=ch[j].className.slice(0,-1);
 			var groupArr;var move=[];var arrOn;
 			x,y=getXY(ch[j]);
