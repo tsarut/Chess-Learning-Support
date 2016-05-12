@@ -880,9 +880,9 @@ function Cannon (x,y) {
 			cannonMove[x][i]=1;
 		} else{
 			for (var j = i+1; j < 10; j++) {
-				if (standby[x][y]*standby[j][y]==1) {	
+				if (standby[x][y]*standby[x][j]==1) {	
 					break;
-				}else{if (standby[x][y]*standby[j][y]==-1) {cannonMove[j][y]=1;break;}}
+				}else{if (standby[x][y]*standby[x][j]==-1) {cannonMove[x][j]=1;break;}}
 			} break;
 		};
 	};
@@ -891,9 +891,9 @@ function Cannon (x,y) {
 			cannonMove[x][i]=1;
 		} else{
 			for (var j = i-1; j >= 0; j--) {
-				if (standby[x][y]*standby[j][y]==1) {	
+				if (standby[x][y]*standby[x][j]==1) {	
 					break;
-				}else{if (standby[x][y]*standby[j][y]==-1) {cannonMove[j][y]=1;break;}}
+				}else{if (standby[x][y]*standby[x][j]==-1) {cannonMove[x][j]=1;break;}}
 			} break;
 		};
 	};
