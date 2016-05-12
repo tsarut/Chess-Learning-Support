@@ -19,6 +19,17 @@ var lockKing0=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,
 var lockKing1=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 var lockKing2=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 var lockKing3=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+var cannonlog='';
+function minusArr(arr1) {
+	// body...
+	var arrMinus=[[],[],[],[],[],[],[],[],[],[]];
+	for (var i = 0; i < arr1.length; i++){
+		for (var j = 0; j < arr1[i].length; j++) {
+		if (arr1[i][j]==1) {arrMinus[i][j]=0}else{arrMinus[i][j]=1}
+		}
+	}
+	return arrMinus;
+}
 function Check(name,kingX,kingY) {
 	// body...
 	console.log('Check')
@@ -30,17 +41,41 @@ function Check(name,kingX,kingY) {
 				lineTo[i+x][j+y]=1;
 			}
 		}
+		lineTo[x][y]=1;
 	} else {if (name.className.slice(0,-1)=='Horse') {
 		if (Math.abs(kingX-x)==2) {
 			lineTo[x+(kingX-x)/2][y]=1;
 		} else {lineTo[x][y+(kingY-y)/2]=1}
 		lineTo[x][y]=1;
 	} else {if (name.className.slice(0,-1)=='Cannon') {
+		console.log('use Cannon')
+		lock=0;stoploop=0
 		for (var i = 0; Math.abs(i) <= Math.abs(kingX-x); i=i+(kingX-x)/Math.abs(kingX-x)) {
+			if (stoploop==1) {
+				console.log('stop');
+				break;
+			}
 			for (var j = 0; Math.abs(j) <= Math.abs(kingY-y); j=j+(kingY-y)/Math.abs(kingY-y)) {
-				if (standby[i+x][j+y]==0) {lineTo[i+x][j+y]=1;}
+				if (stoploop==1) {
+					console.log('stop');
+					break;
+				}
+				if (standby[i+x][j+y]==0) {lineTo[i+x][j+y]=1;}else{
+					console.log(x+' '+y+"     "+x+i+' '+y+j+' ' +document.getElementById(listarr1[x+i]+listarr2[y+j]).className);
+					console.log((j!=0||i!=0)&&document.getElementById(listarr1[x]+listarr2[y]).className==document.getElementById(listarr1[x+i]+listarr2[y+j]).className)
+					if ((j!=0||i!=0)&&document.getElementById(listarr1[x]+listarr2[y]).className==document.getElementById(listarr1[x+i]+listarr2[y+j]).className) {
+						stoploop++;
+					}else{
+						if (standby[x][y]!=standby[x+i][y+j]&&lock==0) {
+							lock++;
+							console.log(x+1+' '+y+j+' '+ document.getElementById(listarr1[x+i]+listarr2[y+j]).className)
+							cannonlog=document.getElementById(listarr1[x+i]+listarr2[y+j]).id;
+						}
+					}
+				}
 			}
 		}
+		lineTo[x][y]=1;
 	} else {lineTo[x][y]=1}}}
 	lineTo[kingX][kingY]=0;
 }
@@ -63,9 +98,187 @@ function lockKing(kingX,kingY,className) {
 		};
 	};
 }
+var groupMove=[];
 function ableMove() {
 	// body...
 
+	groupMove=[];
+	count=0
+ 	ch = document.getElementsByTagName('img');
+	for (j = 0; j < ch.length; j++) {
+		table=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+		if ((turn==0&&ch[j].className.slice(-1)=='W')) {
+			name=ch[j].className.slice(0,-1);
+			var groupArr;var move=[];
+			arrJoin=[[],[],[],[],[],[],[],[],[],[]];
+			x,y=getXY(ch[j]);
+			if (name=="Rook") {
+				move=Rook(x,y);
+				x,y=getXY(ch[j]);				
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (canMove(move)) {
+					groupMove[count]=ch[j];
+					count++;
+				}
+			} else{if (name=="Pawn") {
+				move=Pawn(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (canMove(move)) {
+					groupMove[count]=ch[j];
+					count++;
+				}
+			} else{if (name=="Horse") {
+				move=Horse(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (canMove(move)) {
+					groupMove[count]=ch[j];
+					count++;
+				}
+			} else{if (name=="Elephant") {
+				move=Elephant(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (canMove(move)) {
+					groupMove[count]=ch[j];
+					count++;
+				}
+			} else{if (name=="Guard") {
+				move=Guard(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (canMove(move)) {
+					groupMove[count]=ch[j];
+					count++;
+				}
+			} else{if (name=="Cannon") {
+				move=Cannon(x,y);
+				if (more>0) {
+					move=joinArr(move,lineTo);
+				}
+				if (canMove(move)) {
+					groupMove[count]=ch[j];
+					count++;
+				}
+			} else{if (name=="King") {
+				if (x*standby[x][y]>0||x*standby[x][y]<-7) {
+						if (standby[x-1][y]*standby[x][y]<1&&lockmove[x-1][y]==0) {
+							groupMove[count]=ch[j];
+							count++;
+						};
+					}
+					if (x*standby[x][y]<2&&x*standby[x][y]>-9) {
+						if (standby[x+1][y]*standby[x][y]<1&&lockmove[x+1][y]==0) {
+							groupMove[count]=ch[j];
+							count++;
+						};
+					};
+					if (y>3&&standby[x][y-1]*standby[x][y]<1&&lockmove[x][y-1]==0) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+					if (y<5&&standby[x][y+1]*standby[x][y]<1&&lockmove[x][y+1]==0) {
+						groupMove[count]=ch[j];
+						count++;
+					};
+			};};};};};};};			
+		}else{
+			if ((turn==1&&ch[j].className.slice(-1)=='B')) {
+				name=ch[j].className.slice(0,-1);
+				var groupArr;var move=[];
+				x,y=getXY(ch[j]);
+				if (name=="Rook") {
+					move=Rook(x,y);
+					if (more>0) {
+						move=joinArr(move,lineTo);
+					}
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else{if (name=="Pawn") {
+					move=Pawn(x,y);
+					if (more>0) {
+						move=joinArr(move,lineTo);
+					}
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else{if (name=="Horse") {
+					move=Horse(x,y);
+					if (more>0) {
+						move=joinArr(move,lineTo);
+					}
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else{if (name=="Elephant") {
+					move=Elephant(x,y);
+					if (more>0) {
+						move=joinArr(move,lineTo);
+					}
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else{if (name=="Guard") {
+					move=Guard(x,y);
+					if (more>0) {
+						move=joinArr(move,lineTo);
+					}
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else{if (name=="Cannon") {
+					move=Cannon(x,y);
+					if (more>0) {
+						move=joinArr(move,lineTo);
+					}
+					if (canMove(move)) {
+						groupMove[count]=ch[j];
+						count++;
+					}
+				} else{if (name=="King") {
+					if (x*standby[x][y]>0||x*standby[x][y]<-7) {
+							if (standby[x-1][y]*standby[x][y]<1&&lockmove[x-1][y]==0) {
+								groupMove[count]=ch[j];
+								count++;
+							};
+						}
+						if (x*standby[x][y]<2&&x*standby[x][y]>-9) {
+							if (standby[x+1][y]*standby[x][y]<1&&lockmove[x+1][y]==0) {
+								groupMove[count]=ch[j];
+								count++;
+							};
+						};
+						if (y>3&&standby[x][y-1]*standby[x][y]<1&&lockmove[x][y-1]==0) {
+							groupMove[count]=ch[j];
+							count++;
+						};
+						if (y<5&&standby[x][y+1]*standby[x][y]<1&&lockmove[x][y+1]==0) {
+							groupMove[count]=ch[j];
+							count++;
+						};
+				};};};};};};};
+			}
+		}
+	
+	}
+	if (count==0&&turn==0) {
+		console.log('End B win');
+	}
+	else{if (count==0&&turn==1) {console.log('End W win');} 
+	}
 }
 function reback() {
 	// body...
@@ -161,6 +374,7 @@ function changeBoard () {
 	for (var i = 0; i < list.length; i++) {
 		list[i].style.backgroundColor='';
 	}
+	cannonlog='';
 	tableOfMark();
 	if (turn==1) {turn--;} else {turn++;}
 	if (reback()) {
@@ -177,6 +391,7 @@ function changeBoard () {
 		}
 	}
 	
+	ableMove();
 }
 var list=[];
 var typeList=[];
@@ -218,7 +433,6 @@ function tableOfMark() {
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 					console.log(list);
-					Check(list[0],kingX,kingY);
 				}
 			}	
 		}
@@ -252,15 +466,16 @@ function tableOfMark() {
 						lockmove[kingX][kingY]=more+1;
 						console.log("more");
 						console.log(list);
-						Check(list[0],kingX,kingY);
 					}
 				}
 				
 			}
-	
 			standby[kingX][kingY]=1;
 		}
 	}
+	if (more>0) {if (more>1) {if (list[0].className==list[1].className) {
+		lineTo=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
+} else {Check(list[1],kingX,kingY)}} else {Check(list[0],kingX,kingY)}}
 	lockKing(kingX,kingY);
 }
 
@@ -272,9 +487,12 @@ var arrJoin=[[],[],[],[],[],[],[],[],[],[]];
 function sentClass (name,xy) {
 	// body...
 	arrJoin=[[],[],[],[],[],[],[],[],[],[]];
-	var groupArr;var move=[];var arrOn=10;
+	var groupArr;var move=[];
 		table=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
+	if (cannonlog==xy.id) {
+		lineTo=minusArr(lineTo);
+	}
 	if (name=="Rook") {
 		move=Rook(x,y);
 		pickIt=xy;
@@ -304,8 +522,12 @@ function sentClass (name,xy) {
 		}
 		markArr(move);
 	} else{if (name=="Guard") {
-		Guard(x,y);
+		move=Guard(x,y);
 		pickIt=xy;
+		if (more>0) {
+			move=joinArr(move,lineTo);
+		}
+		markArr(move);
 	} else{if (name=="Cannon") {
 		move=Cannon(x,y);
 		pickIt=xy;
@@ -317,7 +539,10 @@ function sentClass (name,xy) {
 		King(x,y);
 		pickIt=xy;
 	};};};};};};};
-setMark();
+	if (cannonlog==xy.id) {
+		lineTo=minusArr(lineTo);
+	}
+	setMark();
 }
 function markLock(name,xy) {
 	// body...
@@ -586,43 +811,44 @@ function Elephant (x,y) {
 }
 function Guard (x,y) {
 	// body...
-	
+	var guardMove=[];
+	guardMove=table;
 	if (standby[1][4]<1&&(x==0||x==2)) {
-		makeMark(1,4);
+		guardMove[1][4]=1;
 	};
 	if (standby[8][4]>-1&&(x==9||x==7)) {
-		makeMark(8,4);
+		guardMove[8][4]=1;
 	};
 	if (x==1) {
 		if (standby[0][3]<1) {
-			makeMark(0,3);
+			guardMove[0][3]=1;
 		};
 		if (standby[0][5]<1) {
-			makeMark(0,5);
+			guardMove[0][5]=1;
 		};
 		if (standby[2][3]<1) {
-			makeMark(2,3);
+			guardMove[2][3]=1;
 		};
 		if (standby[2][5]<1) {
-			makeMark(2,5);
+			guardMove[2][5]=1;
 		};
 	};
 	
 	if (x==8) {
 		if (standby[9][3]>-1) {
-			makeMark(9,3);
+			guardMove[9][3]=1;
 		};
 		if (standby[9][5]>-1) {
-			makeMark(9,5);
+			guardMove[9][5]=1;
 		};
 		if (standby[7][3]>-1) {
-			makeMark(7,3);
+			guardMove[7][3]=1;
 		};
 		if (standby[7][5]>-1) {
-			makeMark(7,5);
+			guardMove[7][5]=1;
 		};
 	};
-	
+	return guardMove;
 }
 function Cannon (x,y) {
 	var cannonMove=[];
@@ -632,10 +858,9 @@ function Cannon (x,y) {
 			cannonMove[i][y]=1;
 		} else{
 			for (var j = i+1; j < 10; j++) {
-				if (standby[x][y]*standby[j][y]==-1) {	
-					cannonMove[j][y]=1;
+				if (standby[x][y]*standby[j][y]==1) {	
 					break;
-				}
+				}else{if (standby[x][y]*standby[j][y]==-1) {cannonMove[j][y]=1;break;}}
 			} break;
 		};
 	};
@@ -644,10 +869,9 @@ function Cannon (x,y) {
 			cannonMove[i][y]=1;
 		} else{
 			for (var j = i-1; j >= 0; j--) {
-				if (standby[x][y]*standby[j][y]==-1) {	
-					cannonMove[j][y]=1;
+				if (standby[x][y]*standby[j][y]==1) {	
 					break;
-				}
+				}else{if (standby[x][y]*standby[j][y]==-1) {cannonMove[j][y]=1;break;}}
 			} break;
 		};
 	};
@@ -656,10 +880,9 @@ function Cannon (x,y) {
 			cannonMove[x][i]=1;
 		} else{
 			for (var j = i+1; j < 10; j++) {
-				if (standby[x][y]*standby[x][j]==-1) {	
-					cannonMove[x][j]=1;
+				if (standby[x][y]*standby[j][y]==1) {	
 					break;
-				}
+				}else{if (standby[x][y]*standby[j][y]==-1) {cannonMove[j][y]=1;break;}}
 			} break;
 		};
 	};
@@ -668,10 +891,9 @@ function Cannon (x,y) {
 			cannonMove[x][i]=1;
 		} else{
 			for (var j = i-1; j >= 0; j--) {
-				if (standby[x][y]*standby[x][j]==-1) {	
-					cannonMove[x][j]=1;
+				if (standby[x][y]*standby[j][y]==1) {	
 					break;
-				}
+				}else{if (standby[x][y]*standby[j][y]==-1) {cannonMove[j][y]=1;break;}}
 			} break;
 		};
 	};
