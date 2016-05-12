@@ -83,12 +83,12 @@ th{
 	margin-top: 0px;
 }
 #onRe{
-	opacity: 0;
-	position: relative;
-    right: 145px;
+    opacity: 0;
+    position: absolute;
     height: 30px;
     width: 100px;
-    bottom: 30px;
+    top: 192px;
+    right: 41px;
 }
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
@@ -127,8 +127,9 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 
 	<table id="main">
 		<tr>
-			<td>
+			<td style="position: relative;">
 				<img src="gui/login.png">
+				<?php echo "string"; ?>
 				<img id="onRe" onclick="register()">
 			</td>
 		</tr>
