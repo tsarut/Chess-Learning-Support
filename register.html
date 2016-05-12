@@ -9,6 +9,24 @@
 	background-position:center;
 	background-attachment:fixed;
 	}
+	#submit{
+	background-image: url(gui/input_confirm.png);
+    width: 100px;
+    padding: 0;
+    border: none;
+    height: 35px;
+    background-color: rgba(0,0,0,0);
+	}
+	.text{
+    position: absolute;
+    right: 225px;
+    bottom: 33px;
+    height: 70px;
+    background-color: rgba(0,0,0,0);
+	}
+	div{
+		position: relative;
+	}
 </style>
 </head>
 <script type="text/javascript">
@@ -23,16 +41,19 @@
 <body>
 <br><br>
 <center><form method="post" action="submit_register.php">
+<div>
 <img src="gui/input_username.png">
-<!--<input name="user" id="User">--><br><br>
+<input class="text" name="user" id="User"><br><br></div>
+<div>
 <img src="gui/input_email.png">
-<!--<input name="email" id="Email" onfocusout>--><br><br>
+<input class="text" name="email" id="Email" onfocusout><br><br></div>
+<div>
 <img src="gui/input_password.png">
-<!--<input name="pass" id="Pass" type="password">--><br><br>
+<input class="text" name="pass" id="Pass" type="password"><br><br></div>
+<div>
 <img src="gui/input_password_re.png">
-<!--<input id="RePass" type="password">--><br><br>
-<img src="gui/input_confirm.png">
-<!--<input type="submit">-->
+<input class="text" id="RePass" type="password"><br><br></div>
+<input id="submit" type="submit" value="">
 </form></center>
 </body>
 </html>
