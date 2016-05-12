@@ -111,8 +111,8 @@ function tableOfMark() {
 				if (lockmove[kingX][kingY]==1) {
 					list[more]=images[i];
 					more++;
-					images[i].style.backgroundColor='rgba(255,0,0,0.5)';
-					document.getElementsByClassName("KingW")[0].style.backgroundColor='rgba(255,0,0,0.5)';
+					setRed(images[i]);
+					setRed(document.getElementsByClassName("KingW")[0]);
 					lockmove[kingX][kingY]=more+1;
 					console.log("more");
 				}
@@ -155,8 +155,8 @@ function tableOfMark() {
 					if (lockmove[kingX][kingY]==1) {
 						list[more]=images[i];
 						more++;
-						images[i].style.backgroundColor='rgba(255,0,0,0.5)';
-						document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
+						setRed(images[i]);
+						setRed(document.getElementsByClassName("KingB")[0]);
 						lockmove[kingX][kingY]=more+1;
 						console.log("more");
 					}
@@ -452,6 +452,10 @@ function ableMove() {
 			
 		}		
 		
+	}if (more>0) {
+		for (var i = 0; i < groupMove.length; i++) {
+			setback(groupMove[i]);
+		}
 	}
 	if (more==0&&count==0) {
 		console.log('draw');

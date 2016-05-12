@@ -18,6 +18,14 @@ function Check(name,kingX,kingY) {
 	} else {lineTo[x][y]=1}
 	lineTo[kingX][kingY]=0;
 }
+function setback(name) {
+	// body...
+	name.style.backgroundImage="url('../gui/Thai/Mark_Available.png')"
+}
+function setRed(name) {
+	// body...
+	name.style.backgroundImage="url('../gui/Thai/Mark_Check.png')"
+}
 function makeMark (x,y) {
 	// body...
 	var newimg = document.createElement("img");
@@ -177,10 +185,13 @@ function changeBoard () {
 		}
 	};};
 	}
-	document.getElementsByClassName("KingW")[0].style.backgroundColor='';
-	document.getElementsByClassName("KingB")[0].style.backgroundColor='';
+	document.getElementsByClassName("KingW")[0].style.backgroundImage="";
+	document.getElementsByClassName("KingB")[0].style.backgroundImage="";
+	for (var i = 0; i < groupMove.length; i++) {
+		groupMove[i].style.backgroundImage="";
+	}
 	for (var i = 0; i < list.length; i++) {
-		list[i].style.backgroundColor='';
+		list[i].style.backgroundImage="";
 	}
 	tableOfMark();
 	ableMove();
