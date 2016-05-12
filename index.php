@@ -90,6 +90,29 @@ th{
     top: 192px;
     right: 41px;
 }
+.text{
+    position: absolute;
+    
+    background-color: rgba(0,0,0,0);
+}
+#User{
+	right: 69px;
+    bottom: 136px;
+}
+#Pass{
+	right: 69px;
+    bottom: 86px;	
+}
+#submitLogin{
+	position: absolute;
+	width: 100px;
+    padding: 0;
+    border: none;
+    height: 35px;
+    background-color: rgba(0,0,0,0);
+    bottom: 33px;
+    left: 41px;
+}
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 	<script type="text/javascript">
@@ -122,14 +145,16 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 </head>
 
 <body>
-	
 	<img src="gui/logo.png" id="logo">
-
 	<table id="main">
 		<tr>
 			<td style="position: relative;">
 				<img src="gui/login.png">
-				<?php echo "string"; ?>
+				<form action="check_login.php" method="post">
+				<input class="text" name="user" id="User">
+				<input class="text" name="pass" id="Pass" type="password">
+				<input value="" id="submitLogin" type="submit"></input>
+				</form>
 				<img id="onRe" onclick="register()">
 			</td>
 		</tr>
