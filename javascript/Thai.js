@@ -309,3 +309,44 @@ function QueenLock (x,y) {
 		};
 	};
 }
+function King (x,y) {
+	// body...
+		var KingMove=0;
+		if (x>0) {
+		if (lockmove[x-1][y-1]!=1&&standby[x][y]*standby[x-1][y-1]<1) {
+			makeMark(x-1,y-1);
+			KingMove++;
+		};
+		if (lockmove[x-1][y+1]!=1&&standby[x][y]*standby[x-1][y+1]<1) {
+			makeMark(x-1,y+1);
+			KingMove++;
+		};
+		if (lockmove[x-1][y]!=1&&standby[x-1][y]*standby[x][y]<1) {
+			makeMark(x-1,y);
+			KingMove++;
+		};
+	} 
+	if (x<listarr1.length-1) {
+		if (lockmove[x+1][y+1]!=1&&standby[x+1][y+1]*standby[x][y]<1) {
+			makeMark(x+1,y+1);
+			KingMove++;
+		};
+		if (lockmove[x+1][y-1]!=1&&standby[x+1][y-1]*standby[x][y]<1) {
+			makeMark(x+1,y-1);
+			KingMove++;
+		};
+		if (lockmove[x+1][y]!=1&&standby[x+1][y]*standby[x][y]<1) {
+			makeMark(x+1,y);
+			KingMove++;
+		};
+	};
+	if (lockmove[x][y-1]!=1&&standby[x][y]*standby[x][y-1]<1) {
+		makeMark(x,y-1);
+		KingMove++;
+	};
+	if (lockmove[x][y+1]!=1&&standby[x][y]*standby[x][y+1]<1) {
+		makeMark(x,y+1);
+		KingMove++;
+	};
+	return KingMove;
+}

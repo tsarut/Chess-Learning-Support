@@ -66,6 +66,26 @@ function setclick () {
 	images[0].onclick=function(){
 		document.getElementsByClassName("Mark").remove();
 	}
+	if (images[0].src.slice(-20,-10)=="InterBoard") {
+		if (document.getElementsByClassName('RookW')[0].id=='h1') {
+			castle[0]=1;
+		}
+		if (document.getElementsByClassName('RookW')[1].id=='h8') {
+			castle[2]=1;
+		}
+		if (document.getElementsByClassName('RookB')[0].id=='a1') {
+			castle[3]=1;
+		}
+		if (document.getElementsByClassName('RookB')[1].id=='a8') {
+			castle[5]=1;
+		}
+		if (document.getElementsByClassName('KingB')[0].id=='a5') {
+			castle[4]=1;
+		}
+		if (document.getElementsByClassName('KingW')[0].id=='h5') {
+			castle[1]=1;
+		}
+	}
 	for (var j = 1; j < images.length; j++) {
 		x,y=getXY(images[j]);
 		if (images[j].className.slice(-1)=="B") {
@@ -84,7 +104,7 @@ function setclick () {
 		};
 	}
 	ableMove();
-}
+}	
 
 function getXY (thisclass) {
 	for (var i = listarr1.length - 1; i >= 0; i--) {
