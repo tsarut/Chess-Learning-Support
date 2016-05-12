@@ -5,12 +5,12 @@
 	<link rel="stylesheet" type="text/css" href="css/quiz.css">
 	<link rel="stylesheet" type="text/css" href="css/setup.css">
 	<script type="text/javascript">
-		function resize(){
-			document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/1000;
-			var x = document.getElementById("iframe");
-			var y = x.contentDocument;
-			y.body.style.zoom=0.825*screen.availHeight/1000;
-		}
+function resize(){
+	document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/1000;
+	var x = document.getElementById("iframe");
+	var y = x.contentDocument;
+	y.body.style.zoom=0.825*screen.availHeight/1000;
+}
 	</script>
 	<style type="text/css">
 	iframe{
@@ -37,11 +37,11 @@
 
 	</style>
 </head>
-<body>
+<body onload="resize()">
 <div id="title"><img id="title_img" src="gui/page_name/pname_quiz2.png"></div>
 <div>
 <div id="main">
-	<iframe src="processing_board/quiz_hores_th.html" scrolling="no" height="949" width="949"></iframe>
+	<iframe id="iframe" src="processing_board/quiz_hores_th.html" scrolling="no" height="949" width="949"></iframe>
 
 
 </div>
