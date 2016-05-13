@@ -18,7 +18,16 @@
 		margin-top: 150px;
 		margin-right: 60px;
 	}
-
+	#submitLogout{
+	position: absolute;
+    width: 100px;
+    padding: 0;
+    border: none;
+    height: 35px;
+    background-color: rgba(0,0,0,0);
+    bottom: 38px;
+    left: 101px;
+	}
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 </head>
@@ -27,8 +36,9 @@
 	<img src="gui/page_name/pname_type.png" id="title">
 	<table id="main">
 		<tr>
-			<td>
+			<td style="position: relative;">
 				<img src="gui/online.png">
+				<input type="submit" value="" id="submitLogout"></input>
 			</td>
 		</tr>
 		<tr>
