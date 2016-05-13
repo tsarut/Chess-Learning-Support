@@ -3,116 +3,133 @@
 <head>
 	<title>Welcome to ITC Chess Learning Application!!!</title>
 	<style type="text/css">
-#head{
-	float: right;
-	right: 0px;
-	position: absolute;
-}
+	@import url(font/thsarabunnew.css);
+	@charset "utf-8";
 
-#main{
-	float: left;
-	margin-left: -10px;
-	margin-top: 5%;
-}
+	#head{
+		float: right;
+		right: 0px;
+		position: absolute;
+	}
 
-body {
-	background-image:url(gui/bg.png);
-	background-size:100%;
-	background-position:center;
-	background-attachment:fixed;
-}
+	#main{
+		float: left;
+		margin-left: -10px;
+		margin-top: 5%;
+	}
+
+	body {
+		background-image:url(gui/bg.png);
+		background-size:100%;
+		background-position:center;
+		background-attachment:fixed;
+	}
 
 
-div{
-	float: right;
-	margin-top: 6%;
-	margin-right:25%;
-}
-#logo{
-    position: absolute;
-    top: 0; bottom:0; left: 0; right:0;
-    margin: auto;
-    z-index: -1;
-	zoom:1.5;
+	div{
+		float: right;
+		margin-top: 6%;
+		margin-right:25%;
+	}
+	#logo{
+	    position: absolute;
+	    top: 0; bottom:0; left: 0; right:0;
+	    margin: auto;
+	    z-index: -1;
+		zoom:1.5;
 
-}
-#showRank{
-	top: 0px;
-    margin-top: 5%;
-    background-color: rgba(100,50,30,0.5);
-    margin-right: 20px;
-    border: 1px solid black;
-    border-collapse: collapse;
+	}
+	#showRank{
+		top: 0px;
+	    margin-top: 5%;
+	    background-color: rgba(100,50,30,0.5);
+	    margin-right: 20px;
+	    border: 1px solid black;
+	    border-collapse: collapse;
 
-}
-#Rank{
-	text-align: center;
-    width: 300px;
-    right: 10px;
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-#fRank{
-	width: 280px;
-	border-right: 1px solid black;
-    border-collapse: collapse;
-}
-th{
-	border: 1px solid black;
-    border-collapse: collapse;
-}
-#register{
-	top: 0px;
-	bottom: 0px;
-	margin: auto 0;
-	width: 80%;
-    z-index: 1;
-    right: 10%;
-    position: fixed;
-    background-color: white;
-    height: 80%;
-}
-#background{
-	background-color: rgba(0,0,0,0.5);
-	width: 100%;
-	position:fixed;
-	z-index: 1;
-	height: 1000000px;
-	top: 0px;
-	left: 0px;
-	margin-top: 0px;
-}
-#onRe{
-    opacity: 0;
-    position: absolute;
-    height: 30px;
-    width: 100px;
-    top: 192px;
-    right: 41px;
-}
-.text{
-    position: absolute;
-    
-    background-color: rgba(0,0,0,0);
-}
-#User{
-	right: 69px;
-    bottom: 136px;
-}
-#Pass{
-	right: 69px;
-    bottom: 86px;	
-}
-#submitLogin{
-	position: absolute;
-	width: 100px;
-    padding: 0;
-    border: none;
-    height: 35px;
-    background-color: rgba(0,0,0,0);
-    bottom: 33px;
-    left: 41px;
-}
+	}
+	#Rank{
+		text-align: center;
+	    width: 300px;
+	    right: 10px;
+	    border: 1px solid black;
+	    border-collapse: collapse;
+	}
+	#fRank{
+		width: 280px;
+		border-right: 1px solid black;
+	    border-collapse: collapse;
+	}
+	th{
+		border: 1px solid black;
+	    border-collapse: collapse;
+	}
+	#register{
+		top: 0px;
+		bottom: 0px;
+		margin: auto 0;
+		width: 80%;
+	    z-index: 1;
+	    right: 10%;
+	    position: fixed;
+	    background-color: white;
+	    height: 80%;
+	}
+	#background{
+		background-color: rgba(0,0,0,0.5);
+		width: 100%;
+		position:fixed;
+		z-index: 1;
+		height: 1000000px;
+		top: 0px;
+		left: 0px;
+		margin-top: 0px;
+	}
+	#onRe{
+		cursor: pointer;
+		background-image: url(gui/input_register.png);
+	    position: absolute;
+	    height: 30px;
+	    width: 100px;
+	   	padding: 0;
+	    border: none;
+	    background-color: rgba(0,0,0,0);
+	    top: 191px;
+	    right: 41px;
+	}
+	.text{
+	    position: absolute;
+	    
+	    background-color: rgba(0,0,0,0);
+	}
+	#User{
+		font-family: 'THSarabunNew', sans-serif;
+		font-size: 20px;
+		right: 37px;
+	    bottom: 131px;
+	    width: 185px;
+	    height: 30px;
+	}
+	#Pass{
+		font-family: 'THSarabunNew', sans-serif;
+		font-size: 20px;
+		right: 37px;
+	    bottom: 81px;
+	    width: 185px;
+	    height: 30px;
+	}
+	#submitLogin{
+		cursor: pointer;
+		background-image: url(gui/input_login.png);
+		position: absolute;
+		height: 30px;
+		width: 100px;
+	    padding: 0;
+	    border: none;
+	    background-color: rgba(0,0,0,0);
+	    top: 191px;
+	    left: 41px;
+	}
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 	<script type="text/javascript">
@@ -153,9 +170,9 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 				<form action="check_login.php" method="post">
 				<input class="text" name="user" id="User">
 				<input class="text" name="pass" id="Pass" type="password">
-				<input value="" id="submitLogin" type="submit"></input>
+				<input value="" id="submitLogin" type="submit" onmouseover="swapImage(6)" onmouseout="swapImgRestore(6)">
 				</form>
-				<img id="onRe" onclick="register()">
+				<input id="onRe" onclick="register()" type="submit" value="" onmouseover="swapImage(7)" onmouseout="swapImgRestore(7)">
 			</td>
 		</tr>
 		<tr>

@@ -3,6 +3,9 @@
 <head>
 	<title></title>
 	<style type="text/css">
+	@import url(font/thsarabunnew.css);
+	@charset "utf-8";
+
 	body {
 	background-image:url(gui/bg.png);
 	background-size:100%;
@@ -10,6 +13,7 @@
 	background-attachment:fixed;
 	}
 	#submit{
+	cursor: pointer;
 	background-image: url(gui/input_confirm.png);
     width: 100px;
     padding: 0;
@@ -18,17 +22,33 @@
     background-color: rgba(0,0,0,0);
 	}
 	.text{
+	font-family: 'THSarabunNew', sans-serif;
+	font-size: 20px;
     position: absolute;
     right: 25px;
-    bottom: 33px;
-    height: 70px;
-    background-color: rgba(0,0,0,0);
+    bottom: 45px;
+    width: 225px;
+    height: 35px;
+    background-color: rgb(252,248,202);
 	}
+
+	.textrepass{
+	font-family: 'THSarabunNew', sans-serif;
+	font-size: 20px;
+    position: absolute;
+    right: 25px;
+    bottom: 45px;
+    width: 175px;
+    height: 35px;
+    background-color: rgb(252,248,202);
+	}
+
 	div{
 		position: relative;
 		width: 400px;
 	}
 </style>
+<script type="text/javascript" src="buttonScripter.js"></script>
 </head>
 <script type="text/javascript">
 	function submit () {
@@ -53,8 +73,8 @@
 <input class="text" name="pass" id="Pass" type="password"><br><br></div>
 <div>
 <img src="gui/input_password_re.png">
-<input class="text" id="RePass" type="password"><br><br></div>
-<input id="submit" type="submit" value="">
+<input class="textrepass" id="RePass" type="password"><br><br></div>
+<input id="submit" type="submit" value="" onmouseover="swapImage(5)" onmouseout="swapImgRestore(5)">
 </form></center>
 </body>
 </html>
