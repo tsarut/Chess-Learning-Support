@@ -330,7 +330,12 @@ function changeBoard () {
 		} else {document.getElementById('h8').id='h6'}}}
 	}
 	castling='';
-
+	if (pickIt.className.slice(0,-1)=='Pawn') {
+		x,y=getXY(pickIt);
+		if (document.getElementById(listarr1[x+1-2*turn]+listarr2[y])==pawnMark[1-turn]) {
+			document.getElementById(listarr1[x+1-2*turn]+listarr2[y]).remove();
+		}
+	}
 	standby=
 [[0,0,0,0,0,0,0,0]
 ,[0,0,0,0,0,0,0,0]
@@ -380,19 +385,22 @@ function changeBoard () {
 	}
 	tableOfMark();
 	ableMove();
+	pawnMark[turn]='';
 }
 
 
-
+var pawnMark=['',''];
 function Pawn (x,y) {
 	// body...
 	var PawnMove=[];
+
 	PawnMove=table;
 	if (standby[x][y]*standby[x+standby[x][y]][y]==0) {
 	PawnMove[x+standby[x][y]][y]=1;
 	if ((x==1&&standby[x][y]==1)||(x==6&&standby[x][y]==-1)) {
 		if (standby[x][y]*standby[x+2*standby[x][y]][y]==0) {
-		PawnMove[x+2*standby[x][y]][y]=1;	
+		PawnMove[x+2*standby[x][y]][y]=1;
+		pawnMark[turn]=document.getElementById(listarr1[x]+listarr2[y]);
 	
 		};
 	}		
@@ -403,6 +411,21 @@ function Pawn (x,y) {
 	if (standby[x+standby[x][y]][y-1]*standby[x][y]==-1) {
 		PawnMove[x+standby[x][y]][y-1]=1;
 	};
+	if (turn==0) {
+		if (pawnMark[1]==document.getElementById(listarr1[x]+listarr2[y-1])) {
+			PawnMove[x+standby[x][y]][y-1]=1;
+		}
+		if (pawnMark[1]==document.getElementById(listarr1[x]+listarr2[y+1])) {
+			PawnMove[x+standby[x][y]][y+1]=1;
+		}
+	} else {
+		if (pawnMark[0]==document.getElementById(listarr1[x]+listarr2[y-1])) {
+			PawnMove[x+standby[x][y]][y-1]=1;
+		}
+		if (pawnMark[0]==document.getElementById(listarr1[x]+listarr2[y+1])) {
+			PawnMove[x+standby[x][y]][y+1]=1;
+		}
+	}
 	return PawnMove;
 }
 function BishopLock (x,y) {
