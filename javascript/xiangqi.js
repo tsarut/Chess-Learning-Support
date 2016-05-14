@@ -92,6 +92,8 @@ function lockKing(kingX,kingY,className) {
 		{
 			if (document.getElementById(listarr1[i]+listarr2[j]).className=="King"+turnName[standby[i][j]+1]){
 				console.log(document.getElementById(listarr1[kingX]+listarr2[kingY]).className+' win');
+				document.getElementById(listarr1[i]+listarr2[kingY]).style.backgroundColor='rgba(255,0,0,0.5)';
+				document.getElementById(listarr1[kingX]+listarr2[kingY]).style.backgroundColor='rgba(0,255,0,0.5)';
 			}else{
 				break;	
 			}
