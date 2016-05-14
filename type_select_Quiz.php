@@ -1,80 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome to ITC Chess Learning Application!!!</title>
+	<title>Choose chess type!</title>
+	<link rel="stylesheet" type="text/css" href="css/setup.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript">
+		function resize(){document.getElementsByTagName('body')[0].style.zoom=screen.availHeight/790;}
+	</script>
 	<style type="text/css">
 	@import url(font/th_charm_of_au.css);
 	@import url(font/thsarabunnew.css);
 	@charset "utf-8";
 
-	#head{
-		float: right;
-		right: 0px;
-		position: absolute;
-	}
-
 	#main{
 		float: left;
 		margin-left: -10px;
-		margin-top: 5%;
+		margin-top: 100px;
 	}
-
-	body {
-		background-image:url(gui/bg.png);
-		background-size:100%;
-		background-position:center;
-		background-attachment:fixed;
-	}
-
 
 	div{
 		float: right;
-		margin-top: 6%;
-		margin-right:25%;
-	}
-	#logo{
-	    position: absolute;
-	    top: 0; bottom:0; left: 0; right:0;
-	    margin: auto;
-	    z-index: -1;
-		zoom:1.5;
-
-	}
-	#showRank{
-		top: 0px;
-	    margin-top: 5%;
-	    background-color: rgba(100,50,30,0.5);
-	    margin-right: 20px;
-	    border: 1px solid black;
-	    border-collapse: collapse;
-
-	}
-	#Rank{
-		text-align: center;
-	    width: 300px;
-	    right: 10px;
-	    border: 1px solid black;
-	    border-collapse: collapse;
-	}
-	#fRank{
-		width: 280px;
-		border-right: 1px solid black;
-	    border-collapse: collapse;
-	}
-	th{
-		border: 1px solid black;
-	    border-collapse: collapse;
+		margin-top: 150px;
+		margin-right: 60px;
 	}
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 	<script type="text/javascript" src="javascript/setup.js"></script>
-	<script type="text/javascript">
-	</script>
 </head>
 
-<body>
-	<img src="gui/logo.png" id="logo">
+<body onload="resize()">
+	<img src="gui/page_name/pname_type.png" id="title">
 	<table id="main">
 		<tr>
 			<td style="position: relative;">
@@ -120,60 +75,20 @@
 		</tr>
 	</table>
 
-
-
-	<div id="showRank">
-		<table id="Rank">
+	<div>
+		<table>
 			<tr>
-				<th id="fRank">User</th>
-				<th>Rank</th>
+				<td><img src="gui/button/button_pic_select_in.png"></td>
+				<td><img src="gui/button/button_pic_select_th.png"></td>
+				<td><img src="gui/button/button_pic_select_ch.png"></td>
 			</tr>
 			<tr>
-				<td id="fRank">Kuhaku</td>
-				<td>100</td>
+				<td><img src="gui/button/button_select_in.png"></td>
+				<td><img src="gui/button/button_select_th.png"></td>
+				<td><img src="gui/button/button_select_ch.png"></td>
 			</tr>
-			<tr>
-				<td id="fRank">kami-nii-sama</td>
-				<td>99</td>
-			</tr>
-			<tr>
-				<td id="fRank">glen</td>
-				<td>96</td>
-			</tr>
-			<tr>
-				<td id="fRank">tsarut</td>
-				<td>93</td>
-			</tr>
-			<tr>
-				<td id="fRank">Gun</td>
-				<td>88</td>
-			</tr>
-			<tr>
-				<td id="fRank">=w=</td>
-				<td>75</td>
-			</tr>
-			<tr>
-				<td id="fRank">blah_blah</td>
-				<td>69</td>
-			</tr>
-			<tr>
-				<td id="fRank">hachi</td>
-				<td>58</td>
-			</tr>
-			<tr>
-				<td id="fRank">qwertyui1234</td>
-				<td>49</td>
-			</tr>
-			<tr>
-				<td id="fRank">jun</td>
-				<td>44</td>
-			</tr>
-
-
 		</table>
 	</div>
-		
-
 
 </body>
 
