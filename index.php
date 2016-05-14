@@ -3,6 +3,7 @@
 <head>
 	<title>Welcome to ITC Chess Learning Application!!!</title>
 	<style type="text/css">
+	@import url(font/th_charm_of_au.css);
 	@import url(font/thsarabunnew.css);
 	@charset "utf-8";
 
