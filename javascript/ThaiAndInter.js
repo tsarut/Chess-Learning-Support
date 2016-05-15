@@ -658,10 +658,12 @@ function Horse (x,y) {
 }	
 function PawnLock (x,y) {
 	// body...
-	if (standby[x+standby[x][y]][y+1]*standby[x][y]!=-1&&!isNaN(standby[x+standby[x][y]][y+1])) {
-		lockmove[x+standby[x][y]][y+1]=1;
-	};
-	if (standby[x+standby[x][y]][y-1]*standby[x][y]!=-1&&!isNaN(standby[x+standby[x][y]][y-1])) {
-		lockmove[x+standby[x][y]][y-1]=1;	
-	};
+	if (x>0&&x<listarr1.length-1) {
+		if (standby[x+standby[x][y]][y+1]*standby[x][y]!=-1&&!isNaN(standby[x+standby[x][y]][y+1])) {
+			lockmove[x+standby[x][y]][y+1]=1;
+		};
+		if (standby[x+standby[x][y]][y-1]*standby[x][y]!=-1&&!isNaN(standby[x+standby[x][y]][y-1])) {
+			lockmove[x+standby[x][y]][y-1]=1;	
+		};
+	}
 }

@@ -327,7 +327,7 @@ function changeBoard () {
 		}else{document.getElementById('h1').id='h4';} 
 	}
 	if (pickIt.id==castling2) {
-		if (pickIt.id=='a6') {
+		if (pickIt.id=='a7') {
 			document.getElementById('a8').id='a6';
 		}else {document.getElementById('h8').id='h6'}
 	}
@@ -560,6 +560,8 @@ function Promote(name,WB,mark){
 	document.getElementsByClassName("Pro").remove();
 	document.getElementById('Pro').style.display='none';
 	document.getElementById('Block').style.display='none';
+	if (turn==1) {turn--} else {turn++}
+	changeBoard();
 }
 
 function Queen (x,y) {
@@ -723,8 +725,8 @@ function King (x,y) {
 		if (turn==0) {
 			if (castle[0]*castle[1]||castle[1]*castle[2]) {
 				if (Math.abs(standby[7][1])+Math.abs(standby[7][2])+Math.abs(standby[7][3])==0||Math.abs(standby[7][5])+Math.abs(standby[7][6])==0) {
-					if ((!lockmove[7][2]&&!lockmove[7][2])||(!lockmove[7][5]&&!lockmove[7][6])) {
-						if (castle[0]*castle[1]&&Math.abs(standby[7][1])+Math.abs(standby[7][2])+Math.abs(standby[7][3])==0&&(!lockmove[7][2]&&!lockmove[7][2])) {
+					if ((!lockmove[7][2]&&!lockmove[7][3])||(!lockmove[7][5]&&!lockmove[7][6])) {
+						if (castle[0]*castle[1]&&Math.abs(standby[7][1])+Math.abs(standby[7][2])+Math.abs(standby[7][3])==0&&(!lockmove[7][2]&&!lockmove[7][3])) {
 							makeMark(7,2);
 							castling=listarr1[7]+listarr2[2];
 						}
@@ -738,8 +740,8 @@ function King (x,y) {
 		}else{
 			if (castle[3]*castle[4]||castle[4]*castle[5]) {
 				if (Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0||Math.abs(standby[0][5])+Math.abs(standby[0][6])==0) {
-					if ((!lockmove[0][2]&&!lockmove[0][2])||(!lockmove[0][5]&&!lockmove[0][6])) {
-						if (castle[3]*castle[4]&&Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0&&(!lockmove[0][2]&&!lockmove[0][2])) {
+					if ((!lockmove[0][2]&&!lockmove[0][3])||(!lockmove[0][5]&&!lockmove[0][6])) {
+						if (castle[3]*castle[4]&&Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0&&(!lockmove[0][2]&&!lockmove[0][3])) {
 							makeMark(0,2);
 							castling=listarr1[0]+listarr2[2];
 						}
