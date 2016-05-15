@@ -322,11 +322,11 @@ function changeBoard () {
 	}
 	if (pickIt.id==castling) {
 		if (pickIt.id=='a3') {
-			document.getElementById('a1').id='a3';
+			document.getElementById('a1').id='a4';
 		}else{if (pickIt.id=='a6') {
 			document.getElementById('a8').id='a6';
 		} else {if (pickIt.id=='h3') {
-			document.getElementById('h1').id='h3';
+			document.getElementById('h1').id='h4';
 		} else {document.getElementById('h8').id='h6'}}}
 	}
 	castling='';
@@ -723,11 +723,10 @@ function King (x,y) {
 						if (castle[0]*castle[1]&&Math.abs(standby[7][1])+Math.abs(standby[7][2])+Math.abs(standby[7][3])==0&&(!lockmove[7][2]&&!lockmove[7][2])) {
 							makeMark(7,2);
 							castling=listarr1[7]+listarr2[2];
-						} else {
-							if (castle[1]*castle[2]&&Math.abs(standby[7][5])+Math.abs(standby[7][6])==0&&(!lockmove[7][5]&&!lockmove[7][6])) {
-								makeMark(7,6);
-								castling=listarr1[7]+listarr2[6];
-							}
+						}
+						if (castle[1]*castle[2]&&Math.abs(standby[7][5])+Math.abs(standby[7][6])==0&&(!lockmove[7][5]&&!lockmove[7][6])) {
+							makeMark(7,6);
+							castling=listarr1[7]+listarr2[6];
 						}
 					}
 				}
@@ -739,11 +738,10 @@ function King (x,y) {
 						if (castle[0]*castle[1]&&Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0&&(!lockmove[0][2]&&!lockmove[0][2])) {
 							makeMark(0,2);
 							castling=listarr1[0]+listarr2[2];
-						} else {
-							if (castle[1]*castle[2]&&Math.abs(standby[0][5])+Math.abs(standby[0][6])==0&&(!lockmove[0][5]&&!lockmove[0][6])) {
-								makeMark(0,6);
-								castling=listarr1[0]+listarr2[6];
-							}
+						}
+						if (castle[1]*castle[2]&&Math.abs(standby[0][5])+Math.abs(standby[0][6])==0&&(!lockmove[0][5]&&!lockmove[0][6])) {
+							makeMark(0,6);
+							castling=listarr1[0]+listarr2[6];
 						}
 					}
 				}
