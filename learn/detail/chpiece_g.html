@@ -24,6 +24,8 @@
 			zoom: 0.5;
 		}
 
+		#testopen{cursor: pointer;}
+
 		#test{
 			font-family: 'THSarabunNew', sans-serif;
 			font-size: 20px;
@@ -56,16 +58,17 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกจีน</div><br>
 	<div id="hcontent">สือ(องครักษ์)</div><br>
-			<center><img src="../../gui/content/chp_guard.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/chp_guard.png"></center><br><br>
 	<div id="content">สีดำจะใช้ตัวอักษร 士 ส่วนสีแดงจะใช้ตัวอักษร 仕 ตัวแทนองครักษ์ ปกป้องตี่ คุ้มครองพระราชวัง เดินได้ภายในเขตพระราชวังเท่านั้น มี 2 ตัวตลอดทั้งเกมกติกาการเดินสือมีดังนี้</div><br>
 		<li id="content">เดินได้ในแนวทแยงทั้ง 4 ช่องรอบตัว สามารถกินหมากในจุดที่เดินได้ และไม่สามารถเดินออกนอกเขตพระราชวังได้ และเพราะเดินได้เฉพาะแนวทแยง จึงเป็นหมากที่มีจุดที่เดินไปได้น้อยที่สุดในหมากรุกจีน คือเพียง 5 จุดบนกระดานเท่านั้น</li>
-			<center><img src="../../gui/content/chp_gmove.png" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
-		<center><div id="test">แบบทดสอบ</div><br></center>
+			<center><img src="../../gui/content/chp_gmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
+		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
 	
 
 

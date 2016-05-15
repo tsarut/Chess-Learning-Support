@@ -24,6 +24,8 @@
 			zoom: 0.5;
 		}
 
+		#testopen{cursor: pointer;}
+
 		#test{
 			font-family: 'THSarabunNew', sans-serif;
 			font-size: 20px;
@@ -56,18 +58,19 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกจีน</div><br>
 	<div id="hcontent">จุก(เบี้ย)</div><br>
-			<center><img src="../../gui/content/chp_pawn.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/chp_pawn.png"></center><br><br>
 	<div id="content">สีดำจะใช้ตัวอักษร 卒 ส่วนสีแดงจะใช้ตัวอักษร 兵 ตัวแทนพลทหารราบ ด่านหน้ากล้าตาย บุกแล้วไม่มีถอย เมื่อข้ามแม่น้ำจะถูกเลื่อนยศให้มีอำนาจการเดินเพิ่มขึ้น มี 5 ตัวตลอดทั้งเกม กติกาการเดินเบี้ยมีดังนี้</div><br>
 		<li id="content"><b>ก่อนข้ามแม่น้ำ</b> เดินตรงไปข้างหน้าได้เพียงจุดเดียว สามารถกินหมากในจุดที่เดินได้ (เดินตรง – กินตรง ต่างจากหมากรุกชาติอื่นที่มักจะเดินตรง – กินเฉียง)</li>
-			<center><img src="../../gui/content/chp_pmove.png" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยก่อนข้ามแม่น้ำ</div></center><br><br>
+			<center><img src="../../gui/content/chp_pmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยก่อนข้ามแม่น้ำ</div></center><br><br>
 		<li id="content"><b>หลังข้ามแม่น้ำ(เลื่อนยศ)</b> จะมีอำนาจการเดินเพิ่มขึ้นคือเดินไปในแนวตรงด้านข้างได้อีกด้านละจุด แต่ยังคงไม่สามารถเดินถอยได้ สามารถกินหมากในจุดที่เดินได้</li>
-			<center><img src="../../gui/content/chp_ppromove.png" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยหลังข้ามแม่น้ำ</div></center><br><br>
-		<center><div id="test">แบบทดสอบ</div><br></center>
+			<center><img src="../../gui/content/chp_ppmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยหลังข้ามแม่น้ำ</div></center><br><br>
+		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
 	
 
 

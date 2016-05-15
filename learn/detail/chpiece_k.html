@@ -24,6 +24,8 @@
 			zoom: 0.5;
 		}
 
+		#testopen{cursor: pointer;}
+
 		#test{
 			font-family: 'THSarabunNew', sans-serif;
 			font-size: 20px;
@@ -56,15 +58,16 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกจีน</div><br>
 	<div id="hcontent">ตี่(ขุน)</div><br>
-			<center><img src="../../gui/content/chp_king.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/chp_king.png"></center><br><br>
 	<div id="content">สีดำจะใช้ตัวอักษร 將 ส่วนสีแดงจะใช้ตัวอักษร 帥 ตัวแทนประมุขแห่งกองทัพ เดินได้ภายในเขตพระราชวังเท่านั้น มีเพียงตัวเดียวตลอดทั้งเกม กติกาการเดินตี่มีดังนี้</div><br>
 		<li id="content">เดินได้ในแนวตรงทั้ง 4 ช่องรอบตัว สามารถกินหมากในจุดที่เดินได้ และไม่สามารถเดินออกนอกเขตพระราชวังได้</li>
-			<center><img src="../../gui/content/chp_kmove.png" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
+			<center><img src="../../gui/content/chp_kmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
 		<li id="content">ไม่สามารถเดินไปยังตากินของฝ่ายตรงข้ามได้ ซึ่งหากไม่สามารถเดินหมากตัวอื่นได้ด้วยจะถือว่าเข้าตาอับ และฝ่ายที่เข้าตาอับจะเป็นฝ่ายแพ้ ต่างจากหมากรุกชาติอื่น</li>
 			<center><table><tr>
 				<td><img src="../../gui/content/chp_kcantmove.png" id="contentpic"></td>
@@ -76,13 +79,13 @@
 			<center><table><tr>
 				<td><img src="../../gui/content/chp_kesc.png" id="contentpic"></td>
 				<td><img src="../../gui/content/chcheckmate.png" id="contentpic"></td></tr>
-				<tr><td><div id="description">แก้ไขการถูกรุก</div></td>
+				<tr><td><div id="description">แก้ไขการถูกรุก (เดินหนี)</div></td>
 				<td><div id="description">รุกจน</div></td></tr>
 			</table></center><br><br>
 		<li id="content">หากตี่ฝ่ายใดฝ่ายหนึ่งเดินออกมาประจันหน้ากับตี่ฝ่ายตรงข้าม โดยไม่มีหมากอื่นใดขวางอยู่ ฝ่ายที่เดินตี่ออกมาจะเป็นฝ่ายแพ้</li>
-			<center><img src="../../gui/content/chconfront.png" id="contentpic"><div id="description">การประจันหน้า</div></center><br><br>
+			<center><img src="../../gui/content/chconfront.gif" id="contentpic"><div id="description">การประจันหน้า</div></center><br><br>
 		
-		<center><div id="test">แบบทดสอบ</div><br></center>
+		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
 	
 
 

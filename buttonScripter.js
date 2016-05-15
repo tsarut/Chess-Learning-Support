@@ -8,6 +8,7 @@ function swapImage(x) {
 	else if(x=='5'){document.getElementById("submit").style.backgroundImage="url(gui/input_confirm2.png)";}
 	else if(x=='6'){document.getElementById("submitLogin").style.backgroundImage="url(gui/input_login2.png)";}
 	else if(x=='7'){document.getElementById("onRe").style.backgroundImage="url(gui/input_register2.png)";}
+	else if(x=='8'){document.getElementById("testopen").src="../../gui/posttest2.png";}
 	else {return;}
 }
 
@@ -19,5 +20,6 @@ function swapImgRestore(x) {
 	else if(x=='5'){document.getElementById("submit").style.backgroundImage="url(gui/input_confirm.png)";}
 	else if(x=='6'){document.getElementById("submitLogin").style.backgroundImage="url(gui/input_login.png)";}
 	else if(x=='7'){document.getElementById("onRe").style.backgroundImage="url(gui/input_register.png)";}
+	else if(x=='8'){document.getElementById("testopen").src="../../gui/posttest.png";}
 	else {return;}
 }

@@ -24,6 +24,8 @@
 			zoom: 0.5;
 		}
 
+		#testopen{cursor: pointer;}
+
 		#test{
 			font-family: 'THSarabunNew', sans-serif;
 			font-size: 20px;
@@ -56,21 +58,17 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกจีน</div><br>
 	<div id="hcontent">เผ่า(ปืนใหญ่)</div><br>
-			<center><img src="../../gui/content/chp_cannon.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/chp_cannon.png"></center><br><br>
 	<div id="content">สีดำจะใช้ตัวอักษร 砲 ส่วนสีแดงจะใช้ตัวอักษร 炮 ตัวแทนทัพปืนใหญ่ ยิงไกล เกินคาดหมาย 1 ใน 3 ทัพหน้า ต้องมีหมากมาคั่นก่อนการกิน มี 2 ตัวตลอดทั้งเกม กติกาการเดินเผ่ามีดังนี้</div><br>
 		<li id="content">เดินได้ในแนวตรงทั้ง 4 ด้าน ไม่จำกัดระยะ จนกว่าจะเจอหมากขวาง หรือสุดกระดาน แต่การกินหมากจะต้องมีหมากใดๆ เพียง 1 ตัว มาคั่นก่อนเท่านั้น เรียกว่าการกระโดดกิน ซึ่งเผ่าเป็นหมากชนิดเดียวในหมากรุกจีนที่มีวิธีการกินต่างจากพวก</li>
-			<center><table><tr>
-				<td><img src="../../gui/content/chp_cmove.png" id="contentpic"></td>
-				<td><img src="../../gui/content/chp_ccapture.png" id="contentpic"></td></tr>
-				<tr><td><div id="description">ตำแหน่งการเดิน</div></td>
-				<td><div id="description">การกินหมากของเผ่า</div></td></tr>
-			</table></center><br><br>
-		<center><div id="test"><img src="gui/posttest.png"></div><br></center>
+			<center><img src="../../gui/content/chp_cmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน และการกินหมาก</div></center><br><br>
+		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
 	
 
 
