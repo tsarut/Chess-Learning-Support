@@ -1,0 +1,32 @@
+#a1{top: 4px; left: 4px; position: absolute;}
+#a2{top: 4px; left: 121px; position: absolute;}
+#a3{top: 4px; left: 240px; position: absolute;}
+#a4{top: 4px; left: 358px; position: absolute;}
+#a5{top: 4px; left: 476px; position: absolute;}
+#b1{top: 121px;	left: 4px; position: absolute;}
+#b2{top: 121px;	left: 121px; position: absolute;}
+#b3{top: 121px;	left: 240px; position: absolute;}
+#b4{top: 121px;	left: 358px; position: absolute;}
+#b5{top: 121px;	left: 476px; position: absolute;}
+#c1{top: 240px;	left: 4px; position: absolute;}
+#c2{top: 240px;	left: 121px; position: absolute;}
+#c3{top: 240px;	left: 240px; position: absolute;}
+#c4{top: 240px;	left: 358px; position: absolute;}
+#c5{top: 240px;	left: 476px; position: absolute;}
+#d1{top: 358px;	left: 4px; position: absolute;}
+#d2{top: 358px;	left: 121px; position: absolute;}
+#d3{top: 358px;	left: 240px; position: absolute;}
+#d4{top: 358px;	left: 358px; position: absolute;}
+#d5{top: 358px;	left: 476px; position: absolute;}
+#e1{top: 476px; left: 4px; position: absolute;}
+#e2{top: 476px; left: 121px; position: absolute;}
+#e3{top: 476px; left: 240px; position: absolute;}
+#e4{top: 476px; left: 358px; position: absolute;}
+#e5{top: 476px; left: 476px; position: absolute;}
+.mark{opacity: 0;background-color: rgba(102,102,102,0.75);}
+body{
+	margin: 0;
+}
+html{
+	overflow: hidden;
+}
