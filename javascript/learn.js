@@ -19,7 +19,7 @@ function quiz(name){
 	newdev.className="Pop";
 	document.body.appendChild(newdev);
 	var newiframe = document.createElement("iframe");
-	newiframe.src=('learn/quiz/'+name+".html");
+	newiframe.src=('learn/test/'+name+".html");
 	newiframe.id="detail";
 	newiframe.className="Pop";
 	document.body.appendChild(newiframe);
