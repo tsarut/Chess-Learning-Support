@@ -76,7 +76,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="type_select.php">
+				<a href="type_select_play.php">
 				<img id="btp2" src="gui/button/button_play1.png" onmouseover="swapImage(2)" onmouseout="swapImgRestore(2)"></a>
 			</td>
 		</tr>
@@ -90,18 +90,22 @@
 
 
 	<div id="choice">
+<a href="quiz_set_select.php">
 <div class="choose"> 
 	<div class="img_quiz"><img src="gui/button/button_pic_select_quiz1.png"></div>
 	<div class="text_quiz"><img src="gui/button/button_select_quiz1.png">
 	<p>เป็นการถามคำตามแบบตัวเลือก 4 ตัวเลือกให้เล่นกันสนุกๆ</p>
 	</div>
 </div>
+</a>
+<a href="type_select_Quiz.php">
 <div class="move">
 	<div class="img_quiz"><img src="gui/button/button_pic_select_quiz2.png"></div>
 	<div class="text_quiz"><img src="gui/button/button_select_quiz2.png">
 	<p>เป็นการจำลองหรือทำตามเงือนไขการเล่นด้วยตัวหมากบนกระดาน</p>
 	</div>
 </div>
+</a>
 	</div>
 		
 

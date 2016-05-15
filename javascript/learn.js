@@ -47,9 +47,10 @@ function save(mark) {
 		}
 	}
 }
-function getSubmit() {
+function getSubmit(name) {
 	// body...
 	var sum=[];
+	console.log(name);
 	var arr=document.getElementsByClassName('mark');
 	for (var i = 0; i < arr.length; i++) {
 		if (arr[i].style.opacity==1) {
