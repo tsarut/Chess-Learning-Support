@@ -108,7 +108,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="type_select.php">
+				<a href="type_select_play.php">
 				<img id="btp2" src="gui/button/button_play1.png" onmouseover="swapImage(2)" onmouseout="swapImgRestore(2)"></a>
 			</td>
 		</tr>

@@ -63,7 +63,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="type_select.php">
+				<a href="type_select_play.php">
 				<img id="btp2" src="gui/button/button_play1.png" onmouseover="swapImage(2)" onmouseout="swapImgRestore(2)"></a>
 			</td>
 		</tr>
@@ -78,14 +78,14 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="gui/button/button_pic_select_in.png"></td>
-				<td><img src="gui/button/button_pic_select_th.png"></td>
-				<td><img src="gui/button/button_pic_select_ch.png"></td>
+				<td><a href="learn_in.html"><img src="gui/button/button_pic_select_in.png"></a></td>
+				<td><a href="learn_th.html"><img src="gui/button/button_pic_select_th.png"></a></td>
+				<td><a href="learn_ch.html"><img src="gui/button/button_pic_select_ch.png"></a></td>
 			</tr>
 			<tr>
-				<td><img src="gui/button/button_select_in.png"></td>
-				<td><img src="gui/button/button_select_th.png"></td>
-				<td><img src="gui/button/button_select_ch.png"></td>
+				<td><a href="learn_in.html"><img src="gui/button/button_select_in.png"></a></td>
+				<td><a href="learn_th.html"><img src="gui/button/button_select_th.png"></a></td>
+				<td><a href="learn_ch.html"><img src="gui/button/button_select_ch.png"></a></td>
 			</tr>
 		</table>
 	</div>

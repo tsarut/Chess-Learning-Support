@@ -19,7 +19,7 @@ function quiz(name){
 	newdev.className="Pop";
 	document.body.appendChild(newdev);
 	var newiframe = document.createElement("iframe");
-	newiframe.src=('learn/quiz/'+name+".html");
+	newiframe.src=('learn/test/'+name+".html");
 	newiframe.id="detail";
 	newiframe.className="Pop";
 	document.body.appendChild(newiframe);
@@ -47,9 +47,10 @@ function save(mark) {
 		}
 	}
 }
-function getSubmit() {
+function getSubmit(name) {
 	// body...
 	var sum=[];
+	console.log(name);
 	var arr=document.getElementsByClassName('mark');
 	for (var i = 0; i < arr.length; i++) {
 		if (arr[i].style.opacity==1) {
