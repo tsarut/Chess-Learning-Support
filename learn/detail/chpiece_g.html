@@ -24,13 +24,15 @@
 			zoom: 0.5;
 		}
 
-		#testopen{cursor: pointer;}
-
-		#test{
-			font-family: 'THSarabunNew', sans-serif;
-			font-size: 20px;
-			text-align: center;
-			color:black;
+		#tester{
+			cursor: pointer;
+			background-image: url(../../gui/posttest.png);
+			background-position: center;
+			background-color: rgba(0,0,0,0);
+			width: 100px;
+			height: 35px;
+			padding: 0;
+	    	border: none;
 		}
 
 		#description{
@@ -68,8 +70,8 @@
 	<div id="content">สีดำจะใช้ตัวอักษร 士 ส่วนสีแดงจะใช้ตัวอักษร 仕 ตัวแทนองครักษ์ ปกป้องตี่ คุ้มครองพระราชวัง เดินได้ภายในเขตพระราชวังเท่านั้น มี 2 ตัวตลอดทั้งเกมกติกาการเดินสือมีดังนี้</div><br>
 		<li id="content">เดินได้ในแนวทแยงทั้ง 4 ช่องรอบตัว สามารถกินหมากในจุดที่เดินได้ และไม่สามารถเดินออกนอกเขตพระราชวังได้ และเพราะเดินได้เฉพาะแนวทแยง จึงเป็นหมากที่มีจุดที่เดินไปได้น้อยที่สุดในหมากรุกจีน คือเพียง 5 จุดบนกระดานเท่านั้น</li>
 			<center><img src="../../gui/content/chp_gmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
-		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
-	
+		<center><input type="submit" value="" id="tester" onclick="parent.quiz('ch_test_g')" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)">
+		</input><br></center>	
 
 
 

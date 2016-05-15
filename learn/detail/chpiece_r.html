@@ -24,13 +24,15 @@
 			zoom: 0.5;
 		}
 
-		#testopen{cursor: pointer;}
-
-		#test{
-			font-family: 'THSarabunNew', sans-serif;
-			font-size: 20px;
-			text-align: center;
-			color:black;
+		#tester{
+			cursor: pointer;
+			background-image: url(../../gui/posttest.png);
+			background-position: center;
+			background-color: rgba(0,0,0,0);
+			width: 100px;
+			height: 35px;
+			padding: 0;
+	    	border: none;
 		}
 
 		#description{
@@ -68,8 +70,8 @@
 	<div id="content">สีดำจะใช้ตัวอักษร 車 ส่วนสีแดงจะใช้ตัวอักษร 俥 ตัวแทนทัพเรือ ทะลวงตามแนวช่อง จู่โจมระยะไกล 1 ใน 3 ทัพหน้า ที่มีอำนาจมากที่สุดในหมากรุกจีน มี 2 ตัวตลอดทั้งเกม กติกาการเดินกือมีดังนี้</div><br>
 		<li id="content">เดินได้ในแนวตรงทั้ง 4 ด้าน ไม่จำกัดระยะ จนกว่าจะเจอหมากขวาง หรือสุดกระดาน สามารถกินหมากในจุดที่เดินได้</li>
 			<center><img src="../../gui/content/chp_rmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
-		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
-	
+		<center><input type="submit" value="" id="tester" onclick="parent.quiz('ch_test_r')" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)">
+		</input><br></center>	
 
 
 

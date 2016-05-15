@@ -68,15 +68,16 @@
 		<li id="content">King จะต้องไม่ถูก Check อยู่ และจัตุรัสทั้ง 2 ที่จะเดินผ่านต้องไม่ถูกเล็งกินโดยอีกฝ่ายอยู่ ส่วน Rook จะอยู่ในสถานะใดหรือเดินผ่านจุดโดนเล็งกินยังไงก็ได้</li>
 		<center><img src="../../gui/content/incastling.gif" id="contentpic"><div id="description">การเข้าป้อม หรือ Castling</div></center><br><br>
 	<div id="content"><b>การเลื่อนขั้น (Promotion)</b> เมื่อ Pawn สามารถเดินไปยังแรงค์สุดท้าย (แรงค์แรกของฝ่ายตรงข้าม) จะต้องเปลี่ยนตัวหมากเป็น 1 ใน 4 หมากต่อไปนี้คือ Queen, Knight, Rook หรือ Bishop ซึ่งโดยปกติจะเปลี่ยนไปเป็น Queen ยกเว้นในบางกรณีที่จะเปลี่ยนเป็นหมาก 3 ตัวที่เหลือ (เรียกอีกแบบว่า “Underpromotion”) ทั้งนี้ผู้เล่นสามารถเลื่อนขั้น Pawn เป็นหมากที่ระบุไว้ตัวใดก็ได้อย่างอิสระ โดยไม่มีข้อจำกัดจำนวนหมากสูงสุดแต่อย่างใด (มี Queen/Knight/Rook/Bishop มากกว่าจำนวนที่มีตอนเริ่มเกมได้)</div><br>
-		<center><img src="../../gui/content/inpromotion.gif" id="contentpic"><div id="description">การเลื่อนขั้น หรือ Promotion</div></center><br><br>
+		<center><img src="../../gui/content/inpromotion.gif" id="contentpic"><div id="description">การเลื่อนขั้น แบบ Promotion และ Underpromotion</div></center>
+		<br><br>
 	<div id="content"><b>การกินผ่าน (En passant)</b> เมื่อมีการเดิน Pawn ครั้งแรกมา 2 จัตุรัส (ดูที่หัวข้อ Pawn) แล้วมี Pawn ฝ่ายตรงข้ามอยู่ในไฟล์ข้างๆ ที่จะเดินไป Pawn ฝ่ายตรงข้ามมีสิทธิที่จะทำการกินผ่านได้ โดยเดินไปยังจัตุรัสด้านหลัง Pawn ที่เดินมา ซึ่งการกินผ่านนี้จะทำได้ในตาถัดมาเท่านั้น ดังภาพ</div><br>
 		<center><img src="../../gui/content/inenpassant.gif" id="contentpic"><div id="description">การกินผ่าน หรือ En passant</div></center><br><br>
 	<div id="content">หากเดินหมากไปยังจัตุรัสที่หมากตัวนั้นสามารถกิน King ของฝ่ายตรงข้ามได้ในตาต่อไป จะขานเรียกว่า <b>“Check”</b> โดยฝ่ายตรงข้ามต้องนำหมากอื่นมาป้องกัน หรือเดิน King หนีไปจากจัตุรัสที่ถูกเล็งกินอยู่ก่อนเท่านั้น (เมื่อถูก Check อยู่ จะไม่สามารถทำ “การเข้าป้อม (Castling)” ได้)</div><br>
-		<center><img src="../../gui/content/incheck.png" id="contentpic"><div id="description">การรุก หรือ Check (หมากขาวเป็นฝ่าย Check)</div></center><br><br>
+		<center><img src="../../gui/content/incheck.jpg" id="contentpic"><div id="description">การรุก หรือ Check (หมากขาวเป็นฝ่าย Check)</div></center><br><br>
 	<div id="content">ซึ่งหาก King ที่ถูกขาน Check อยู่ไม่สามารถเดินหนี, นำหมากมาป้องกัน หรือกินหมากที่เล็งกินตัวมันอยู่ได้ จะขานว่า <b>“Checkmate”</b> ซึ่งฝ่ายที่ถูก Checkmate จะเป็นฝ่ายแพ้</div><br>
-		<center><img src="../../gui/content/incheckmate.png" id="contentpic"><div id="description">การรุกฆาต หรือ Checkmate (หมากขาวเป็นผ่าย Checkmate)</div></center><br><br>
+		<center><img src="../../gui/content/incheckmate.jpg" id="contentpic"><div id="description">การรุกฆาต หรือ Checkmate (หมากขาวเป็นผ่าย Checkmate)</div></center><br><br>
 	<div id="content">แต่หาก King  ไม่ได้ถูก Check และผู้เล่นไม่สามารถเดินหมากตัวใดได้เลย (ทั้งนี้ King ไม่สามารถเดินไปยังจัตุรัสที่ถูกเล็งกินอยู่ได้) จะเรียกตานี้ว่า <b>“Stalemate”</b> ซึ่งผลการเล่นจะถือว่าเสมอกัน</div><br>
-		<center><img src="../../gui/content/instalemate.png" id="contentpic"><div id="description">หมากจน หรือ Stalemate</div></center><br><br>
+		<center><img src="../../gui/content/instalemate.jpg" id="contentpic"><div id="description">หมากจน หรือ Stalemate</div></center><br><br>
 	<div id="content">หากมีการจับเวลา ฝ่ายที่ไม่สามารถรักษาเวลาการเล่นของตนได้จะเป็นฝ่ายแพ้เช่นกัน</div><br>
 	<div id="content"><b>การเดินซ้ำไปมาสามครั้ง (Threefold repetition of a position)</b> เมื่อทั้งสองฝ่ายเดินหมากซ้ำที่ไปมาทั้งที่ไม่ได้เกิดความเสียเปรียบใดๆ ขึ้น และไม่จำเป็นที่จะต้องเป็นตาเดินติดต่อกันครบ 3 ครั้ง จะถือว่าเสมอกัน</div><br>
 	<div id="content"><b>กฎการเดินครบห้าสิบครั้ง (The fifty-move rule)</b> ผู้เล่นสามารถบอกเสมอได้เมื่อไม่มีการกินหมาก และการเดิน Pawn เกิดขึ้นเลยภายใน 50 ตาเดินล่าสุดที่ผ่านไปในเกมนั้น ซึ่งเริ่มนับได้ทันทีที่เกิดการกินหมากหรือการเดิน Pawn ครั้งสุดท้าย (ตาเดินในที่นี้คือทั้ง 2 ฝ่ายผลัดกันเดินเสร็จ 1 ครั้ง นับเป็น 1 ตาเดิน) และหากสามารถรุกฆาตได้ตอนครบ 50 ตาเดินพอดี ฝ่ายที่รุกฆาตได้จะถือว่าเป็นฝ่ายชนะ เนื่องจากแม้จะเดินครบ 50 ครั้งแล้ว เกมจะไม่ตัดเสมอโดยทันที ต้องรอจนกว่าจะมีผู้ขานเสมอเท่านั้นจึงจะถือว่าเสมอกัน</div><br>

@@ -24,13 +24,15 @@
 			zoom: 0.5;
 		}
 
-		#testopen{cursor: pointer;}
-
-		#test{
-			font-family: 'THSarabunNew', sans-serif;
-			font-size: 20px;
-			text-align: center;
-			color:black;
+		#tester{
+			cursor: pointer;
+			background-image: url(../../gui/posttest.png);
+			background-position: center;
+			background-color: rgba(0,0,0,0);
+			width: 100px;
+			height: 35px;
+			padding: 0;
+	    	border: none;
 		}
 
 		#description{
@@ -70,8 +72,8 @@
 			<center><img src="../../gui/content/chp_pmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยก่อนข้ามแม่น้ำ</div></center><br><br>
 		<li id="content"><b>หลังข้ามแม่น้ำ(เลื่อนยศ)</b> จะมีอำนาจการเดินเพิ่มขึ้นคือเดินไปในแนวตรงด้านข้างได้อีกด้านละจุด แต่ยังคงไม่สามารถเดินถอยได้ สามารถกินหมากในจุดที่เดินได้</li>
 			<center><img src="../../gui/content/chp_ppmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยหลังข้ามแม่น้ำ</div></center><br><br>
-		<center><div id="test"><img src="../../gui/posttest.png" id="testopen" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)"></div><br></center>
-	
+		<center><input type="submit" value="" id="tester" onclick="parent.quiz('ch_test_p')" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)">
+		</input><br></center>	
 
 
 

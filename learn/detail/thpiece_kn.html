@@ -24,11 +24,15 @@
 			zoom: 0.5;
 		}
 
-		#test{
-			font-family: 'THSarabunNew', sans-serif;
-			font-size: 20px;
-			text-align: center;
-			color:black;
+		#tester{
+			cursor: pointer;
+			background-image: url(../../gui/posttest.png);
+			background-position: center;
+			background-color: rgba(0,0,0,0);
+			width: 100px;
+			height: 35px;
+			padding: 0;
+	    	border: none;
 		}
 
 		#description{
@@ -56,19 +60,19 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกไทย</div><br>
 	<div id="hcontent">ม้า</div><br>
-			<center><img src="../../gui/content/thp_knight.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/thp_knight.png"></center><br><br>
 	<div id="content">เป็นตัวหมากที่มีวิธีการเดินไม่เหมือนหมากชนิดอื่นใด มี 2 ตัวตอนเริ่มเกม กติกาการเดินม้ามีดังนี้</div><br>
 		<li id="content">เดินเฉียงไม่ตรงมุมไป 2 ช่องรอบตัว หรือวิธีจำอีกวิธีคือเดินเป็นรูปตัว L รอบตัวมัน (ตรงไป 2 ช่อง แล้วเลี้ยวซ้ายหรือขวาอีก 1 ช่อง) สามารถกินหมากในช่องที่เดินได้</li>
-			<center><img src="../../gui/content/thp_knmove.png" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
+			<center><img src="../../gui/content/thp_knmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
 		<li id="content">ม้าเป็นหมากชนิดเดียวที่สามารถกระโดดข้ามหมากที่ขวางอยู่ได้</li>
-			<center><img src="../../gui/content/thp_knspabi.png" id="contentpic"><div id="description">การเดินข้าม</div></center><br><br>
-		<center><div id="test">แบบทดสอบ</div><br></center>
-	
+		<center><input type="submit" value="" id="tester" onclick="parent.quiz('th_test_kn')" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)">
+		</input><br></center>		
 
 
 

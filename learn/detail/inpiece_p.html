@@ -24,11 +24,15 @@
 			zoom: 0.5;
 		}
 
-		#test{
-			font-family: 'THSarabunNew', sans-serif;
-			font-size: 20px;
-			text-align: center;
-			color:black;
+		#tester{
+			cursor: pointer;
+			background-image: url(../../gui/posttest.png);
+			background-position: center;
+			background-color: rgba(0,0,0,0);
+			width: 100px;
+			height: 35px;
+			padding: 0;
+	    	border: none;
 		}
 
 		#description{
@@ -56,24 +60,25 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกสากล</div><br>
 	<div id="hcontent">Pawn</div><br>
-			<center><img src="../../gui/content/inp_pawn.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/inp_pawn.png"></center><br><br>
 	<div id="content">เป็นตัวหมากรูปคนครึ่งตัว มี 8 ตัวตอนเริ่มเกม อ่อนแอที่สุดในช่วงต้นเกม แต่สามารถเลื่อนขั้นได้ กติกาการเดิน Pawn มีดังนี้</div><br>
 		<li id="content">เดินตรงไปข้างหน้าได้เพียงจัตุรัสเดียว แต่หาก Pawn ตัวนั้นยังไม่เคยถูกเดิน (อยู่ในจัตุรัสเริ่มต้น) สามารถเลือกที่จะเดินไปข้างหน้า 2 จัตุรัสแทนได้ ไม่สามารถเดินถอยหลังและกินหมากในจัตุรัสที่เดินได้</li>
-			<center><img src="../../gui/content/inp_pmove.png" id="contentpic"><div id="description">ตำแหน่งการเดินเบี้ยคว่ำ</div></center><br><br>
+			<center><img src="../../gui/content/inp_pmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
 		<li id="content">การกินหมากของ Pawn มี 2 วิธีคือ</li>
 			<div id="content">&nbsp;&nbsp;&nbsp;1) การกินปกติ จะกินหมากที่อยู่ในจัตุรัสทแยง 2 จัตุรัสด้านหน้าเท่านั้น</div>
-			<center><img src="../../gui/content/inp_pcapture.png" id="contentpic"><div id="description">การกินปกติของ Pawn</div></center><br><br>
+			<center><img src="../../gui/content/inp_pcapture.gif" id="contentpic"><div id="description">การกินปกติของ Pawn</div></center><br><br>
 			<div id="content">&nbsp;&nbsp;&nbsp;2) การกินผ่าน (en passant) ใช้ได้กับการที่ Pawn ของฝ่ายตรงข้ามเลือกเดินข้างหน้ามา 2 จัตุรัส แล้วมี Pawn ของเราอยู่ในจัตุรัสด้านข้างที่ Pawn นั้นเดินมา เราสามารถเดินทแยงไปหลัง Pawn อีกฝ่ายที่เดินมาเพื่อกินได้ โดยต้องกินทันทีเท่านั้น หากไม่กินจะไม่มีสิทธิกินได้อีกในตาต่อไป การกินผ่านเป็นการกินแบบเดียวที่ไม่ไปแทนที่จัตุรัสเดิมของหมากที่กินโดยตรง</div>
-			<center><img src="../../gui/content/inp_penpassant.png" id="contentpic"><div id="description">การกินผ่านของ Pawn</div></center><br><br>
+			<center><img src="../../gui/content/inenpassant.gif" id="contentpic"><div id="description">การกินผ่านของ Pawn</div></center><br><br>
 		<li id="content">การเลื่อนขั้น (Promotion) จะเกิดขึ้นเมื่อเดิน Pawn ไปถึงแรงค์สุดขอบกระดานหรือแรงค์ในสุดของอีกฝ่าย (แรงค์ 8 สำหรับสีขาว / แรงค์ 1 สำหรับสีดำ) โดยจะต้องเลือกเปลี่ยนตัวหมากเป็น Queen, Knight, Rook หรือ Bishop ตัวใดตัวหนึ่งเท่านั้น และจะเป็นหมากตัวนั้นไปจนกว่าจะถูกกินหรือจบเกม ซึ่งโดยปกติจะเปลี่ยนไปเป็น Queen ยกเว้นในบางกรณีที่จะเปลี่ยนเป็นหมาก 3 ตัวที่เหลือแทน (เรียกอีกแบบว่า “Underpromotion”) ทั้งนี้ผู้เล่นสามารถเลื่อนขั้น Pawn เป็นหมากที่ระบุไว้ตัวใดก็ได้อย่างอิสระ โดยไม่มีข้อจำกัดจำนวนหมากสูงสุดแต่อย่างใด (มี Queen/Knight/Rook/Bishop มากกว่าจำนวนที่มีตอนเริ่มเกมได้)</li>
-			<center><img src="../../gui/content/inp_ppromotion.png" id="contentpic"><div id="description">การเลื่อนขั้นของ Pawn</div></center><br><br>
-		<center><div id="test">แบบทดสอบ</div><br></center>
-	
+			<center><img src="../../gui/content/inpromotion.gif" id="contentpic"><div id="description">การเลื่อนขั้นของ Pawn</div></center><br><br>
+		<center><input type="submit" value="" id="tester" onclick="parent.quiz('in_test_p')" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)">
+		</input><br></center>	
 
 
 

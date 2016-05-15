@@ -24,11 +24,15 @@
 			zoom: 0.5;
 		}
 
-		#test{
-			font-family: 'THSarabunNew', sans-serif;
-			font-size: 20px;
-			text-align: center;
-			color:black;
+		#tester{
+			cursor: pointer;
+			background-image: url(../../gui/posttest.png);
+			background-position: center;
+			background-color: rgba(0,0,0,0);
+			width: 100px;
+			height: 35px;
+			padding: 0;
+	    	border: none;
 		}
 
 		#description{
@@ -56,19 +60,19 @@
 		}
 
 	</style>
+	<script type="text/javascript" src="../../buttonScripter.js"></script>
 
 </head>
 <body>
 	<div id="pname">หมากรุกสากล</div><br>
 	<div id="hcontent">Bishop</div><br>
-			<center><img src="../../gui/content/inp_bishop.png" id="contentpic"></center><br><br>
+			<center><img src="../../gui/content/inp_bishop.png"></center><br><br>
 	<div id="content">เป็นตัวหมากรูปหมวกของบาทหลวง(Mitre) โดยจะมี 2 ตัวตอนเริ่มเกม ซึ่งแต่ละตัวจะประจำในจัตุรัสคนละสีกัน กติกาการเดิน Bishop มีดังนี้</div><br>
 		<li id="content">เดินได้ในแนวทแยงทั้ง 4 มุม ไม่จำกัดระยะ จนกว่าจะเจอหมากขวาง หรือสุดกระดาน สามารถกินหมากในจัตุรัสที่เดินได้</li>
-			<center><img src="../../gui/content/inp_bmove.png" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
+			<center><img src="../../gui/content/inp_bmove.gif" id="contentpic"><div id="description">ตำแหน่งการเดิน</div></center><br><br>
 		<li id="content">เนื่องจาก Bishop เดินได้เฉพาะแนวทแยง จึงเดินได้เฉพาะในจัตุรัสที่มีสีเดียวกันกับจัตุรัสที่มันอยู่ในตอนเริ่มต้นเท่านั้น</li>
-			<center><img src="../../gui/content/inp_bcantmove.png" id="contentpic"><div id="description">จัตุรัสที่ไม่สามารถเดินไปถึงได้</div></center><br><br>
-		<center><div id="test">แบบทดสอบ</div><br></center>
-	
+		<center><input type="submit" value="" id="tester" onclick="parent.quiz('in_test_b')" onmouseover="swapImage(8)" onmouseout="swapImgRestore(8)">
+		</input><br></center>	
 
 
 
