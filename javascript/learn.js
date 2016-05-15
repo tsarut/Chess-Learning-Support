@@ -36,3 +36,25 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 		}
 	}
 }
+var savemark=[];
+function save(mark) {
+	// body...
+	if (document.getElementById(mark).style.opacity==0) {
+		document.getElementById(mark).style.opacity=1;
+	}else{
+		if (document.getElementById(mark).style.opacity==1) {
+			document.getElementById(mark).style.opacity=0;
+		}
+	}
+}
+function getSubmit() {
+	// body...
+	var sum=[];
+	var arr=document.getElementsByClassName('mark');
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i].style.opacity==1) {
+			sum.push(i);
+		}
+	}
+	return sum;
+}
