@@ -321,15 +321,18 @@ function changeBoard () {
 		castle[1]=0;
 	}
 	if (pickIt.id==castling) {
+		console.log(pickIt.id);
 		if (pickIt.id=='a3') {
 			document.getElementById('a1').id='a4';
-		}else{if (pickIt.id=='a6') {
+		}else{document.getElementById('h1').id='h4';} 
+	}
+	if (pickIt.id==castling2) {
+		if (pickIt.id=='a6') {
 			document.getElementById('a8').id='a6';
-		} else {if (pickIt.id=='h3') {
-			document.getElementById('h1').id='h4';
-		} else {document.getElementById('h8').id='h6'}}}
+		}else {document.getElementById('h8').id='h6'}
 	}
 	castling='';
+	castling2='';
 	if (pickIt.className.slice(0,-1)=='Pawn') {
 		x,y=getXY(pickIt);
 		if (document.getElementById(listarr1[x+1-2*turn]+listarr2[y])==pawnMark[1-turn]) {
@@ -713,6 +716,7 @@ function QueenLock (x,y) {
 	};
 }
 var castling='';
+var castling2='';
 function King (x,y) {
 	// body...
 	if (more==0) {
@@ -726,22 +730,22 @@ function King (x,y) {
 						}
 						if (castle[1]*castle[2]&&Math.abs(standby[7][5])+Math.abs(standby[7][6])==0&&(!lockmove[7][5]&&!lockmove[7][6])) {
 							makeMark(7,6);
-							castling=listarr1[7]+listarr2[6];
+							castling2=listarr1[7]+listarr2[6];
 						}
 					}
 				}
 			}
 		}else{
-			if (castle[0]*castle[1]||castle[1]*castle[2]) {
+			if (castle[3]*castle[4]||castle[4]*castle[5]) {
 				if (Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0||Math.abs(standby[0][5])+Math.abs(standby[0][6])==0) {
 					if ((!lockmove[0][2]&&!lockmove[0][2])||(!lockmove[0][5]&&!lockmove[0][6])) {
-						if (castle[0]*castle[1]&&Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0&&(!lockmove[0][2]&&!lockmove[0][2])) {
+						if (castle[3]*castle[4]&&Math.abs(standby[0][1])+Math.abs(standby[0][2])+Math.abs(standby[0][3])==0&&(!lockmove[0][2]&&!lockmove[0][2])) {
 							makeMark(0,2);
 							castling=listarr1[0]+listarr2[2];
 						}
-						if (castle[1]*castle[2]&&Math.abs(standby[0][5])+Math.abs(standby[0][6])==0&&(!lockmove[0][5]&&!lockmove[0][6])) {
+						if (castle[4]*castle[5]&&Math.abs(standby[0][5])+Math.abs(standby[0][6])==0&&(!lockmove[0][5]&&!lockmove[0][6])) {
 							makeMark(0,6);
-							castling=listarr1[0]+listarr2[6];
+							castling2=listarr1[0]+listarr2[6];
 						}
 					}
 				}
