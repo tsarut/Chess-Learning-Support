@@ -302,16 +302,16 @@ function lockKing(kingX,kingY,className) {
 function changeBoard () {
 	// body...
 
-	if (document.getElementsByClassName('RookW')[0].id!='h1') {
+	if (!isNaN(document.getElementById('h1'))||document.getElementById('h1').className!='RookW') {
 		castle[0]=0;
 	}
-	if (document.getElementsByClassName('RookW')[1].id!='h8') {
+	if (!isNaN(document.getElementById('h8'))||document.getElementById('h8').className!='RookW') {
 		castle[2]=0;
 	}
-	if (document.getElementsByClassName('RookB')[0].id!='a1') {
+	if (!isNaN(document.getElementById('a1'))||document.getElementById('a1').className!='RookB') {
 		castle[3]=0;
 	}
-	if (document.getElementsByClassName('RookB')[1].id!='a8') {
+	if (!isNaN(document.getElementById('a8'))||document.getElementById('a8').className!='RookB') {
 		castle[5]=0;
 	}
 	if (document.getElementsByClassName('KingB')[0].id!='a5') {
