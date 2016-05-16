@@ -86,7 +86,7 @@ function getSubmit(name) {
 		}
 	}
 	if (groupTest[test].length!=sum.length) {
-		alert('not correct')
+		alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=')
 	} else {
 		var correct=1;
 		for (var i = 0; i < sum.length; i++) {
@@ -94,15 +94,15 @@ function getSubmit(name) {
 				correct=0;
 			}
 		}
-		alert('correct');
-		if (i<=6) {
+		alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');
+		/*if (i<=6) {
 		window.parent.location.href='addPro.php?name=learn_CH&num='+i;	
 		} else {
 			if (i<=12) {
 				window.parent.location.href='addPro.php?name=learn_TH&num='+i-6;
 			} else {window.parent.location.href='addPro.php?name=learn_TH&num='+i-12}
 		}
-		window.parent.location.href='addPro.php?name='+name;
+		window.parent.location.href='addPro.php?name='+name;*/
 	}
 	console.log(sum);
 }
