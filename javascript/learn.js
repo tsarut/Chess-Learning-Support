@@ -58,5 +58,6 @@ function getSubmit(name) {
 			sum.push(i);
 		}
 	}
+	console.log(sum);
 	return sum;
 }
