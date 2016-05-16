@@ -102,7 +102,7 @@ function getSubmit(name) {
 				window.parent.location.href='addPro.php?name=learn_TH&num='+i-6;
 			} else {window.parent.location.href='addPro.php?name=learn_TH&num='+i-12}
 		}
-		window.parent.location.href='addPro.php?name='name;
+		window.parent.location.href='addPro.php?name='+name;
 	}
 	console.log(sum);
 }
