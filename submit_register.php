@@ -58,6 +58,27 @@ $sql = "INSERT INTO member (user,pass,email) VALUE ('".$_POST['user']."','".$_PO
 
 if ($conn->query($sql)===TRUE) {
      echo "New register successfully";
+     $strSQL = "SELECT * FROM member WHERE user = '".mysql_real_escape_string($_POST['user'])."' 
+	and pass = '".mysql_real_escape_string($_POST['pass'])."'";
+	$objQuery = mysql_query($strSQL);
+	$objResult = mysql_fetch_array($objQuery);
+	session_start();
+	$_SESSION["UserID"] = $objResult["member_id"];
+	$_SESSION["User"] = $objResult["user"];
+	$strSQL = "INSERT INTO progress(learn_CH,learn_TH,learn_IN,member_id) VALUES ('00000000','0000000','0000000','".$_SESSION["UserID"]."')";
+	$objQuery = mysql_query($strSQL);
+	$strSQL = "INSERT INTO rank(member_id) VALUES ('".$_SESSION["UserID"]."')";
+	$objQuery = mysql_query($strSQL);
+	$strSQL = "INSERT INTO quizask(member_id) VALUES ('".$_SESSION["UserID"]."')";
+	$objQuery = mysql_query($strSQL);
+
+	?> 	
+<script>
+setTimeout(function(){
+window.parent.location.reload()
+},2000);
+</script>
+	<?php
 } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
 }
