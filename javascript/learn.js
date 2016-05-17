@@ -47,13 +47,13 @@ function save(mark) {
 		}
 	}
 }
-var ch_r;
-var ch_kn;
-var ch_e;
-var ch_g;
-var ch_k;
-var ch_c;
-var ch_p;
+var ch_r=[2, 11, 18, 19, 21, 22, 23, 24, 25, 26, 29, 38, 47, 56, 65, 74, 83];
+var ch_kn=[12, 18, 20];
+var ch_e=[18, 22];
+var ch_g=[13];
+var ch_k=[4, 12];
+var ch_c=[2, 11, 18, 19, 21, 22, 23, 24, 25, 26, 29, 38, 47, 56, 65, 74, 83];
+var ch_p=[30, 38, 40];
 var th_r=[2, 7, 10, 11, 13, 14, 17, 22];
 var th_kn=[1, 3, 5, 9, 15, 19, 21, 23];
 var th_b=[6, 7, 8, 16, 18];
@@ -86,15 +86,15 @@ function getSubmit(name) {
 		}
 	}
 	if (groupTest[test].length!=sum.length) {
-		alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=')
+		alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');
 	} else {
 		var correct=1;
 		for (var i = 0; i < sum.length; i++) {
 			if (sum[i]!=groupTest[test][i]) {
 				correct=0;
 			}
-		}
-		alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');
+		}if (correct==1) {alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');} else {alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');}
+		
 		/*if (i<=6) {
 		window.parent.location.href='addPro.php?name=learn_CH&num='+i;	
 		} else {
