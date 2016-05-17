@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Choose chess type!</title>
+	<title>Choose chess type to play!</title>
 	<link rel="stylesheet" type="text/css" href="css/setup.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<script type="text/javascript">
@@ -29,7 +29,7 @@
 </head>
 
 <body onload="resize()">
-	<img src="gui/page_name/pname_type.png" id="title">
+	<img src="gui/page_name/pname_type_play.png" id="title">
 	<table id="main">
 		<tr>
 			<td style="position: relative;">
