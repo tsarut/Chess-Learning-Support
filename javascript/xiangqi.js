@@ -620,24 +620,30 @@ function Horse (x,y) {
 	// body...
 	var horseMove=[];
 	horseMove=table;
+	console.log('hh')
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y]==0&&x<8) {
-		if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
-			horseMove[x+2][y+1]=1;
-		} 
-		if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
-			horseMove[x+2][y-1]=1;
-		} 
-	}
+			if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
+				horseMove[x+2][y+1]=1;
+			} 
+			if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
+				horseMove[x+2][y-1]=1;
+			} 
+		}
+	};
 	if (standby[x][y+1]==0) {
-		if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
-			horseMove[x+1][y+2]=1;
-		} 
+		if (x<listarr1.length-1) {
+			if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
+				horseMove[x+1][y+2]=1;
+			} 
+		}
 		if (x>0&&(standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1)) {
+			console.log('pp')
 			horseMove[x-1][y+2]=1;
 		} 
-	};
-	};
+		
+	}
+	
 	if (x>0) {
 		if (standby[x-1][y]==0&&x>1) {
 			if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
