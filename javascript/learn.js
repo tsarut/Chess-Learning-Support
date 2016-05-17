@@ -93,7 +93,7 @@ function getSubmit(name) {
 			if (sum[i]!=groupTest[test][i]) {
 				correct=0;
 			}
-		}if (correct==1) {alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');} else {alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');}
+		}if (correct==1) {alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');window.parent.location.reload();} else {alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');}
 		
 		/*if (i<=6) {
 		window.parent.location.href='addPro.php?name=learn_CH&num='+i;	
