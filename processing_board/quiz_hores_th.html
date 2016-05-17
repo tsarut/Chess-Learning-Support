@@ -4,9 +4,13 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="../css/setThai.css">
 	<style type="text/css">
-body{
-	zoom:0.6;
-}
+	body{
+		zoom:0.6;
+	}
+	.Mark{
+		opacity: 0.6;
+	}
+
 
 	</style>
 	<script type="text/javascript">
@@ -31,6 +35,18 @@ function changeBoard () {
 		standby[x][y]=-1;
 
 	};
+	var win=1;
+	for (var i = 0; i < standby.length; i++) {
+		for (var j = 0; j < standby[i].length; j++) {
+			if (standby[i][j]!=-1||win==0) {
+				win=0;
+				break;
+			}
+		}
+	}
+	if (win==1) {
+		alert('You Pass walk Horse')
+	}
 	 //start ();
 	}
 }
@@ -46,11 +62,6 @@ for (var i = 0; i < MarkEV.length; i++) {
 		if (test==0) {document.body.appendChild(Allow);
 			Allow = document.createElement("img");
 		Allow.id=listarr1[x]+listarr2[y];
-		//Allow.className="Mark";
-/*		var R=255*Math.random();
-		var G=255*Math.random();
-		var B=255*Math.random();
-		Allow.style.backgroundColor="rgb("+R+","+G+","+B+")";*/
 		Allow.id=this.id;
 		Allow.src="../gui/Thai/Mark_Allow.png";
 	} 
