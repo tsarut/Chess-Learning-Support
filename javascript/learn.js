@@ -59,13 +59,13 @@ var th_kn=[1, 3, 5, 9, 15, 19, 21, 23];
 var th_b=[6, 7, 8, 16, 18];
 var th_k=[6, 7, 8, 11, 13, 16, 17, 18];
 var th_q=[6, 8, 16, 18];
-var th_p=[6, 8, 16, 17, 18];
+var th_p=[6, 8, 16, 18];
 var in_r=[2, 8, 11, 12, 14, 15, 18, 23];
 var in_kn=[1, 3, 6, 10, 16, 20, 22, 24];
 var in_b=[0, 4, 7, 9, 17, 19, 21, 25];
 var in_k=[7, 8, 9, 12, 14, 17, 18, 19];
-var in_q=[2, 7, 8, 9, 11, 12, 14, 15, 17, 18, 19, 23];
-var in_p=[18];
+var in_q=[0, 2, 4, 7, 8, 9, 11, 12, 14, 15, 17, 18, 19, 21, 23, 25];
+var in_p=[18];	
 function getSubmit(name) {
 	// body...
 	var sum=[];
@@ -93,16 +93,26 @@ function getSubmit(name) {
 			if (sum[i]!=groupTest[test][i]) {
 				correct=0;
 			}
-		}if (correct==1) {alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');window.parent.location.reload();} else {alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');}
+		}if (correct==1) {
+			console.log(test);
+			var newiframe = document.createElement("iframe");
+			newiframe.style.width='0';
+			newiframe.style.height='0';
+			newiframe.style.visibility='hidden';
+			newiframe.id="hide_iframe";
+			if (test<=6) {
+				newiframe.src=('addPro.php?name=learn_CH&num='+test);
+			} else {
+				if (test<=12) {
+					newiframe.src=('addPro.php?name=learn_TH&num='+(test-6));
+				} else {console.log(test);newiframe.src='addPro.php?name=learn_IN&num='+(test-12);}
+			}
+			document.body.appendChild(newiframe);
+
+			alert('ตอบถูกต้องจ้า เก่งมากเลยล่ะ ^_^');
+			window.parent.location.reload();
+		} else {alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');}
 		
-		/*if (i<=6) {
-		window.parent.location.href='addPro.php?name=learn_CH&num='+i;	
-		} else {
-			if (i<=12) {
-				window.parent.location.href='addPro.php?name=learn_TH&num='+i-6;
-			} else {window.parent.location.href='addPro.php?name=learn_TH&num='+i-12}
-		}
-		window.parent.location.href='addPro.php?name='+name;*/
 	}
 	console.log(sum);
 }
