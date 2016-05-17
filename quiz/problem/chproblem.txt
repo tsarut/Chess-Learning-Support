@@ -1,0 +1,19 @@
+﻿ch001.html
+quiz_id >> 1
+quizName >> รุกจนฝ่ายดำ
+quizDetail >> เดินหมากฝ่ายแดงเพื่อรุกจนตี่ดำให้ได้
+rankQuiz >> 5
+quizDir >> quiz/problem/ch001.html
+เฉลย >> เดินเรือไปกินองครักษ์ (1 ตา)
+
+ch002.html
+quiz_id >> 2
+quizName >> ล่อให้ตายใจ
+quizDetail >> เดินหมากฝ่ายแดงเพื่อรุกจนตี่ดำให้ได้
+rankQuiz >> 20
+quizDir >> quiz/problem/ch002.html
+เฉลย >> เดินเรือไปรุก b2
+	ดำเดินขุนหนีมา c4
+	เดินปืนใหญ่มารุก h4
+	ดำเดินเบี้ยมากินปืนใหญ่ h4
+	เดินเรือไปรุกจน h4
