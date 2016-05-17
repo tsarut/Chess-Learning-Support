@@ -28,7 +28,7 @@
 	<script type="text/javascript" src="javascript/setup.js"></script>
 </head>
 
-<body onload="resize()">
+<body>
 	<img src="gui/page_name/pname_type.png" id="title">
 	<table id="main">
 		<tr>
@@ -78,14 +78,14 @@
 	<div>
 		<table>
 			<tr>
-				<td><img src="gui/button/button_pic_select_in.png"></td>
-				<td><img src="gui/button/button_pic_select_th.png"></td>
-				<td><img src="gui/button/button_pic_select_ch.png"></td>
+				<td><a href="quiz_problem_in.html"><img src="gui/button/button_pic_select_in.png"></a></td>
+				<td><a href="quiz_problem_th.html"><img src="gui/button/button_pic_select_th.png"></a></td>
+				<td><a href="quiz_problem_ch.html"><img src="gui/button/button_pic_select_ch.png"></a></td>
 			</tr>
 			<tr>
-				<td><img src="gui/button/button_select_in.png"></td>
-				<td><img src="gui/button/button_select_th.png"></td>
-				<td><img src="gui/button/button_select_ch.png"></td>
+				<td><a href="quiz_problem_in.html"><img src="gui/button/button_select_in.png"></a></td>
+				<td><a href="quiz_problem_th.html"><img src="gui/button/button_select_th.png"></a></td>
+				<td><a href="quiz_problem_ch.html"><img src="gui/button/button_select_ch.png"></a></td>
 			</tr>
 		</table>
 	</div>
