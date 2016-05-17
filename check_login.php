@@ -9,6 +9,13 @@
 	if(!$objResult)
 	{
 			echo "Username and Password Incorrect!";
+				?> 	
+<script>
+setTimeout(function(){
+window.parent.location='index.php';
+},1500);
+</script>
+	<?php
 	}
 	else
 	{
