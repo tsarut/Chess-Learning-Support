@@ -30,6 +30,7 @@ function minusArr(arr1) {
 	}
 	return arrMinus;
 }
+var saveX=0;var saveY=0;
 function Check(name,kingX,kingY) {
 	// body...
 	console.log('Check')
@@ -76,6 +77,7 @@ function Check(name,kingX,kingY) {
 			}
 		}
 		lineTo[x][y]=1;
+		saveX=x;saveY=y;
 	} else {lineTo[x][y]=1}}}
 	lineTo[kingX][kingY]=0;
 }
@@ -493,6 +495,7 @@ function sentClass (name,xy) {
 		table=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
 	if (cannonlog==xy.id) {
+		lineTo[saveX][saveY]=0;
 		lineTo=minusArr(lineTo);
 	}
 	if (name=="Rook") {
