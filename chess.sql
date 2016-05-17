@@ -20,12 +20,9 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`member_id`, `user`, `pass`, `email`) VALUES
-(3, 'test', '1234', 't@t.t'),
-(4, 'test', '1234', 't@t.t'),
-(5, 'ttt', 'asdfgh', 'gg'),
-(6, 'test2', '1234', 'gg'),
-(7, 'test3', '2345', 'gg'),
-(8, 'test3', '2345', 'gg');
+(4, 'test', '1234', 'tsarutg@gmail.com'),
+(5, 'qwe', '123', 'rfrf'),
+(6, 'ttt', '123', 'tt');
 
 -- --------------------------------------------------------
 
@@ -46,11 +43,18 @@ CREATE TABLE `playquiz` (
 --
 
 CREATE TABLE `progress` (
-  `learn_CH` binary(8) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0',
-  `learn_TH` binary(8) NOT NULL DEFAULT '\0\0\0\0\0\0\0\0',
-  `learn_IN` binary(7) NOT NULL DEFAULT '\0\0\0\0\0\0\0',
+  `learn_CH` varchar(8) NOT NULL,
+  `learn_TH` varchar(7) NOT NULL,
+  `learn_IN` varchar(7) NOT NULL,
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `progress`
+--
+
+INSERT INTO `progress` (`learn_CH`, `learn_TH`, `learn_IN`, `member_id`) VALUES
+('00000000', '0000000', '0000000', 6);
 
 -- --------------------------------------------------------
 
@@ -81,6 +85,13 @@ CREATE TABLE `quizask` (
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `quizask`
+--
+
+INSERT INTO `quizask` (`CH`, `TH`, `IN`, `ALL`, `member_id`) VALUES
+(0, 0, 0, 0, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +104,13 @@ CREATE TABLE `rank` (
   `quiz_IN` int(11) NOT NULL DEFAULT '0',
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `rank`
+--
+
+INSERT INTO `rank` (`quiz_CH`, `quiz_TH`, `quiz_IN`, `member_id`) VALUES
+(0, 0, 0, 6);
 
 --
 -- Indexes for dumped tables
@@ -115,7 +133,8 @@ ALTER TABLE `playquiz`
 -- Indexes for table `progress`
 --
 ALTER TABLE `progress`
-  ADD PRIMARY KEY (`member_id`);
+  ADD PRIMARY KEY (`member_id`),
+  ADD KEY `learn_CH` (`learn_CH`,`learn_TH`,`learn_IN`,`member_id`);
 
 --
 -- Indexes for table `quiz`
@@ -145,46 +164,53 @@ ALTER TABLE `rank`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `playquiz`
+--
+ALTER TABLE `playquiz`
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `progress`
+--
+ALTER TABLE `progress`
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `quiz`
 --
 ALTER TABLE `quiz`
   MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `quizask`
+--
+ALTER TABLE `quizask`
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `rank`
+--
+ALTER TABLE `rank`
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `playquiz`
---
-ALTER TABLE `playquiz`
-  ADD CONSTRAINT `fk_PLAYQUIZ_MEMBER1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_PLAYQUIZ_QUIZ1` FOREIGN KEY (`quiz_id`) REFERENCES `quiz` (`quiz_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `progress`
 --
 ALTER TABLE `progress`
-  ADD CONSTRAINT `fk_PROGRESS_MEMBER1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `quiz`
---
-ALTER TABLE `quiz`
-  ADD CONSTRAINT `fk_QUIZ_MEMBER1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `progress_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `quizask`
 --
 ALTER TABLE `quizask`
-  ADD CONSTRAINT `fk_QUIZSE_MEMBER1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `quizask_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rank`
 --
 ALTER TABLE `rank`
-  ADD CONSTRAINT `fk_RANK_MEMBER1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `rank_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

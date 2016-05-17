@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/quiz.css">
+	
 	<link rel="stylesheet" type="text/css" href="css/setup.css">
 	<script type="text/javascript">
 function resize(){
@@ -17,9 +17,22 @@ function resize(){
 		zoom:0.825;
 		text-align: center;
 		border: none;
-		position: absolute;
+		position: relative;
+		top: 150px
 	}
-
+	#result{
+			font-family: 'THSarabunNew', sans-serif;
+			font-weight:bold;
+			font-size:22px;
+			color:black;
+			background-color: rgb(255,225,200);
+			margin-top: 150px;
+			margin-left: 75%;
+			height: 50%;
+			width: 20%;
+			position: absolute;
+			border: 1px dashed;
+		}
 	#main{
 		position: absolute;
 		top: 10px;
@@ -33,7 +46,9 @@ function resize(){
 		padding-right: 5px;
 		text-align: center;
 	}
-
+		h3{
+			text-align: center;
+		}
 
 	</style>
 </head>
