@@ -281,7 +281,16 @@ function ableMove() {
 	if (count==0&&turn==0) {
 		console.log('End B win');
 	}
-	else{if (count==0&&turn==1) {console.log('End W win');} 
+	else{if (count==0&&turn==1) {console.log('End W win')
+		var newiframe = document.createElement("iframe");
+			newiframe.style.width='0';
+			newiframe.style.height='0';
+			newiframe.style.visibility='hidden';
+			newiframe.id="hide_iframe";
+			newiframe.src=('addquiz.php?name=quiz_CH&num='+1);
+			document.body.appendChild(newiframe);
+			alert('ยินดีด้วย คุณรุกจนฝ่ายดำได้แล้ว')
+		;} 
 	}
 }
 function reback() {
@@ -349,9 +358,9 @@ function reback() {
 	}
 	return false;
 }
-
 function changeBoard () {
 	// body...
+	if (pickIt.id=='a6'&&pickIt.className=='RookW') {
 	standby=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	arrMove=
 	[[1,1,1,1,1,1,1,1,1],
@@ -396,6 +405,10 @@ function changeBoard () {
 	}
 	
 	ableMove();
+}else{
+	alert('เลือกตัวอื่นดีกว่านะ ^ ^');
+	pickIt.id=recall;
+}
 }
 var list=[];
 var typeList=[];
