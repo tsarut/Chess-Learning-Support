@@ -36,6 +36,17 @@
 			color: rgb(153,102,51);
 		}
 
+		#progressarea{
+			border: 3px ridge rgb(153,102,51);
+			height: 10px;
+		}
+
+		#progress{
+			background-color: rgb(125,255,125);
+			width: 50%;
+			height: 10px;
+		}
+
 	</style>
 </head>
 <body>
@@ -43,15 +54,15 @@
 	<center>
 	<table>
 		<th id="hcontent">ความคืบหน้าในการเรียนหมากรุกสากล</th>
-		<tr><td id="content">0/6 แต้ม *(เปลี่ยนเป็นหลอดสีที่ท่านว่าไว้ด้วยล่ะ)</td></tr>
+		<tr><td id="content"><div id="progressarea"><div id="progress"></div></div></td> <td id="content">0/6</td></tr>
 		<tr><th id="hcontent">ความคืบหน้าในการเรียนหมากรุกไทย</th></tr>
-		<tr><td id="content">0/6 แต้ม</td></tr>
+		<tr><td id="content"><div id="progressarea"><div id="progress"></div></div></td> <td id="content">0/6</td></tr>
 		<tr><th id="hcontent">ความคืบหน้าในการเรียนหมากรุกจีน</th></tr>
-		<tr><td id="content">0/7 แต้ม</td></tr>
+		<tr><td id="content"><div id="progressarea"><div id="progress"></div></div></td> <td id="content">0/7</td></tr>
 		<tr><th id="hcontent">คะแนนรวมควิซถาม-ตอบ</th></tr>
-		<tr><td id="content">0/100 แต้ม</td></tr>
+		<tr><td id="content"><div id="progressarea"><div id="progress"></div></div></td> <td id="content">0/100</td></tr>
 		<tr><th id="hcontent">คะแนนรวมควิซแก้ปัญหาการเดินหมาก</th></tr>
-		<tr><td id="content">0/10 แต้ม</td></tr>
+		<tr><td id="content"><div id="progressarea"><div id="progress"></div></div></td> <td id="content">0/100</td></tr>
 	</table>
 	</center>
 </body>

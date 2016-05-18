@@ -16,9 +16,9 @@
 	$point=$objResult[$_GET['name']];
 	if ($point<$_GET['num']) {
 		# code...
-		$strSQL = "UPDATE quizask SET ".$_GET['name']." =".$_GET['num']."  WHERE member_id = '".$_SESSION["UserID"]."' ";
+		$strSQL = "UPDATE quizask SET `".$_GET['name']."` =".$_GET['num']."  WHERE member_id = '".$_SESSION["UserID"]."' ";
 	}else{
-		$strSQL = "UPDATE quizask SET ".$_GET['name']." =".$point."  WHERE member_id = '".$_SESSION["UserID"]."' ";
+		$strSQL = "UPDATE quizask SET `".$_GET['name']."` =".$point."  WHERE member_id = '".$_SESSION["UserID"]."' ";
 	}
 	$objQuery = mysql_query($strSQL);
  ?>

@@ -124,52 +124,29 @@
 
 	<div id="showRank">
 		<table id="Rank">
+			
 			<tr>
 				<th id="fRank">User</th>
-				<th>Rank</th>
+				<th>Score</th>
 			</tr>
+			<?php
+				mysql_connect("localhost","root","");
+				mysql_select_db("chess");	
+				$res = mysql_query("
+					SELECT `user`,(`CH`+ `TH`+ `IN`+ `ALL`) as sum_score, member.`member_id` 
+					FROM `quizask` 
+					JOIN member ON member.member_id = quizask.member_id
+					WHERE 1
+					ORDER BY sum_score DESC
+					LIMIT 10
+				");
+				while($row=mysql_fetch_assoc($res)){
+			?>
 			<tr>
-				<td id="fRank">Kuhaku</td>
-				<td>100</td>
+				<td id="fRank"><?php echo $row['user']; ?></td>
+				<td><?php echo $row['sum_score']; ?></td>
 			</tr>
-			<tr>
-				<td id="fRank">kami-nii-sama</td>
-				<td>99</td>
-			</tr>
-			<tr>
-				<td id="fRank">glen</td>
-				<td>96</td>
-			</tr>
-			<tr>
-				<td id="fRank">tsarut</td>
-				<td>93</td>
-			</tr>
-			<tr>
-				<td id="fRank">Gun</td>
-				<td>88</td>
-			</tr>
-			<tr>
-				<td id="fRank">=w=</td>
-				<td>75</td>
-			</tr>
-			<tr>
-				<td id="fRank">blah_blah</td>
-				<td>69</td>
-			</tr>
-			<tr>
-				<td id="fRank">hachi</td>
-				<td>58</td>
-			</tr>
-			<tr>
-				<td id="fRank">qwertyui1234</td>
-				<td>49</td>
-			</tr>
-			<tr>
-				<td id="fRank">jun</td>
-				<td>44</td>
-			</tr>
-
-
+			<?php } ?>
 		</table>
 	</div>
 		
