@@ -30,25 +30,29 @@ function changeBoard () {
 	// body...
 	var images = document.getElementsByTagName('img');
 	for (var j = 1; j < images.length; j++) {
-	x,y=getXY(images[j]);
- 	if (images[j].className.slice(-1)=="W") {
-		standby[x][y]=-1;
-
-	};
-		var win=1;
-	for (var i = 0; i < standby.length; i++) {
-		for (var j = 0; j < standby[i].length; j++) {
-			if (standby[i][j]!=-1||win==0) {
-				win=0;
-				break;
+		x,y=getXY(images[j]);
+	 	if (images[j].className.slice(-1)=="W") {
+			standby[x][y]=-1;
+		};
+			var win=1;
+		for (var i = 0; i < standby.length; i++) {
+			for (var jj = 0; jj < standby[i].length; jj++) {
+				if (standby[i][jj]!=-1) {
+					win=0;
+				}
 			}
 		}
 	}
 	if (win==1) {
-		alert('You Pass walk Horse')
-	}
-	 //start ();
-	}
+			alert('You Pass walk Horse')
+			var newiframe = document.createElement("iframe");
+				newiframe.style.width='0';
+				newiframe.style.height='0';
+				newiframe.style.visibility='hidden';
+				newiframe.id="hide_iframe";
+				newiframe.src=('addquiz.php?name=quiz_IN&num='+1);
+				document.body.appendChild(newiframe);
+		}
 }
 function start () {
 	// body...
@@ -59,21 +63,13 @@ function setMark () {
 	var MarkEV = document.getElementsByClassName("Mark");
 for (var i = 0; i < MarkEV.length; i++) {
 	MarkEV[i].onclick = function () {
-		if (test==0) {document.body.appendChild(Allow);
+		if (test==0) {
+			document.body.appendChild(Allow);
 			Allow = document.createElement("img");
-		Allow.id=listarr1[x]+listarr2[y];
-		//Allow.className="Mark";
-/*		var R=255*Math.random();
-		var G=255*Math.random();
-		var B=255*Math.random();
-		Allow.style.backgroundColor="rgb("+R+","+G+","+B+")";*/
-		Allow.id=this.id;
-		Allow.src="../gui/international/Mark_Allow.png";
-	} 
-
-
-		
-		
+			Allow.id=listarr1[x]+listarr2[y];
+			Allow.id=this.id;
+			Allow.src="../gui/international/Mark_Allow.png";
+		} 
 		document.getElementById(this.id).remove();
 		pickIt.id=this.id;
 		document.getElementsByClassName("Mark").remove();
@@ -88,8 +84,8 @@ function sentClass (name,xy) {
 		pickIt=xy;
 		Horse(x,y);
 	}
-setMark();
-}
+	setMark();
+	}
 var listarr1=["a","b","c","d","e","f","g","h"];
 var listarr2=["1","2","3","4","5","6","7","8"];
 var arr = 

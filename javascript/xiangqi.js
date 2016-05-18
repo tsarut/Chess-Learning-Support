@@ -279,9 +279,7 @@ function ableMove() {
 	
 	}
 	if (count==0&&turn==0) {
-		console.log('End B win');
 	}
-	else{if (count==0&&turn==1) {console.log('End W win');} 
 	}
 }
 function reback() {

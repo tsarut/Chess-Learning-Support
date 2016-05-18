@@ -30,6 +30,7 @@ function minusArr(arr1) {
 	}
 	return arrMinus;
 }
+var saveX=0;var saveY=0;
 function Check(name,kingX,kingY) {
 	// body...
 	console.log('Check')
@@ -76,6 +77,7 @@ function Check(name,kingX,kingY) {
 			}
 		}
 		lineTo[x][y]=1;
+		saveX=x;saveY=y;
 	} else {lineTo[x][y]=1}}}
 	lineTo[kingX][kingY]=0;
 }
@@ -493,6 +495,7 @@ function sentClass (name,xy) {
 		table=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
 	if (cannonlog==xy.id) {
+		lineTo[saveX][saveY]=0;
 		lineTo=minusArr(lineTo);
 	}
 	if (name=="Rook") {
@@ -620,24 +623,30 @@ function Horse (x,y) {
 	// body...
 	var horseMove=[];
 	horseMove=table;
+	console.log('hh')
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y]==0&&x<8) {
-		if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
-			horseMove[x+2][y+1]=1;
-		} 
-		if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
-			horseMove[x+2][y-1]=1;
-		} 
-	}
+			if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
+				horseMove[x+2][y+1]=1;
+			} 
+			if (standby[x+2][y-1]==0||standby[x+2][y-1]*standby[x][y]==-1) {
+				horseMove[x+2][y-1]=1;
+			} 
+		}
+	};
 	if (standby[x][y+1]==0) {
-		if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
-			horseMove[x+1][y+2]=1;
-		} 
+		if (x<listarr1.length-1) {
+			if (standby[x+1][y+2]==0||standby[x+1][y+2]*standby[x][y]==-1) {
+				horseMove[x+1][y+2]=1;
+			} 
+		}
 		if (x>0&&(standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1)) {
+			console.log('pp')
 			horseMove[x-1][y+2]=1;
 		} 
-	};
-	};
+		
+	}
+	
 	if (x>0) {
 		if (standby[x-1][y]==0&&x>1) {
 			if (standby[x-2][y+1]==0||standby[x-2][y+1]*standby[x][y]==-1) {
