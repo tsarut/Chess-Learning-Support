@@ -493,9 +493,12 @@ function ableMove() {
 		}
 	}
 	if (more==0&&count==0) {
+		alert('Draw');
 	} else {
 		if (count==0&&turn==0) {
+				alert('Black Win');
 			}
+			else{if (count==0&&turn==1) {alert('White Win');} else {return true;}
 		}
 	}
 	

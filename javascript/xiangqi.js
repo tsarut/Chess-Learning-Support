@@ -279,7 +279,9 @@ function ableMove() {
 	
 	}
 	if (count==0&&turn==0) {
+		alert('Black Win');
 	}
+	else{if (count==0&&turn==1) {alert('Red Win');} 
 	}
 }
 function reback() {
