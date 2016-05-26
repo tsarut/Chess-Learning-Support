@@ -61,6 +61,10 @@
 				# code...
 				echo '<img src="gui/online.png">';
 				echo '<h2 id="userlogin">'.$_SESSION["User"].'</h2>';
+				?>
+	<script type="text/javascript">
+	document.getElementById("userlogin").addEventListener("click", profile);
+	</script><?php
 				echo '<form action="logout.php">';
 				echo '<input type="submit" value="" id="submitLogout" onmouseover="swapImage(4)" onmouseout="swapImgRestore(4)"></input>';
 				echo '</form>';

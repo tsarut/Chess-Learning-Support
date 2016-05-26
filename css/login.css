@@ -88,3 +88,11 @@
 	    left: 35px;
 	    bottom: 108px;
 	}
+	#detail {
+    width: 80%;
+    z-index: 1;
+    right: 10%;
+    position: fixed;
+    background-color: white;
+    height: 80%;
+	}

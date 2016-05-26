@@ -21,3 +21,18 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 		}
 	}
 }
+
+function profile() {
+	// body...
+	var newdev = document.createElement("div");
+	newdev.id="background";
+	newdev.className="Pop";
+	document.body.appendChild(newdev);
+	var newiframe = document.createElement("iframe");
+	newiframe.src=('profile.php');
+	newiframe.id="detail";
+	newiframe.className="Pop";
+	document.body.appendChild(newiframe);
+	document.getElementById('background').addEventListener("click",function(){ document.getElementsByClassName("Pop").remove(); });
+
+}

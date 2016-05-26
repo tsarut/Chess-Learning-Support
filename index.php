@@ -69,8 +69,7 @@
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 	<script type="text/javascript" src="javascript/setup.js"></script>
-	<script type="text/javascript">
-	</script>
+
 </head>
 
 <body>
@@ -93,6 +92,10 @@
 				# code...
 				echo '<img src="gui/online.png">';
 				echo '<h2 id="userlogin">'.$_SESSION["User"].'</h2>';
+				?>
+	<script type="text/javascript">
+	document.getElementById("userlogin").addEventListener("click", profile);
+	</script><?php
 				echo '<form action="logout.php">';
 				echo '<input type="submit" value="" id="submitLogout" onmouseover="swapImage(4)" onmouseout="swapImgRestore(4)"></input>';
 				echo '</form>';
