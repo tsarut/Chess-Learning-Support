@@ -133,7 +133,7 @@
 				<th>Score</th>
 			</tr>
 			<?php
-				mysql_connect("localhost","root","");
+				require "config.php";
 				mysql_select_db("chess");	
 				$res = mysql_query("
 					SELECT `user`,(`CH`+ `TH`+ `IN`+ `ALL`) as sum_score, member.`member_id` 

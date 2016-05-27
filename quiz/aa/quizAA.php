@@ -8,7 +8,7 @@
 	session_start();
 	echo $_GET['name'];
 	echo $_GET['num'];
-	mysql_connect("localhost","root","");
+	require "../../config.php";
 	mysql_select_db("chess");
 	$strSQL = "SELECT * FROM quizask WHERE member_id ='".$_SESSION["UserID"]."'";
 	$objQuery = mysql_query($strSQL);

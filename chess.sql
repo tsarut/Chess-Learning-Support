@@ -1,6 +1,26 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 27, 2016 at 05:45 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.6.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `chess`
 --
+CREATE DATABASE IF NOT EXISTS `chess` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `chess`;
 
 -- --------------------------------------------------------
 
@@ -14,15 +34,6 @@ CREATE TABLE `member` (
   `pass` varchar(45) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `member`
---
-
-INSERT INTO `member` (`member_id`, `user`, `pass`, `email`) VALUES
-(4, 'test', '1234', 'tsarutg@gmail.com'),
-(5, 'qwe', '123', 'rfrf'),
-(6, 'ttt', '123', 'tt');
 
 -- --------------------------------------------------------
 
@@ -48,13 +59,6 @@ CREATE TABLE `progress` (
   `learn_IN` varchar(7) NOT NULL,
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `progress`
---
-
-INSERT INTO `progress` (`learn_CH`, `learn_TH`, `learn_IN`, `member_id`) VALUES
-('00000000', '0000000', '0000000', 6);
 
 -- --------------------------------------------------------
 
@@ -85,13 +89,6 @@ CREATE TABLE `quizask` (
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `quizask`
---
-
-INSERT INTO `quizask` (`CH`, `TH`, `IN`, `ALL`, `member_id`) VALUES
-(0, 0, 0, 0, 6);
-
 -- --------------------------------------------------------
 
 --
@@ -104,13 +101,6 @@ CREATE TABLE `rank` (
   `quiz_IN` int(11) NOT NULL DEFAULT '0',
   `member_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `rank`
---
-
-INSERT INTO `rank` (`quiz_CH`, `quiz_TH`, `quiz_IN`, `member_id`) VALUES
-(0, 0, 0, 6);
 
 --
 -- Indexes for dumped tables
@@ -164,7 +154,7 @@ ALTER TABLE `rank`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `playquiz`
 --
@@ -174,7 +164,7 @@ ALTER TABLE `playquiz`
 -- AUTO_INCREMENT for table `progress`
 --
 ALTER TABLE `progress`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `quiz`
 --
@@ -184,34 +174,12 @@ ALTER TABLE `quiz`
 -- AUTO_INCREMENT for table `quizask`
 --
 ALTER TABLE `quizask`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `rank`
 --
 ALTER TABLE `rank`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `progress`
---
-ALTER TABLE `progress`
-  ADD CONSTRAINT `progress_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `quizask`
---
-ALTER TABLE `quizask`
-  ADD CONSTRAINT `quizask_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `rank`
---
-ALTER TABLE `rank`
-  ADD CONSTRAINT `rank_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

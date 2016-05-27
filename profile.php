@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	mysql_connect("localhost","root","");
+	require "config.php";
 	mysql_select_db("chess");
 
 	$res = mysql_query("SELECT * FROM `progress` WHERE `member_id` = {$_SESSION['UserID']}");

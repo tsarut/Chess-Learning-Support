@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	mysql_connect("localhost","root","");
+	require "config.php";
 	mysql_select_db("chess");
 	$strSQL = "SELECT * FROM member WHERE user = '".mysql_real_escape_string($_POST['user'])."' 
 	and pass = '".mysql_real_escape_string($_POST['pass'])."'";
