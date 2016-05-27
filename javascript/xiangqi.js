@@ -33,7 +33,6 @@ function minusArr(arr1) {
 var saveX=0;var saveY=0;
 function Check(name,kingX,kingY) {
 	// body...
-	console.log('Check')
 	lineTo=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	x,y=getXY(list[0]);
 	if (name.className.slice(0,-1)=='Rook') {
@@ -49,27 +48,21 @@ function Check(name,kingX,kingY) {
 		} else {lineTo[x][y+(kingY-y)/2]=1}
 		lineTo[x][y]=1;
 	} else {if (name.className.slice(0,-1)=='Cannon') {
-		console.log('use Cannon')
 		lock=0;stoploop=0
 		for (var i = 0; Math.abs(i) <= Math.abs(kingX-x); i=i+(kingX-x)/Math.abs(kingX-x)) {
 			if (stoploop==1) {
-				console.log('stop');
 				break;
 			}
 			for (var j = 0; Math.abs(j) <= Math.abs(kingY-y); j=j+(kingY-y)/Math.abs(kingY-y)) {
 				if (stoploop==1) {
-					console.log('stop');
 					break;
 				}
 				if (standby[i+x][j+y]==0) {lineTo[i+x][j+y]=1;}else{
-					console.log(x+' '+y+"     "+x+i+' '+y+j+' ' +document.getElementById(listarr1[x+i]+listarr2[y+j]).className);
-					console.log((j!=0||i!=0)&&document.getElementById(listarr1[x]+listarr2[y]).className==document.getElementById(listarr1[x+i]+listarr2[y+j]).className)
 					if ((j!=0||i!=0)&&document.getElementById(listarr1[x]+listarr2[y]).className==document.getElementById(listarr1[x+i]+listarr2[y+j]).className) {
 						stoploop++;
 					}else{
 						if (standby[x][y]!=standby[x+i][y+j]&&lock==0) {
 							lock++;
-							console.log(x+1+' '+y+j+' '+ document.getElementById(listarr1[x+i]+listarr2[y+j]).className)
 							cannonlog=document.getElementById(listarr1[x+i]+listarr2[y+j]).id;
 						}
 					}
@@ -83,7 +76,6 @@ function Check(name,kingX,kingY) {
 }
 function lockKing(kingX,kingY,className) { 	
 	// body...
-	console.log(kingX+' '+kingY+' '+standby[kingX][kingY]);
 
 	var markX;
 	var markY;
@@ -93,7 +85,7 @@ function lockKing(kingX,kingY,className) {
 		} else
 		{
 			if (document.getElementById(listarr1[i]+listarr2[j]).className=="King"+turnName[standby[i][j]+1]){
-				console.log(document.getElementById(listarr1[kingX]+listarr2[kingY]).className+' win');
+				alert(document.getElementById(listarr1[kingX]+listarr2[kingY]).className+' win');
 				document.getElementById(listarr1[i]+listarr2[kingY]).style.backgroundColor='rgba(255,0,0,0.5)';
 				document.getElementById(listarr1[kingX]+listarr2[kingY]).style.backgroundColor='rgba(0,255,0,0.5)';
 			}else{
@@ -290,7 +282,6 @@ function reback() {
 	var kingY=0;
 	stoplock=[[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0]];
 	if (turn==1) {
-		console.log('Wreback');
 		//kingX,kingY=getXY((document.getElementsByClassName("KingW")[0]));
 		for (var i = listarr1.length - 1; i >= 0; i--) {
 			if (listarr1[i]==document.getElementsByClassName("KingW")[0].id[0]) {
@@ -308,7 +299,6 @@ function reback() {
 			if (images[i].className.slice(-1)=='B') {
 				reMove(images[i].className.slice(0,-1),images[i]);
 				if (stoplock[kingX][kingY]==1) {
-					console.log('reback');
 					pickIt.id=recall;
 					return true;
 				}
@@ -318,7 +308,6 @@ function reback() {
 	}
 	else{
 		if (turn==0) {
-			console.log('Breback');
 			//kingX,kingY=getXY(document.getElementsByClassName("KingB")[0]);
 			for (var i = listarr1.length - 1; i >= 0; i--) {
 				if (listarr1[i]==document.getElementsByClassName("KingB")[0].id[0]) {
@@ -336,7 +325,6 @@ function reback() {
 				if (images[i].className.slice(-1)=='W') {
 				reMove(images[i].className.slice(0,-1),images[i]);
 					if (stoplock[kingX][kingY]==1) {
-						console.log('reback2');
 						pickIt.id=recall
 						return true;
 					}
@@ -423,7 +411,6 @@ function tableOfMark() {
 			};
 		};
 		standby[kingX][kingY]=0;
-		console.log("Getking"+kingX+" "+kingY);
 		
 		var images= document.getElementsByTagName('img');
 		for (var i = 1; i < images.length; i++) {
@@ -435,8 +422,6 @@ function tableOfMark() {
 					images[i].style.backgroundColor='rgba(255,0,0,0.5)';
 					document.getElementsByClassName("KingW")[0].style.backgroundColor='rgba(255,0,0,0.5)';
 					lockmove[kingX][kingY]=more+1;
-					console.log("more");
-					console.log(list);
 				}
 			}	
 		}
@@ -456,7 +441,6 @@ function tableOfMark() {
 				};
 			};
 			standby[kingX][kingY]=0;
-			console.log("Getking"+kingX+" "+kingY);
 			//var more=0;
 			var images= document.getElementsByTagName('img');
 			for (var i = 1; i < images.length; i++) {
@@ -468,8 +452,6 @@ function tableOfMark() {
 						images[i].style.backgroundColor='rgba(255,0,0,0.5)';
 						document.getElementsByClassName("KingB")[0].style.backgroundColor='rgba(255,0,0,0.5)';
 						lockmove[kingX][kingY]=more+1;
-						console.log("more");
-						console.log(list);
 					}
 				}
 				
@@ -623,7 +605,6 @@ function Horse (x,y) {
 	// body...
 	var horseMove=[];
 	horseMove=table;
-	console.log('hh')
 	if (x<listarr1.length-1) {
 		if (standby[x+1][y]==0&&x<8) {
 			if (standby[x+2][y+1]==0||standby[x+2][y+1]*standby[x][y]==-1) {
@@ -641,7 +622,6 @@ function Horse (x,y) {
 			} 
 		}
 		if (x>0&&(standby[x-1][y+2]==0||standby[x-1][y+2]*standby[x][y]==-1)) {
-			console.log('pp')
 			horseMove[x-1][y+2]=1;
 		} 
 		

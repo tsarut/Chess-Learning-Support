@@ -1,7 +1,6 @@
 var castle=[0,0,0,0,0,0];
 function Check(name,kingX,kingY) {
 	// body...
-	console.log('Check')
 	lineTo=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 	x,y=getXY(list[0]);
 	if (name.className.slice(0,-1)=='Queen'||name.className.slice(0,-1)=='Bishop'||name.className.slice(0,-1)=='Rook') {
@@ -52,13 +51,11 @@ function lockKing(kingX,kingY,className) {
 	lockKing7=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 
 	typeList=[0,0,0,0,0,0,0,0,0];
-	console.log(kingX+' '+kingY);	
 	var count=0;
 	var markX;
 	var markY;
 	for (var i = kingX+1, j = kingY+1; i < listarr1.length&&j<listarr2.length; i++,j++) {
 		if (i<0||j<0||i>listarr1||j>listarr2) {
-			console.log("UR");
 			break;
 		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
@@ -87,7 +84,6 @@ function lockKing(kingX,kingY,className) {
 	count=0;
 	for (var i = kingX-1, j = kingY+1; i >= 0&&j<listarr2.length; j++,i--) {
 		if (i<0||j<0||i>listarr1||j>listarr2) {
-			console.log("DR");
 			break;
 		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
@@ -116,7 +112,6 @@ function lockKing(kingX,kingY,className) {
 	count=0;
 	for (var j = kingY-1, i = kingX+1; i < listarr1.length&&j>=0; j--,i++) {
 		if (i<0||j<0||i>listarr1||j>listarr2) {
-			console.log("UL");
 			break;
 		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
@@ -145,7 +140,6 @@ function lockKing(kingX,kingY,className) {
 	count=0;
 	for (var i = kingX-1, j = kingY-1; i >= 0&&j>=0; j--,i--) {
 		if (i<0||j<0||i>listarr1||j>listarr2) {
-			console.log("DL");
 			break;
 		}
 		if (standby[kingX][kingY]*standby[i][j]==0) {
@@ -183,11 +177,9 @@ function lockKing(kingX,kingY,className) {
 				count++;
 				if (count==2) {
 					if (standby[kingX][kingY]*standby[i][j]!=1&&(document.getElementById(listarr1[i]+listarr2[j]).className=="Rook"+turnName[standby[i][j]+1]||document.getElementById(listarr1[i]+listarr2[j]).className=="Queen"+turnName[standby[i][j]+1])) {
-					console.log(i+' '+j+'Queen');
 					targetList[0]=listarr1[markX]+listarr2[markY];
 					typeList[0]=1;
 					lockKing0[i][j]=1;
-					console.log(i+' '+j+'Queen');
 					}
 					break;
 				}
@@ -294,7 +286,6 @@ function changeBoard () {
 		castle[1]=0;
 	}
 	if (pickIt.id==castling) {
-		console.log(pickIt.id);
 		if (pickIt.id=='a3') {
 			document.getElementById('a1').id='a4';
 		}else{document.getElementById('h1').id='h4';} 

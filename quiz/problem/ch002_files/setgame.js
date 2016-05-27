@@ -209,7 +209,6 @@ function Rook (x,y) {
 
 function testArr(test) {
 	// this function show arr in same table
-	console.log('   ' + listarr2.join('  '));
 	for (var i = 0; i < test.length; i++) {
 		so=listarr1[i]+'';
 		for (var j = 0; j < test[i].length; j++) {
@@ -218,6 +217,5 @@ function testArr(test) {
 			}
 			so=so+' '+test[i][j];
 		}
-		console.log(so);
 	}
 }

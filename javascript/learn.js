@@ -69,7 +69,6 @@ var in_p=[18];
 function getSubmit(name) {
 	// body...
 	var sum=[];
-	console.log(name);
 	var myiframe=document.getElementById("iframe").contentWindow;
 	var arr=myiframe.document.getElementsByClassName('mark');
 	for (var i = 0; i < arr.length; i++) {
@@ -94,7 +93,6 @@ function getSubmit(name) {
 				correct=0;
 			}
 		}if (correct==1) {
-			console.log(test);
 			var newiframe = document.createElement("iframe");
 			newiframe.style.width='0';
 			newiframe.style.height='0';
@@ -105,7 +103,7 @@ function getSubmit(name) {
 			} else {
 				if (test<=12) {
 					newiframe.src=('addPro.php?name=learn_TH&num='+(test-6));
-				} else {console.log(test);newiframe.src='addPro.php?name=learn_IN&num='+(test-12);}
+				} else {newiframe.src='addPro.php?name=learn_IN&num='+(test-12);}
 			}
 			document.body.appendChild(newiframe);
 
@@ -114,5 +112,4 @@ function getSubmit(name) {
 		} else {alert('ตอบผิดจ้า ลองทำใหม่ดูนะ =w=');}
 		
 	}
-	console.log(sum);
 }

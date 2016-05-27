@@ -1,6 +1,5 @@
 function Check(name,kingX,kingY) {
 	// body...
-	console.log('Check')
 	lineTo=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 	x,y=getXY(list[0]);
 	if (name.className.slice(0,-1)=='Rook') {
@@ -46,7 +45,6 @@ function lockKing(kingX,kingY,className) {
 	lockKing3=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 
 	typeList=[0,0,0,0,0,0,0,0,0];
-	console.log(kingX+' '+kingY);	
 	var count=0;
 	var markX;
 	var markY;

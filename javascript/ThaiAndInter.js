@@ -136,7 +136,6 @@ function tableOfMark() {
 			};
 		};
 		standby[kingX][kingY]=0;
-		console.log("Getking"+kingX+" "+kingY);
 		turn--;
 		
 		var images= document.getElementsByTagName('img');
@@ -149,20 +148,16 @@ function tableOfMark() {
 					setRed(images[i]);
 					setRed(document.getElementsByClassName("KingW")[0]);
 					lockmove[kingX][kingY]=more+1;
-					console.log("more");
 				}
 			}
 		}
 		if (more>0) {
-			console.log("more+");
 			if (more>1) {
 				lockOn=1;
-				console.log("W lock");
 			}
 			else{
 				lockOn=0;
 				Check(list[0],kingX,kingY);
-				console.log(list);
 			}
 		}
 		standby[kingX][kingY]=-1;
@@ -181,7 +176,6 @@ function tableOfMark() {
 				};
 			};
 			standby[kingX][kingY]=0;
-			console.log("Getking"+kingX+" "+kingY);
 			//var more=0;
 			var images= document.getElementsByTagName('img');
 			for (var i = 1; i < images.length; i++) {
@@ -193,15 +187,12 @@ function tableOfMark() {
 						setRed(images[i]);
 						setRed(document.getElementsByClassName("KingB")[0]);
 						lockmove[kingX][kingY]=more+1;
-						console.log("more");
 					}
 				}
 			}
 			if (more>0) {
-				console.log("more+รุก")
 				if (more>1) {
 					lockOn=1;
-					console.log("B lock");
 				}
 				else{
 					Check(list[0],kingX,kingY);
@@ -509,7 +500,6 @@ function sentClass (name,xy) {
 	table=[[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 	x,y=getXY(xy);
 	arrOn=10;
-	console.log(x+' '+y);
 	for (var i = 0; i < targetList.length; i++) {
 		if (targetList[i]==xy.id) {
 			arrOn=i;
@@ -581,7 +571,7 @@ function sentClass (name,xy) {
 }
 function markLock(name,xy) {
 	// body...
-	//console.log(xy);
+
 
 	x,y=getXY(xy);
 
