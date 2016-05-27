@@ -16,6 +16,7 @@
 	<script type="text/javascript">
 	var ansC=['a11','a24','a32','a41','a53','a63','a74','a82','a91','a103'];
 	</script>
+	</head>
 <body onload="setClick()">
 <meta charset="UTF-8">
 <div id="title"><img id="title_img" src="../../gui/page_name/pname_quiz1.png"></div>
@@ -85,6 +86,20 @@
 <div id="result">
 <h3>ผลลัพธ์</h3>
 <h3 id="ansC"></h3>
+<div class="fb-share-button" id="share" data-href="http://localhost:9080/Chess-Learning-Support/quiz/aa/quiz_in_es.html" data-layout="button_count" data-mobile-iframe="false" style="
+    margin-left: 60px;
+    display: none;
+">
+</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.6";
+  js.img="../../gui/logo.png";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <!-- <a href="http://www.facebook.com/sharer.php?u=" target="_blank"> 
         <h4>Share!!</h4>
     </a>-->
@@ -92,6 +107,7 @@
 
 <a href="../../quiz_set_select.php"><img id="back" src="../../gui/button/button_back.png"></a>
 <img id="submit" src="../../gui/button/button_submit.png" onclick="sumAns(1,'IN')">
+
 
 </body>
 </html>

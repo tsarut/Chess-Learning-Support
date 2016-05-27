@@ -33,6 +33,7 @@ function sumAns(num,name){
 			count++;
 		}
 	}
+	document.getElementById('share').style.display = "block";
 	document.getElementById("result").style.visibility = "visible";
 	document.getElementById('ansC').innerHTML=count+'/10';
 	document.getElementById("submit").style.visibility = "hidden";
