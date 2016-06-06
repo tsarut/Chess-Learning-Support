@@ -216,6 +216,8 @@ function testArr(test) {
 				so=so+' ';
 			}
 			so=so+' '+test[i][j];
+
 		}
+		console.log(so);	
 	}
 }
