@@ -68,7 +68,7 @@
 </head>
 
 <body onload="resize()">
-
+<a href="index.php"><img src="gui/logo.png" id="logo" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'"></a>
 <img src="gui/page_name/pname_quiz1.png" id="title">
 	<table id="main">
 		<tr>

@@ -36,12 +36,15 @@
 	width: 300px;
 	}
 
+
 	</style>
 	<script type="text/javascript" src="buttonScripter.js"></script>
 	<script type="text/javascript" src="javascript/setup.js"></script>
 </head>
 
 <body onload="resize()">
+	<a href="index.php"><img src="gui/logo.png" id="logo" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'"></a>
+	
 	<img src="gui/page_name/pname_quiz.png" id="title">
 	<table id="main">
 		<tr>
